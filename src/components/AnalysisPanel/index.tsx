@@ -26,7 +26,7 @@ interface AnaylsisParamTypes {
 
 const sliderStyle = {
   position: "relative",
-  width: "100%",
+  width: "500px",
   marginTop: '1.5em',
   marginBottom: '2.5em',
   marginLeft: '1em',
@@ -34,8 +34,8 @@ const sliderStyle = {
 };
 
 
-const domain : [number, number] = [100, 500];
-const defaultValues = [450, 400];
+const domain : [number, number] = [0, 1];
+const defaultValues = [0, 1];
 
 const AnalysisPanel = () => {
   
@@ -53,12 +53,12 @@ const AnalysisPanel = () => {
 
   return (
     <div className={classes.container}>
-        <Typography>{ resultid }
+        <Typography>Result ID: { resultid }
         </Typography>
         <Histogram></Histogram>
         <Slider
           mode={2}
-          step={1}
+          step={.05}
           domain={domain}
           rootStyle={sliderStyle}
           onUpdate={onUpdate}
