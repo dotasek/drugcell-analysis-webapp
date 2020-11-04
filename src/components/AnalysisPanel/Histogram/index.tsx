@@ -17,29 +17,34 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 
 const Histogram = () => {
-  
-  const drawChart = (height : number, width: number) => {
-    d3.select("#histogram")
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height)
-        .style("border", "1px solid black")
-        .append("text")
-        .attr("fill", "green")
-        .attr("x", 50)
-        .attr("y", 50)
-        .text("Hello D3")
-}
+
+  const drawHistogram = (height: number, width: number) => {
+    const svg = d3.select("#histogram")
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height)
+      .style("border", "1px solid black")
+      .append("text")
+      .attr("fill", "green")
+      .attr("x", 50)
+      .attr("y", 50)
+      .text("Hello D3")
+
+    d3.tsv(process.env.PUBLIC_URL + '/a549_drugs_sorted.tsv').then((data) => {
+      console.log('data: ', data)
+    }).catch((error)=>{
+      console.error('error' + error)
+    });
+  }
 
   useEffect(() => {
-    drawChart(400, 600);
+    drawHistogram(400, 600);
   });
 
   const classes = useStyles();
 
   return (
-    <div id="histogram">
-            </div>
+    <div id="histogram"> </div>
   )
 }
 
