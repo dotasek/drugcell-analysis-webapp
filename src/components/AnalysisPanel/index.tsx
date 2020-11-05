@@ -9,6 +9,7 @@ import { SliderRail, Handle, Track, Tick } from "./sliderComponents"; // example
 import { Typography } from '@material-ui/core';
 
 import Histogram from './Histogram'
+import DataTable from './DataTable'
 
 import * as d3 from 'd3'
 
@@ -133,6 +134,7 @@ const AnalysisPanel = () => {
             )}
           </Ticks>
         </Slider>
+        <DataTable data={data} width={500} height={200}></DataTable>
     </div>
   )
 }
