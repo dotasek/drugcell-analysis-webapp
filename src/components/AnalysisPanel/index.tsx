@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
 
@@ -9,6 +9,8 @@ import { SliderRail, Handle, Track, Tick } from "./sliderComponents"; // example
 import { Typography } from '@material-ui/core';
 
 import Histogram from './Histogram'
+
+import * as d3 from 'd3'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -46,6 +48,7 @@ const AnalysisPanel = () => {
     const [minSelection, setMinSelection] = useState(defaultValues[0]);
     const [maxSelection, setMaxSelection] = useState(defaultValues[1]);
 
+    const [data, setData] = useState<any>(undefined);
 
     const onUpdate = (event: any)=> {
       console.log('slider onUpdate: ', event)
@@ -57,11 +60,29 @@ const AnalysisPanel = () => {
       console.log('slider onChange: ', event)
     }
 
+    const loadData = () => {
+      d3.tsv(process.env.PUBLIC_URL + '/a549_drugs_sorted.tsv').then((data) => {
+        console.log('data: ', data)
+  
+        data.forEach((d : any) => {
+          d.predicted_AUC = parseFloat(d.predicted_AUC)
+        })
+
+        setData(data);
+      }).catch((error) => {
+        console.error('error' + error)
+      });
+    }
+
+    useEffect(() => {
+     loadData();
+    }, []);
+
   return (
     <div className={classes.container}>
         <Typography>Result ID: { resultid }
         </Typography>
-        <Histogram minSelection={minSelection} maxSelection={ maxSelection }></Histogram>
+        <Histogram data={data} minSelection={minSelection} maxSelection={ maxSelection }></Histogram>
         <Slider
           mode={2}
           step={.05}
