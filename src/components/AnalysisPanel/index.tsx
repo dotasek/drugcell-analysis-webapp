@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 
-import React from 'react'
+import React, { useState } from 'react'
 
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
 
@@ -43,8 +43,14 @@ const AnalysisPanel = () => {
   
     const classes = useStyles()
 
+    const [minSelection, setMinSelection] = useState(defaultValues[0]);
+    const [maxSelection, setMaxSelection] = useState(defaultValues[1]);
+
+
     const onUpdate = (event: any)=> {
       console.log('slider onUpdate: ', event)
+      setMinSelection(event[0]);
+      setMaxSelection(event[1]);
     }
 
     const onChange = (event : any)=> {
@@ -55,7 +61,7 @@ const AnalysisPanel = () => {
     <div className={classes.container}>
         <Typography>Result ID: { resultid }
         </Typography>
-        <Histogram></Histogram>
+        <Histogram minSelection={minSelection} maxSelection={ maxSelection }></Histogram>
         <Slider
           mode={2}
           step={.05}

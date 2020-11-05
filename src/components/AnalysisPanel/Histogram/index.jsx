@@ -16,20 +16,38 @@ const useStyles = makeStyles((theme) =>
   }),
 )
 
-const Histogram = () => {
+const Histogram = (props) => {
 
-  const drawHistogram = (height, width) => {
+  const { minSelection, maxSelection } = props;
 
-    const margin = { top: 8, right: 8, bottom: 8, left: 8 };
+  console.log("minSelection: " + minSelection);
+
+  const margin = { top: 8, right: 8, bottom: 8, left: 8 };
+
+  let svg;
+
+  const height = 200;
   
-    const svg = d3.select("#histogram")
-      .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-      .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")");
+  const width = 500;
 
+  const initHistogram = () => {
+
+    //d3.select("#histogram").remove()
+
+    svg = d3.select("#histogram")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+
+    svg.append("g")
+    .attr("transform",
+      "translate(" + margin.left + "," + margin.top + ")");
+
+      
+  }
+
+  const drawHistogram = ()=> {
+    
     const data = d3.tsv(process.env.PUBLIC_URL + '/a549_drugs_sorted.tsv').then((data) => {
       console.log('data: ', data)
 
@@ -38,8 +56,8 @@ const Histogram = () => {
       })
 
       var x = d3.scaleLinear()
-      .domain([0, 1])
-      .range([margin.left, width - margin.right])
+        .domain([0, 1])
+        .range([margin.left, width - margin.right])
 
       const xTicks = x.ticks(20);
 
@@ -52,27 +70,33 @@ const Histogram = () => {
       var bins = histogram(data);
 
       console.log('bins: ', bins);
-      
-      
+
       var y = d3.scaleLinear()
-      .domain([0, d3.max(bins, d => d.length)]).nice()
-      .range([height - margin.bottom, margin.top])
+        .domain([0, d3.max(bins, d => d.length)]).nice()
+        .range([height - margin.bottom, margin.top])
+
+      const svg = d3.select("#histogram svg");
 
       svg.selectAll("rect")
-      .data(bins)
-    .join("rect")
-    .attr("x", d => x(d.x0) + 1)
-    .attr("width", d => Math.max(0, x(d.x1) - x(d.x0) - 1))
-    .attr("y", d => y(d.length))
-    .attr("height", d => y(0) - y(d.length));
+        .data(bins)
+        .join("rect")
+        .attr("x", d => x(d.x0) + 1)
+        .attr("width", d => Math.max(0, x(d.x1) - x(d.x0) - 1))
+        .attr("y", d => y(d.length))
+        .attr("height", d => y(0) - y(d.length)).attr("fill", d => (d.x0 >= minSelection && d.x1 <= maxSelection) ? "steelblue" : "gray");
     }).catch((error) => {
       console.error('error' + error)
     });
   }
 
   useEffect(() => {
-    drawHistogram(200, 500);
-  });
+    initHistogram();
+    drawHistogram();
+  }, []);
+
+  useEffect(() => {
+    drawHistogram();
+  }, [minSelection, maxSelection])
 
   const classes = useStyles();
 
