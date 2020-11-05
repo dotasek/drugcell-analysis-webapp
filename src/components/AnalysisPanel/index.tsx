@@ -34,8 +34,8 @@ const sliderStyle = {
 };
 
 
-const domain : [number, number] = [0, 1];
-const defaultValues = [0, 1];
+const domain : [number, number] = [0, 1.05];
+const defaultValues = [0, 1.05];
 
 const AnalysisPanel = () => {
   

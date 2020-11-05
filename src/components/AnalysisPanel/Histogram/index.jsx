@@ -56,10 +56,10 @@ const Histogram = (props) => {
       })
 
       var x = d3.scaleLinear()
-        .domain([0, 1])
+        .domain([0, 1.05])
         .range([margin.left, width - margin.right])
 
-      const xTicks = x.ticks(20);
+      const xTicks = x.ticks(21);
 
       console.log('xTicks: ', xTicks);
 
