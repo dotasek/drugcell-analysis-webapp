@@ -18,17 +18,13 @@ const useStyles = makeStyles((theme) =>
 
 const Histogram = (props) => {
 
-  const { minSelection, maxSelection } = props;
+  const { data, minSelection, maxSelection, height, width } = props;
 
   console.log("minSelection: " + minSelection);
 
   const margin = { top: 8, right: 8, bottom: 8, left: 8 };
 
   let svg;
-
-  const height = 200;
-  
-  const width = 500;
 
   const initHistogram = () => {
 
@@ -42,19 +38,11 @@ const Histogram = (props) => {
     svg.append("g")
     .attr("transform",
       "translate(" + margin.left + "," + margin.top + ")");
-
-      
   }
 
   const drawHistogram = ()=> {
     
-    const data = d3.tsv(process.env.PUBLIC_URL + '/a549_drugs_sorted.tsv').then((data) => {
-      console.log('data: ', data)
-
-      data.forEach((d) => {
-        d.predicted_AUC = parseFloat(d.predicted_AUC)
-      })
-
+    if (data) {
       var x = d3.scaleLinear()
         .domain([0, 1.05])
         .range([margin.left, width - margin.right])
@@ -84,9 +72,7 @@ const Histogram = (props) => {
         .attr("width", d => Math.max(0, x(d.x1) - x(d.x0) - 1))
         .attr("y", d => y(d.length))
         .attr("height", d => y(0) - y(d.length)).attr("fill", d => (d.x0 >= minSelection && d.x1 <= maxSelection) ? "steelblue" : "gray");
-    }).catch((error) => {
-      console.error('error' + error)
-    });
+    }
   }
 
   useEffect(() => {
@@ -96,7 +82,7 @@ const Histogram = (props) => {
 
   useEffect(() => {
     drawHistogram();
-  }, [minSelection, maxSelection])
+  }, [data, minSelection, maxSelection])
 
   const classes = useStyles();
 
