@@ -82,7 +82,7 @@ const AnalysisPanel = () => {
     <div className={classes.container}>
         <Typography>Result ID: { resultid }
         </Typography>
-        <Histogram data={data} minSelection={minSelection} maxSelection={ maxSelection }></Histogram>
+        <Histogram data={data} minSelection={minSelection} maxSelection={ maxSelection } height={200} width={500}></Histogram>
         <Slider
           mode={2}
           step={.05}

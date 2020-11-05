@@ -18,17 +18,13 @@ const useStyles = makeStyles((theme) =>
 
 const Histogram = (props) => {
 
-  const { data, minSelection, maxSelection } = props;
+  const { data, minSelection, maxSelection, height, width } = props;
 
   console.log("minSelection: " + minSelection);
 
   const margin = { top: 8, right: 8, bottom: 8, left: 8 };
 
   let svg;
-
-  const height = 200;
-  
-  const width = 500;
 
   const initHistogram = () => {
 
