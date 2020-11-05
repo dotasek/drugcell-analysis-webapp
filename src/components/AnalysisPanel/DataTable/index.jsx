@@ -155,7 +155,7 @@ export default function ReactVirtualizedTable( props ) {
         rowGetter={({ index }) => data[index]}
         columns={[
           {
-            width: width - 70,
+            width: width - 80,
             label: 'Drug Name',
             dataKey: 'Drug_Name',
           },

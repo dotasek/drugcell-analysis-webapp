@@ -50,11 +50,20 @@ const AnalysisPanel = () => {
     const [maxSelection, setMaxSelection] = useState(defaultValues[1]);
 
     const [data, setData] = useState<any>(undefined);
+    const [selectedData, setSelectedData] = useState<any>(undefined);
 
     const onUpdate = (event: any)=> {
       console.log('slider onUpdate: ', event)
       setMinSelection(event[0]);
       setMaxSelection(event[1]);
+      filterData(event[0], event[1])
+    }
+
+    const filterData = (min: number, max: number) => {
+      const selectedData = data.filter((d : any) => {
+        return d.predicted_AUC >= min && d.predicted_AUC <= max;
+      })
+      setSelectedData(selectedData)
     }
 
     const onChange = (event : any)=> {
@@ -70,6 +79,7 @@ const AnalysisPanel = () => {
         })
 
         setData(data);
+        setSelectedData(data);
       }).catch((error) => {
         console.error('error' + error)
       });
@@ -134,7 +144,9 @@ const AnalysisPanel = () => {
             )}
           </Ticks>
         </Slider>
-        <DataTable data={data} width={500} height={200}></DataTable>
+        <Typography>Selection Size: { selectedData ? selectedData.length : 0 }
+        </Typography>
+        { selectedData && <DataTable data={selectedData} width={500} height={200}></DataTable>}
     </div>
   )
 }
