@@ -6,15 +6,16 @@ import './App.css';
 
 import AnalysisPanel from './components/AnalysisPanel'
 
+import AppShell from './components/AppShell'
+
 function App() {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/results/:resultid">
-          <AnalysisPanel />
-        </Route>
-        <Route path="/genesubmission">
-          SUBMIT
+          <AppShell title={ "DrugCell Prophet" } tooltip={"Analyze Genetype With DrugCell"}>
+            <AnalysisPanel />
+          </AppShell>
         </Route>
         <Route path="/">
           meh
