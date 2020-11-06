@@ -4,7 +4,7 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom'
 
 import './App.css';
 
-import AnalysisPanel from './components/AnalysisPanel'
+import FindDrug from './components/FindDrug'
 
 import AppShell from './components/AppShell'
 
@@ -14,7 +14,7 @@ function App() {
       <Switch>
         <Route path="/results/:resultid">
           <AppShell title={ "DrugCell Prophet" } tooltip={"Analyze Genetype With DrugCell"}>
-            <AnalysisPanel />
+            <FindDrug/>
           </AppShell>
         </Route>
         <Route path="/">

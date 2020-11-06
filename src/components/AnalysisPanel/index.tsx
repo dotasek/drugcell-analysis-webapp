@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 interface AnaylsisParamTypes {
   resultid: string
+  q: string
 }
 
 const sliderStyle = {
@@ -40,11 +41,14 @@ const sliderStyle = {
 const domain : [number, number] = [0, 1.05];
 const defaultValues = [0, 1.05];
 
-const AnalysisPanel = () => {
+const AnalysisPanel = (props : any) => {
   
-    const { resultid } = useParams<AnaylsisParamTypes>()
+    
+    const params = useParams<AnaylsisParamTypes>();
+
+    const { resultid } = params;
   
-    const classes = useStyles()
+    const classes = useStyles();
 
     const [minSelection, setMinSelection] = useState(defaultValues[0]);
     const [maxSelection, setMaxSelection] = useState(defaultValues[1]);
