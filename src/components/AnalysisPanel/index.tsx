@@ -11,6 +11,8 @@ import { Typography } from '@material-ui/core';
 import Histogram from './Histogram'
 import DataTable from './DataTable'
 
+import useDrugs from '../../hooks/useDrugs'
+
 import * as d3 from 'd3'
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -52,9 +54,11 @@ const AnalysisPanel = (props : any) => {
 
     const [minSelection, setMinSelection] = useState(defaultValues[0]);
     const [maxSelection, setMaxSelection] = useState(defaultValues[1]);
+    const drugResponse = useDrugs('', '');
+    const [selectedData, setSelectedData] = useState<any>(drugResponse.data);
 
-    const [data, setData] = useState<any>(undefined);
-    const [selectedData, setSelectedData] = useState<any>(undefined);
+    console.log('drugResponse.data: ', );
+    //setSelectedData(drugResponse.data);
 
     const onUpdate = (event: any)=> {
       console.log('slider onUpdate: ', event)
@@ -64,40 +68,33 @@ const AnalysisPanel = (props : any) => {
     }
 
     const filterData = (min: number, max: number) => {
-      const selectedData = data.filter((d : any) => {
+      if (drugResponse.data) {
+      const selectedData = drugResponse.data.filter((d : any) => {
         return d.predicted_AUC >= min && d.predicted_AUC <= max;
       })
-      setSelectedData(selectedData)
+      setSelectedData(selectedData)}
     }
 
     const onChange = (event : any)=> {
       console.log('slider onChange: ', event)
     }
 
-    const loadData = () => {
-      d3.tsv(process.env.PUBLIC_URL + '/a549_drugs_sorted.tsv').then((data) => {
-        console.log('data: ', data)
-  
-        data.forEach((d : any) => {
-          d.predicted_AUC = parseFloat(d.predicted_AUC)
-        })
+    if (drugResponse.isError) {
 
-        setData(data);
-        setSelectedData(data);
-      }).catch((error) => {
-        console.error('error' + error)
-      });
     }
 
-    useEffect(() => {
-     loadData();
-    }, []);
+    if (drugResponse.isLoading) {
+      return (
+        <Typography>Loading...
+        </Typography>
+      )
+    }
 
   return (
     <div className={classes.container}>
         <Typography>Result ID: { resultid }
         </Typography>
-        <Histogram data={data} minSelection={minSelection} maxSelection={ maxSelection } height={200} width={500}></Histogram>
+        <Histogram data={drugResponse.data} minSelection={minSelection} maxSelection={ maxSelection } height={200} width={500}></Histogram>
         <Slider
           mode={2}
           step={.05}

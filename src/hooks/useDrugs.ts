@@ -1,5 +1,7 @@
 import { useQuery } from 'react-query'
 
+import * as d3 from 'd3'
+
 const EMPTY_CX = []
 
 const getDrugs = async <T>(
@@ -7,7 +9,11 @@ const getDrugs = async <T>(
   serverUrl: string,
   genes: string
 ) => {
-  return await fetch('https://raw.githubusercontent.com/dotasek/drugcell-analysis-webapp/master/public/a549_drugs_sorted.tsv')
+  let data = await d3.tsv('https://raw.githubusercontent.com/dotasek/drugcell-analysis-webapp/master/public/a549_drugs_sorted.tsv')
+  data.forEach((d : any) => {
+    d.predicted_AUC = parseFloat(d.predicted_AUC)
+  })
+  return data
 }
 
 export default function useDrugs(
