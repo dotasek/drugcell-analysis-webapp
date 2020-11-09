@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import {useLocation} from 'react-router-dom'
 
@@ -13,7 +13,13 @@ const FindDrug = (props : any) => {
   
   const location = useLocation();
 
-  console.log('location location location: ', location)
+  useEffect(()=>{
+    if (location.search.startsWith('?')) {
+      const genes = location.search.substring(location.search.indexOf('=') + 1, location.search.length);
+      console.log('useEffect genes detected: ', genes)
+      setGenes(decodeURIComponent(genes));
+    }
+  }, [location])
 
   return (
     <div className='container'>
@@ -21,7 +27,7 @@ const FindDrug = (props : any) => {
         <GeneEntryPanel genes={genes} setGenes={setGenes} {...props} />
       </div>
       <div className='center-components'>
-       <AnalysisPanel  {...props}/>
+       <AnalysisPanel genes={genes} {...props}/>
       </div>
     </div>
   );
