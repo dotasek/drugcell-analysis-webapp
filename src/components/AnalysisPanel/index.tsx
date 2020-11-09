@@ -49,8 +49,10 @@ const AnalysisPanel = (props : any) => {
     
     const params = useParams<AnaylsisParamTypes>();
 
-    const { resultid, genes } = params;
+    const { resultid } = params;
   
+    const { genes } = props;
+
     const classes = useStyles();
 
     const [minSelection, setMinSelection] = useState(defaultValues[0]);
@@ -87,6 +89,13 @@ const AnalysisPanel = (props : any) => {
     if (drugResponse.isLoading) {
       return (
         <Typography>Loading...
+        </Typography>
+      )
+    }
+
+    if (!drugResponse.data) {
+      return (
+        <Typography>Waiting
         </Typography>
       )
     }

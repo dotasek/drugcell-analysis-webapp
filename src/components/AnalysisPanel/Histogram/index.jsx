@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) =>
     rightButtons: {
       display: 'flex',
       flexDirection: 'column'
+    },
+    rightButton: {
+      margin: '0.5em'
     }
   }),
 )
@@ -112,10 +115,10 @@ const Histogram = (props) => {
   return (
     <div className={classes.container}><div id="histogram"> </div>
       <div className={classes.rightButtons}>
-        <Button variant="contained" color="primary" onClick={handleExportClick}>
+        <Button className={classes.rightButton} variant="contained" color="primary" onClick={handleExportClick}>
           Export SVG
         </Button>
-        <Button variant="contained" color="primary" >
+        <Button className={classes.rightButton} variant="contained" color="primary" >
           Download
         </Button>
       </div>
