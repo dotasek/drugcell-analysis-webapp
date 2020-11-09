@@ -20,5 +20,6 @@ export default function useDrugs(
   serverUrl: string,
   genes: string
 ) {
+  console.log('genes updated, running query')
   return useQuery(['drugs', serverUrl, genes], getDrugs)
 }

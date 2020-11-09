@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 interface AnaylsisParamTypes {
   resultid: string
+  genes: string
   q: string
 }
 
@@ -48,16 +49,16 @@ const AnalysisPanel = (props : any) => {
     
     const params = useParams<AnaylsisParamTypes>();
 
-    const { resultid } = params;
+    const { resultid, genes } = params;
   
     const classes = useStyles();
 
     const [minSelection, setMinSelection] = useState(defaultValues[0]);
     const [maxSelection, setMaxSelection] = useState(defaultValues[1]);
-    const drugResponse = useDrugs('', '');
+    const drugResponse = useDrugs('', genes);
     const [selectedData, setSelectedData] = useState<any>(drugResponse.data);
 
-    console.log('drugResponse.data: ', );
+    console.log('drugResponse.data: ', drugResponse);
     //setSelectedData(drugResponse.data);
 
     const onUpdate = (event: any)=> {
