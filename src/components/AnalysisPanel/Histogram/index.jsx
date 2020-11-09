@@ -2,6 +2,8 @@ import { useParams } from 'react-router-dom'
 
 import React, { useEffect } from 'react'
 
+import Button from '@material-ui/core/Button'
+
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
 
 import * as d3 from 'd3';
@@ -9,9 +11,12 @@ import * as d3 from 'd3';
 const useStyles = makeStyles((theme) =>
   createStyles({
     container: {
-      width: '100%',
-      height: '100%',
+      //width: '100%',
       display: 'flex'
+    },
+    rightButtons: {
+      display: 'flex',
+      flexDirection: 'column'
     }
   }),
 )
@@ -31,17 +36,17 @@ const Histogram = (props) => {
     //d3.select("#histogram").remove()
 
     svg = d3.select("#histogram")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+      .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
 
     svg.append("g")
-    .attr("transform",
-      "translate(" + margin.left + "," + margin.top + ")");
+      .attr("transform",
+        "translate(" + margin.left + "," + margin.top + ")");
   }
 
-  const drawHistogram = ()=> {
-    
+  const drawHistogram = () => {
+
     if (data) {
       var x = d3.scaleLinear()
         .domain([0, 1.05])
@@ -84,10 +89,37 @@ const Histogram = (props) => {
     drawHistogram();
   }, [data, minSelection, maxSelection])
 
+  const handleExportClick = () => {
+    exportSVG(document.getElementById("histogram").firstElementChild, 'response');
+  }
+
+  const exportSVG = (svgEl, name)=> {
+    svgEl.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    var svgData = svgEl.outerHTML;
+    var preface = '<?xml version="1.0" standalone="no"?>\r\n';
+    var svgBlob = new Blob([preface, svgData], {type:"image/svg+xml;charset=utf-8"});
+    var svgUrl = URL.createObjectURL(svgBlob);
+    var downloadLink = document.createElement("a");
+    downloadLink.href = svgUrl;
+    downloadLink.download = name;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  }
+
   const classes = useStyles();
 
   return (
-    <div id="histogram"> </div>
+    <div className={classes.container}><div id="histogram"> </div>
+      <div className={classes.rightButtons}>
+        <Button variant="contained" color="primary" onClick={handleExportClick}>
+          Export SVG
+        </Button>
+        <Button variant="contained" color="primary" >
+          Download
+        </Button>
+      </div>
+    </div>
   )
 }
 
