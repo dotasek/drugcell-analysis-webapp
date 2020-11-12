@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 
 const GeneEntryPanel = (props : any) => {
-    const {genes, setGenes} = props;
+    const {genes, setGenes, buttonText='Re-Run DrugCell'} = props;
 
     console.log('GeneEntryPanel genes: ', genes);
 
@@ -48,7 +48,7 @@ const GeneEntryPanel = (props : any) => {
         onChange={handleUpdate}    
     />
        <Button variant="contained" color="primary" onClick={handleClick}>
-            Run DrugCell
+            { buttonText }
         </Button>
     </div>
     )

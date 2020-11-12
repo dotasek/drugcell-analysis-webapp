@@ -27,7 +27,7 @@ const FindDrug = (props : any) => {
         <GeneEntryPanel genes={genes} setGenes={setGenes} {...props} />
       </div>
       <div className='center-components'>
-       <AnalysisPanel genes={genes} {...props}/>
+        <AnalysisPanel genes={genes} {...props}/>
       </div>
     </div>
   );
