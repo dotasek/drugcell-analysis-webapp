@@ -12,10 +12,13 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/finddrugs/results/:resultid">
+      <Route path="/finddrugs/results/:resultid">
           <AppShell title={ "DrugCell Find Drugs" } tooltip={"Analyze Genetype With DrugCell"}>
             <FindDrug/>
           </AppShell>
+        </Route>
+        <Route path="/finddrugs/">
+          query
         </Route>
         <Route path="/">
           meh

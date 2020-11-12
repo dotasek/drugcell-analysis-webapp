@@ -5,6 +5,8 @@ import Button from '@material-ui/core/Button'
 
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
 
+import { useHistory } from "react-router-dom";
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
@@ -17,23 +19,20 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 
 const GeneEntryPanel = (props : any) => {
-    const {genes, setGenes, buttonText='Re-Run DrugCell'} = props;
-
-    console.log('GeneEntryPanel genes: ', genes);
+    const {genes, buttonText='Re-Run DrugCell'} = props;
 
     const [geneInput, setGeneInput] = useState<string | undefined>(genes);
 
-   
-    console.log('GeneEntryPanel geneInput: ', geneInput);
-
     const classes = useStyles();
+
+    const history = useHistory();
 
     const handleUpdate = (event : any) => {
         setGeneInput(event.target.value);
     }
 
     const handleClick = () => {
-        setGenes(geneInput)
+      history.push("/finddrugs/results/" + geneInput);
     }
 
     return ( 

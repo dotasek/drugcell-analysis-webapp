@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+
 
 import React, { useState, useEffect } from 'react'
 
@@ -11,7 +11,7 @@ import { Typography } from '@material-ui/core';
 import Histogram from './Histogram'
 import DataTable from './DataTable'
 
-import useDrugs from '../../hooks/useDrugs'
+
 
 import * as d3 from 'd3'
 
@@ -25,11 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }
   }),
 )
-interface AnaylsisParamTypes {
-  resultid: string
-  genes: string
-  q: string
-}
+
 
 const sliderStyle = {
   position: "relative",
@@ -46,21 +42,14 @@ const defaultValues = [0, 1.05];
 
 const AnalysisPanel = (props : any) => {
   
-    const params = useParams<AnaylsisParamTypes>();
-
-    const { resultid } = params;
-  
-    const { genes } = props;
+    const { data } = props;
 
     const classes = useStyles();
 
     const [minSelection, setMinSelection] = useState(defaultValues[0]);
     const [maxSelection, setMaxSelection] = useState(defaultValues[1]);
-    const drugResponse = useDrugs('', genes);
-    const [selectedData, setSelectedData] = useState<any>(drugResponse.data);
-
-    console.log('drugResponse.data: ', drugResponse);
-    //setSelectedData(drugResponse.data);
+   
+    const [selectedData, setSelectedData] = useState<any>(data.predictions);
 
     const onUpdate = (event: any)=> {
       console.log('slider onUpdate: ', event)
@@ -70,8 +59,8 @@ const AnalysisPanel = (props : any) => {
     }
 
     const filterData = (min: number, max: number) => {
-      if (drugResponse.data) {
-      const selectedData = drugResponse.data.predictions.filter((d : any) => {
+      if (data) {
+      const selectedData = data.predictions.filter((d : any) => {
         return d.predicted_AUC >= min && d.predicted_AUC <= max;
       })
       setSelectedData(selectedData)}
@@ -81,29 +70,9 @@ const AnalysisPanel = (props : any) => {
       console.log('slider onChange: ', event)
     }
 
-    if (drugResponse.isError) {
-
-    }
-
-    if (drugResponse.isLoading) {
-      return (
-        <Typography>Loading...
-        </Typography>
-      )
-    }
-
-    if (!drugResponse.data) {
-      return (
-        <Typography>Waiting
-        </Typography>
-      )
-    }
-
   return (
     <div className={classes.container}>
-        <Typography>Result ID: { resultid }
-        </Typography>
-        <Histogram data={drugResponse.data.predictions} minSelection={minSelection} maxSelection={ maxSelection } height={200} width={500}></Histogram>
+        <Histogram data={data.predictions} minSelection={minSelection} maxSelection={ maxSelection } height={200} width={500}></Histogram>
         <Slider
           mode={2}
           step={.05}
@@ -156,7 +125,8 @@ const AnalysisPanel = (props : any) => {
         </Slider>
         <Typography>Selection Size: { selectedData ? selectedData.length : 0 }
         </Typography>
-        { selectedData && <DataTable data={selectedData} width={500} height={200}></DataTable>}
+       { selectedData && <DataTable data={selectedData} width={500} height={200}></DataTable>
+       }
     </div>
   )
 }
