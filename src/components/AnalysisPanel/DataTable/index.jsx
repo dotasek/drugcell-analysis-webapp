@@ -161,7 +161,7 @@ export default function ReactVirtualizedTable( props ) {
           },
           {
             width: 50,
-            label: 'Prediced AUC',
+            label: 'Predicted AUC',
             dataKey: 'predicted_AUC',
             numeric: true,
           } 
