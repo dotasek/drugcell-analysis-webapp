@@ -1,0 +1,2153 @@
+{
+    "id": "4d45505d-34d3-4ef7-bbfb-1bbb52186ef4",
+    "status": "complete",
+    "message": null,
+    "progress": 100,
+    "wallTime": 0,
+    "startTime": 1605208476423,
+    "result": {
+        "inputGenes": "PGK1,ALDOA,ENO1,TPI1,PFKP,ERO1A,ALDOB,VEGFA,MXI1,PKM,HK2",
+        "predictions": [
+            {
+                "Drug_Name": "tacrolimus",
+                "predicted_AUC": 0.98901
+            },
+            {
+                "Drug_Name": "ML311",
+                "predicted_AUC": 0.9055
+            },
+            {
+                "Drug_Name": "Doramapimod",
+                "predicted_AUC": 0.91043
+            },
+            {
+                "Drug_Name": "Saracatinib",
+                "predicted_AUC": 0.88061
+            },
+            {
+                "Drug_Name": "Linifanib",
+                "predicted_AUC": 0.92413
+            },
+            {
+                "Drug_Name": "BRD-K53792571-003-01-6",
+                "predicted_AUC": 1.0016
+            },
+            {
+                "Drug_Name": "NVP-BSK805",
+                "predicted_AUC": 0.87185
+            },
+            {
+                "Drug_Name": "mitomycin C",
+                "predicted_AUC": 0.7127
+            },
+            {
+                "Drug_Name": "Navitoclax + Telomerase Inhibitor IX",
+                "predicted_AUC": 0.82416
+            },
+            {
+                "Drug_Name": "N'-(2-pyrrolylidenemethyl)-2-(2,4,6-trichlorophenoxy)acetohydrazide",
+                "predicted_AUC": 0.98726
+            },
+            {
+                "Drug_Name": "AZD7545",
+                "predicted_AUC": 0.98693
+            },
+            {
+                "Drug_Name": "AZD7762",
+                "predicted_AUC": 0.68905
+            },
+            {
+                "Drug_Name": "ethyl 5,5,7,7-tetramethyl-2-(5-nitrothiophene-2-carboxamido)-4,5,6,7-tetrahydrothieno[2,3-c]pyridine-3-carboxylate",
+                "predicted_AUC": 1.0031
+            },
+            {
+                "Drug_Name": "Indisulam",
+                "predicted_AUC": 0.98166
+            },
+            {
+                "Drug_Name": "Nilotinib",
+                "predicted_AUC": 0.96847
+            },
+            {
+                "Drug_Name": "NVP-ADW742",
+                "predicted_AUC": 0.87528
+            },
+            {
+                "Drug_Name": "CHEMBL3182697",
+                "predicted_AUC": 0.82031
+            },
+            {
+                "Drug_Name": "Blebbistatin",
+                "predicted_AUC": 0.9915
+            },
+            {
+                "Drug_Name": "N-[(2R,3S)-2-[[cyclopropylmethyl(methyl)amino]methyl]-5-[(2R)-1-hydroxypropan-2-yl]-3-methyl-6-oxo-3,4-dihydro-2H-1,5-benzoxazocin-8-yl]-1-methyl-4-imidazolesulfonamide",
+                "predicted_AUC": 1.0197
+            },
+            {
+                "Drug_Name": "Axitinib",
+                "predicted_AUC": 0.91359
+            },
+            {
+                "Drug_Name": "Parbendazole",
+                "predicted_AUC": 0.85861
+            },
+            {
+                "Drug_Name": "LSM-13729",
+                "predicted_AUC": 1.0217
+            },
+            {
+                "Drug_Name": "sildenafil",
+                "predicted_AUC": 0.97984
+            },
+            {
+                "Drug_Name": "SpOx1_002925",
+                "predicted_AUC": 0.94883
+            },
+            {
+                "Drug_Name": "Narciclasine",
+                "predicted_AUC": 0.66956
+            },
+            {
+                "Drug_Name": "tamoxifen",
+                "predicted_AUC": 0.94814
+            },
+            {
+                "Drug_Name": "Bexarotene",
+                "predicted_AUC": 0.98007
+            },
+            {
+                "Drug_Name": "Tubastatin A",
+                "predicted_AUC": 0.97315
+            },
+            {
+                "Drug_Name": "Gefitinib",
+                "predicted_AUC": 0.86278
+            },
+            {
+                "Drug_Name": "N-(2-(4-(2-Oxo-2,3-dihydro-1H-benzo[d]imidazol-1-yl)piperidin-1-yl)ethyl)-2-naphthamide",
+                "predicted_AUC": 0.98069
+            },
+            {
+                "Drug_Name": "SCHEMBL2066172",
+                "predicted_AUC": 1.0068
+            },
+            {
+                "Drug_Name": "SU11274",
+                "predicted_AUC": 0.99487
+            },
+            {
+                "Drug_Name": "CHEMBL258148",
+                "predicted_AUC": 0.91317
+            },
+            {
+                "Drug_Name": "SCHEMBL17821363",
+                "predicted_AUC": 0.93032
+            },
+            {
+                "Drug_Name": "Marinopyrrole A",
+                "predicted_AUC": 0.81062
+            },
+            {
+                "Drug_Name": "CCT036477",
+                "predicted_AUC": 0.99913
+            },
+            {
+                "Drug_Name": "Sunitinib",
+                "predicted_AUC": 0.86099
+            },
+            {
+                "Drug_Name": "Lestaurtinib",
+                "predicted_AUC": 0.67671
+            },
+            {
+                "Drug_Name": "SCHEMBL12041987",
+                "predicted_AUC": 0.99374
+            },
+            {
+                "Drug_Name": "BRD-K29086754-001-01-7",
+                "predicted_AUC": 1.0041
+            },
+            {
+                "Drug_Name": "Decitabine + SCHEMBL2671349",
+                "predicted_AUC": 1.0133
+            },
+            {
+                "Drug_Name": "SL-0101",
+                "predicted_AUC": 0.92535
+            },
+            {
+                "Drug_Name": "MLS000571394",
+                "predicted_AUC": 0.94082
+            },
+            {
+                "Drug_Name": "N-[(2S,3S)-2-[[[(cyclohexylamino)-oxomethyl]-methylamino]methyl]-5-[(2R)-1-hydroxypropan-2-yl]-3-methyl-6-oxo-3,4-dihydro-2H-1,5-benzoxazocin-8-yl]-2-(1-methyl-3-indolyl)acetamide",
+                "predicted_AUC": 1.0258
+            },
+            {
+                "Drug_Name": "Necrosulfonamide",
+                "predicted_AUC": 0.92456
+            },
+            {
+                "Drug_Name": "RAF265",
+                "predicted_AUC": 0.84774
+            },
+            {
+                "Drug_Name": "Pazopanib",
+                "predicted_AUC": 0.91953
+            },
+            {
+                "Drug_Name": "Doramapimod",
+                "predicted_AUC": 0.91043
+            },
+            {
+                "Drug_Name": "SCHEMBL15444220",
+                "predicted_AUC": 0.79353
+            },
+            {
+                "Drug_Name": "AZD1152-HQPA",
+                "predicted_AUC": 0.99093
+            },
+            {
+                "Drug_Name": "CHEMBL2206358",
+                "predicted_AUC": 0.95949
+            },
+            {
+                "Drug_Name": "GW843682X",
+                "predicted_AUC": 0.92914
+            },
+            {
+                "Drug_Name": "Ku-0063794",
+                "predicted_AUC": 0.86564
+            },
+            {
+                "Drug_Name": "Navitoclax + Alisertib",
+                "predicted_AUC": 0.83282
+            },
+            {
+                "Drug_Name": "Quizartinib",
+                "predicted_AUC": 0.98817
+            },
+            {
+                "Drug_Name": "SCHEMBL2139153",
+                "predicted_AUC": 0.94942
+            },
+            {
+                "Drug_Name": "WZ4002",
+                "predicted_AUC": 0.89417
+            },
+            {
+                "Drug_Name": "NVP-BEZ235",
+                "predicted_AUC": 0.7188
+            },
+            {
+                "Drug_Name": "importazole",
+                "predicted_AUC": 0.92139
+            },
+            {
+                "Drug_Name": "Daporinad",
+                "predicted_AUC": 0.91183
+            },
+            {
+                "Drug_Name": "Bortezomib + CAY10603",
+                "predicted_AUC": 0.84573
+            },
+            {
+                "Drug_Name": "N-[(2R,3R)-5-[(2S)-1-hydroxypropan-2-yl]-3-methyl-2-[[methyl-[(1-naphthalenylamino)-oxomethyl]amino]methyl]-6-oxo-3,4-dihydro-2H-1,5-benzoxazocin-10-yl]-4-pyridinecarboxamide",
+                "predicted_AUC": 1.0213
+            },
+            {
+                "Drug_Name": "BMS-345541;CC1=CC2=C(C=C1)N=C(C3=NC=C(N23)C)NCCN",
+                "predicted_AUC": 0.86524
+            },
+            {
+                "Drug_Name": "VAF347",
+                "predicted_AUC": 1.0182
+            },
+            {
+                "Drug_Name": "CAY10603",
+                "predicted_AUC": 0.8229
+            },
+            {
+                "Drug_Name": "SMR000198998",
+                "predicted_AUC": 0.99124
+            },
+            {
+                "Drug_Name": "LSM-6189",
+                "predicted_AUC": 0.86219
+            },
+            {
+                "Drug_Name": "Erismodegib",
+                "predicted_AUC": 0.9902
+            },
+            {
+                "Drug_Name": "Serdemetan",
+                "predicted_AUC": 0.79735
+            },
+            {
+                "Drug_Name": "SCHEMBL16273428",
+                "predicted_AUC": 0.97108
+            },
+            {
+                "Drug_Name": "SCHEMBL18188080",
+                "predicted_AUC": 0.96267
+            },
+            {
+                "Drug_Name": "BRD-K58306044-001-01-3",
+                "predicted_AUC": 1.0018
+            },
+            {
+                "Drug_Name": "JQ1 + MK-0752",
+                "predicted_AUC": 0.86907
+            },
+            {
+                "Drug_Name": "SB-431542",
+                "predicted_AUC": 0.9809
+            },
+            {
+                "Drug_Name": "SCHEMBL10183194",
+                "predicted_AUC": 0.99822
+            },
+            {
+                "Drug_Name": "SCHEMBL12182311",
+                "predicted_AUC": 0.67739
+            },
+            {
+                "Drug_Name": "alpelisib",
+                "predicted_AUC": 0.86977
+            },
+            {
+                "Drug_Name": "BAI1",
+                "predicted_AUC": 0.93419
+            },
+            {
+                "Drug_Name": "GDC-0879",
+                "predicted_AUC": 1.0027
+            },
+            {
+                "Drug_Name": "PD153035",
+                "predicted_AUC": 0.92352
+            },
+            {
+                "Drug_Name": "SGX-523",
+                "predicted_AUC": 0.98014
+            },
+            {
+                "Drug_Name": "AK174031",
+                "predicted_AUC": 0.98245
+            },
+            {
+                "Drug_Name": "N9-ISOPROPYL-OLOMOUCINE",
+                "predicted_AUC": 0.91994
+            },
+            {
+                "Drug_Name": "Vemurafenib + Erlotinib",
+                "predicted_AUC": 0.91009
+            },
+            {
+                "Drug_Name": "RUCAPARIB",
+                "predicted_AUC": 0.89907
+            },
+            {
+                "Drug_Name": "SCHEMBL4320913",
+                "predicted_AUC": 0.82426
+            },
+            {
+                "Drug_Name": "Vorinostat",
+                "predicted_AUC": 0.81375
+            },
+            {
+                "Drug_Name": "Navitoclax + gemcitabine",
+                "predicted_AUC": 0.75692
+            },
+            {
+                "Drug_Name": "ML-210",
+                "predicted_AUC": 0.81252
+            },
+            {
+                "Drug_Name": "Mirdametinib",
+                "predicted_AUC": 0.70694
+            },
+            {
+                "Drug_Name": "N-[3-(1H-benzimidazol-2-yl)-5-(1-piperazinylmethyl)phenyl]-2-quinoxalinecarboxamide",
+                "predicted_AUC": 0.99846
+            },
+            {
+                "Drug_Name": "procarbazine",
+                "predicted_AUC": 1.0317
+            },
+            {
+                "Drug_Name": "Navitoclax",
+                "predicted_AUC": 0.92288
+            },
+            {
+                "Drug_Name": "azanide; dichloroplatinum(2+)",
+                "predicted_AUC": 0.99921
+            },
+            {
+                "Drug_Name": "StemRegenin 1",
+                "predicted_AUC": 0.92745
+            },
+            {
+                "Drug_Name": "CHEMBL568305",
+                "predicted_AUC": 0.82907
+            },
+            {
+                "Drug_Name": "ZM-447439",
+                "predicted_AUC": 0.86921
+            },
+            {
+                "Drug_Name": "CHEBI:119735",
+                "predicted_AUC": 1.0014
+            },
+            {
+                "Drug_Name": "MGCD-265",
+                "predicted_AUC": 0.95745
+            },
+            {
+                "Drug_Name": "PF 184",
+                "predicted_AUC": 0.92738
+            },
+            {
+                "Drug_Name": "BRD-K33199242-001-01-2",
+                "predicted_AUC": 1.0001
+            },
+            {
+                "Drug_Name": "OSI-930",
+                "predicted_AUC": 0.94308
+            },
+            {
+                "Drug_Name": "EPZ004777 + Selumetinib",
+                "predicted_AUC": 0.824
+            },
+            {
+                "Drug_Name": "AZD6482",
+                "predicted_AUC": 0.8585
+            },
+            {
+                "Drug_Name": "Salermide",
+                "predicted_AUC": 0.95984
+            },
+            {
+                "Drug_Name": "PF-573228",
+                "predicted_AUC": 0.91493
+            },
+            {
+                "Drug_Name": "SCHEMBL12474870",
+                "predicted_AUC": 1.031
+            },
+            {
+                "Drug_Name": "CHEMBL2132053",
+                "predicted_AUC": 1.0174
+            },
+            {
+                "Drug_Name": "doxorubicin",
+                "predicted_AUC": 0.71488
+            },
+            {
+                "Drug_Name": "prima-1",
+                "predicted_AUC": 0.9328
+            },
+            {
+                "Drug_Name": "Afatinib",
+                "predicted_AUC": 0.71211
+            },
+            {
+                "Drug_Name": "SCHEMBL16046542",
+                "predicted_AUC": 0.9525
+            },
+            {
+                "Drug_Name": "AZD6482",
+                "predicted_AUC": 0.8585
+            },
+            {
+                "Drug_Name": "temozolomide",
+                "predicted_AUC": 1.023
+            },
+            {
+                "Drug_Name": "NSC136476",
+                "predicted_AUC": 0.97609
+            },
+            {
+                "Drug_Name": "myricetin",
+                "predicted_AUC": 1.0318
+            },
+            {
+                "Drug_Name": "AHPN",
+                "predicted_AUC": 0.88537
+            },
+            {
+                "Drug_Name": "Temsirolimus",
+                "predicted_AUC": 0.71672
+            },
+            {
+                "Drug_Name": "KX2-391",
+                "predicted_AUC": 0.8178
+            },
+            {
+                "Drug_Name": "retinol + Navitoclax",
+                "predicted_AUC": 0.9295
+            },
+            {
+                "Drug_Name": "Tanespimycin + gemcitabine",
+                "predicted_AUC": 0.83643
+            },
+            {
+                "Drug_Name": "Wee1 Inhibitor",
+                "predicted_AUC": 0.91022
+            },
+            {
+                "Drug_Name": "PX-12",
+                "predicted_AUC": 0.96682
+            },
+            {
+                "Drug_Name": "Tosedostat",
+                "predicted_AUC": 0.8354
+            },
+            {
+                "Drug_Name": "BRD-A34462049-001-01-0",
+                "predicted_AUC": 0.99684
+            },
+            {
+                "Drug_Name": "PF-543",
+                "predicted_AUC": 0.97145
+            },
+            {
+                "Drug_Name": "PCI-34051",
+                "predicted_AUC": 1.0184
+            },
+            {
+                "Drug_Name": "Linsitinib",
+                "predicted_AUC": 0.94331
+            },
+            {
+                "Drug_Name": "Bortezomib + nan",
+                "predicted_AUC": 0.75469
+            },
+            {
+                "Drug_Name": "prochlorperazine",
+                "predicted_AUC": 0.92822
+            },
+            {
+                "Drug_Name": "AM580",
+                "predicted_AUC": 0.94657
+            },
+            {
+                "Drug_Name": "RG108",
+                "predicted_AUC": 1.0053
+            },
+            {
+                "Drug_Name": "Lenalidomide",
+                "predicted_AUC": 0.91544
+            },
+            {
+                "Drug_Name": "BRD6708",
+                "predicted_AUC": 0.9493
+            },
+            {
+                "Drug_Name": "Navitoclax + Vorinostat",
+                "predicted_AUC": 0.86154
+            },
+            {
+                "Drug_Name": "SCHEMBL1914213",
+                "predicted_AUC": 0.83987
+            },
+            {
+                "Drug_Name": "BRD-K02251932-001-01-3",
+                "predicted_AUC": 0.98066
+            },
+            {
+                "Drug_Name": "CI 976",
+                "predicted_AUC": 0.98115
+            },
+            {
+                "Drug_Name": "Masitinib",
+                "predicted_AUC": 0.94043
+            },
+            {
+                "Drug_Name": "BAM7",
+                "predicted_AUC": 0.99489
+            },
+            {
+                "Drug_Name": "SCH-529074 + JNJ-26854165",
+                "predicted_AUC": 0.88784
+            },
+            {
+                "Drug_Name": "Lapatinib",
+                "predicted_AUC": 0.87773
+            },
+            {
+                "Drug_Name": "Galunisertib",
+                "predicted_AUC": 1.0034
+            },
+            {
+                "Drug_Name": "Panobinostat",
+                "predicted_AUC": 0.51148
+            },
+            {
+                "Drug_Name": "Tivozanib",
+                "predicted_AUC": 0.96535
+            },
+            {
+                "Drug_Name": "CIL56",
+                "predicted_AUC": 0.95428
+            },
+            {
+                "Drug_Name": "vinblastine",
+                "predicted_AUC": 0.65541
+            },
+            {
+                "Drug_Name": "BRD-A63646118-001-02-6",
+                "predicted_AUC": 0.99705
+            },
+            {
+                "Drug_Name": "Navitoclax + Piperlongumine",
+                "predicted_AUC": 0.88953
+            },
+            {
+                "Drug_Name": "nan + Navitoclax(2)",
+                "predicted_AUC": 0.90436
+            },
+            {
+                "Drug_Name": "paclitaxel",
+                "predicted_AUC": 0.72808
+            },
+            {
+                "Drug_Name": "TW-37",
+                "predicted_AUC": 0.72784
+            },
+            {
+                "Drug_Name": "Fedratinib",
+                "predicted_AUC": 0.90706
+            },
+            {
+                "Drug_Name": "LY2183240",
+                "predicted_AUC": 0.92061
+            },
+            {
+                "Drug_Name": "LSM-6185",
+                "predicted_AUC": 0.8554
+            },
+            {
+                "Drug_Name": "Regorafenib",
+                "predicted_AUC": 0.96057
+            },
+            {
+                "Drug_Name": "docetaxel",
+                "predicted_AUC": 0.6692
+            },
+            {
+                "Drug_Name": "cimetidine",
+                "predicted_AUC": 1.0171
+            },
+            {
+                "Drug_Name": "AT7867",
+                "predicted_AUC": 0.91344
+            },
+            {
+                "Drug_Name": "Retinoic acid",
+                "predicted_AUC": 0.95206
+            },
+            {
+                "Drug_Name": "SCH-79797",
+                "predicted_AUC": 0.73139
+            },
+            {
+                "Drug_Name": "Axitinib",
+                "predicted_AUC": 0.91359
+            },
+            {
+                "Drug_Name": "CHEMBL2398212",
+                "predicted_AUC": 0.85783
+            },
+            {
+                "Drug_Name": "dacarbazine",
+                "predicted_AUC": 1.0046
+            },
+            {
+                "Drug_Name": "SCHEMBL13741284",
+                "predicted_AUC": 0.98697
+            },
+            {
+                "Drug_Name": "dichloroplatinum diammoniate",
+                "predicted_AUC": 0.8224
+            },
+            {
+                "Drug_Name": "SCHEMBL6465274",
+                "predicted_AUC": 1.0326
+            },
+            {
+                "Drug_Name": "phloretin",
+                "predicted_AUC": 0.93374
+            },
+            {
+                "Drug_Name": "Bendamustine",
+                "predicted_AUC": 1.0076
+            },
+            {
+                "Drug_Name": "Idelalisib",
+                "predicted_AUC": 0.95491
+            },
+            {
+                "Drug_Name": "Avagacestat",
+                "predicted_AUC": 0.90795
+            },
+            {
+                "Drug_Name": "nan + nan",
+                "predicted_AUC": 0.92395
+            },
+            {
+                "Drug_Name": "GDC-0941",
+                "predicted_AUC": 0.80987
+            },
+            {
+                "Drug_Name": "Navitoclax",
+                "predicted_AUC": 0.92288
+            },
+            {
+                "Drug_Name": "CHEMBL436817",
+                "predicted_AUC": 0.92321
+            },
+            {
+                "Drug_Name": "GSK1059615",
+                "predicted_AUC": 0.76754
+            },
+            {
+                "Drug_Name": "sb 225002",
+                "predicted_AUC": 0.93308
+            },
+            {
+                "Drug_Name": "SCHEMBL18216694",
+                "predicted_AUC": 1.0116
+            },
+            {
+                "Drug_Name": "L-685458",
+                "predicted_AUC": 0.98981
+            },
+            {
+                "Drug_Name": "Selumetinib + GDC-0941",
+                "predicted_AUC": 0.69864
+            },
+            {
+                "Drug_Name": "PF 750",
+                "predicted_AUC": 0.90828
+            },
+            {
+                "Drug_Name": "Alisertib",
+                "predicted_AUC": 0.92656
+            },
+            {
+                "Drug_Name": "Curcumin, Curcuma longa L.",
+                "predicted_AUC": 0.85513
+            },
+            {
+                "Drug_Name": "nan + Navitoclax(1)",
+                "predicted_AUC": 0.98472
+            },
+            {
+                "Drug_Name": "DASA-58",
+                "predicted_AUC": 1.0113
+            },
+            {
+                "Drug_Name": "niclosamide",
+                "predicted_AUC": 0.83624
+            },
+            {
+                "Drug_Name": "JQ1 + Selumetinib",
+                "predicted_AUC": 0.7328
+            },
+            {
+                "Drug_Name": "I-BET-762",
+                "predicted_AUC": 0.95009
+            },
+            {
+                "Drug_Name": "Pluripotin",
+                "predicted_AUC": 0.74167
+            },
+            {
+                "Drug_Name": "JW74",
+                "predicted_AUC": 0.96373
+            },
+            {
+                "Drug_Name": "JQ1",
+                "predicted_AUC": 0.85187
+            },
+            {
+                "Drug_Name": "I-BET151",
+                "predicted_AUC": 0.88474
+            },
+            {
+                "Drug_Name": "Tipifarnib",
+                "predicted_AUC": 0.87644
+            },
+            {
+                "Drug_Name": "SCHEMBL13737661",
+                "predicted_AUC": 0.9645
+            },
+            {
+                "Drug_Name": "CYTOCHALASIN B",
+                "predicted_AUC": 0.91684
+            },
+            {
+                "Drug_Name": "UNC0321",
+                "predicted_AUC": 1.0122
+            },
+            {
+                "Drug_Name": "6-BIO",
+                "predicted_AUC": 0.89186
+            },
+            {
+                "Drug_Name": "AZD8055",
+                "predicted_AUC": 0.69976
+            },
+            {
+                "Drug_Name": "fqi1",
+                "predicted_AUC": 0.90604
+            },
+            {
+                "Drug_Name": "GSK2636771",
+                "predicted_AUC": 0.96488
+            },
+            {
+                "Drug_Name": "BRD-K30019337-001-01-1",
+                "predicted_AUC": 1.0171
+            },
+            {
+                "Drug_Name": "doxorubicin + Navitoclax",
+                "predicted_AUC": 0.66835
+            },
+            {
+                "Drug_Name": "Bortezomib + SNX-2112",
+                "predicted_AUC": 0.75694
+            },
+            {
+                "Drug_Name": "UNC-0638 + SCHEMBL2671349",
+                "predicted_AUC": 1.0089
+            },
+            {
+                "Drug_Name": "NSC 95397",
+                "predicted_AUC": 0.95734
+            },
+            {
+                "Drug_Name": "SCHEMBL18426910",
+                "predicted_AUC": 0.84998
+            },
+            {
+                "Drug_Name": "ML-030",
+                "predicted_AUC": 0.84284
+            },
+            {
+                "Drug_Name": "SCHEMBL4463213",
+                "predicted_AUC": 0.8851
+            },
+            {
+                "Drug_Name": "16beta-Bromoandrosterone",
+                "predicted_AUC": 0.99234
+            },
+            {
+                "Drug_Name": "camptothecin",
+                "predicted_AUC": 0.67136
+            },
+            {
+                "Drug_Name": "SCHEMBL15422095",
+                "predicted_AUC": 0.7982
+            },
+            {
+                "Drug_Name": "BRD-K62801835-001-01-0",
+                "predicted_AUC": 0.99502
+            },
+            {
+                "Drug_Name": "staurosporine",
+                "predicted_AUC": 1.0142
+            },
+            {
+                "Drug_Name": "cerulenin",
+                "predicted_AUC": 0.89498
+            },
+            {
+                "Drug_Name": "Valdecoxib",
+                "predicted_AUC": 0.89251
+            },
+            {
+                "Drug_Name": "ICG-001",
+                "predicted_AUC": 0.92177
+            },
+            {
+                "Drug_Name": "VX-702",
+                "predicted_AUC": 0.93012
+            },
+            {
+                "Drug_Name": "nutlin-3A",
+                "predicted_AUC": 0.90211
+            },
+            {
+                "Drug_Name": "Navitoclax + Sorafenib",
+                "predicted_AUC": 0.92958
+            },
+            {
+                "Drug_Name": "Nintedanib",
+                "predicted_AUC": 0.97067
+            },
+            {
+                "Drug_Name": "ouabain",
+                "predicted_AUC": 0.54655
+            },
+            {
+                "Drug_Name": "Navitoclax + Decitabine",
+                "predicted_AUC": 0.95493
+            },
+            {
+                "Drug_Name": "JQ1 + Navitoclax",
+                "predicted_AUC": 0.83439
+            },
+            {
+                "Drug_Name": "RITA",
+                "predicted_AUC": 0.92712
+            },
+            {
+                "Drug_Name": "Bortezomib",
+                "predicted_AUC": 0.78475
+            },
+            {
+                "Drug_Name": "Avrainvillamide",
+                "predicted_AUC": 0.98907
+            },
+            {
+                "Drug_Name": "IKK-3 Inhibitor",
+                "predicted_AUC": 0.98027
+            },
+            {
+                "Drug_Name": "JW-55",
+                "predicted_AUC": 0.98139
+            },
+            {
+                "Drug_Name": "Vemurafenib + Salermide",
+                "predicted_AUC": 0.9762
+            },
+            {
+                "Drug_Name": "BX-795",
+                "predicted_AUC": 0.8683
+            },
+            {
+                "Drug_Name": "Crizotinib",
+                "predicted_AUC": 0.8386
+            },
+            {
+                "Drug_Name": "Bortezomib + Tanespimycin",
+                "predicted_AUC": 0.79481
+            },
+            {
+                "Drug_Name": "Vorinostat",
+                "predicted_AUC": 0.81375
+            },
+            {
+                "Drug_Name": "Pluripotin + Navitoclax",
+                "predicted_AUC": 0.69525
+            },
+            {
+                "Drug_Name": "PHA-793887",
+                "predicted_AUC": 0.93179
+            },
+            {
+                "Drug_Name": "JQ1 + UNC0638",
+                "predicted_AUC": 0.8905
+            },
+            {
+                "Drug_Name": "BRD-K35716340-001-01-2",
+                "predicted_AUC": 0.98322
+            },
+            {
+                "Drug_Name": "RAD51 inhibitor B02",
+                "predicted_AUC": 0.94628
+            },
+            {
+                "Drug_Name": "BMS-754807",
+                "predicted_AUC": 0.8195
+            },
+            {
+                "Drug_Name": "SCHEMBL1710881",
+                "predicted_AUC": 0.99555
+            },
+            {
+                "Drug_Name": "C646",
+                "predicted_AUC": 1.0342
+            },
+            {
+                "Drug_Name": "BRD-K27986637-001-01-3",
+                "predicted_AUC": 1.0227
+            },
+            {
+                "Drug_Name": "N-(2,5-dimethoxyphenyl)sulfonyl-N-(4-methoxyphenyl)benzamide",
+                "predicted_AUC": 0.9887
+            },
+            {
+                "Drug_Name": "(-)-Epigallocatechin gallate",
+                "predicted_AUC": 0.95234
+            },
+            {
+                "Drug_Name": "PD173074",
+                "predicted_AUC": 0.89732
+            },
+            {
+                "Drug_Name": "Leptomycin B",
+                "predicted_AUC": 0.49935
+            },
+            {
+                "Drug_Name": "BI 2536",
+                "predicted_AUC": 0.69862
+            },
+            {
+                "Drug_Name": "N-[[(2S,3S)-8-[2-(1-hydroxycyclopentyl)ethynyl]-5-[(2S)-1-hydroxypropan-2-yl]-3-methyl-6-oxo-3,4-dihydro-2H-pyrido[2,3-b][1,5]oxazocin-2-yl]methyl]-N-methyl-4-oxanecarboxamide",
+                "predicted_AUC": 0.99741
+            },
+            {
+                "Drug_Name": "OSI-027;COC1=CC=CC2=CC(=C3C4=C(N=CNN4C(=N3)C5CCC(CC5)C(=O)O)N)N=C21",
+                "predicted_AUC": 0.80515
+            },
+            {
+                "Drug_Name": "Vandetanib",
+                "predicted_AUC": 0.84123
+            },
+            {
+                "Drug_Name": "MK-1775",
+                "predicted_AUC": 0.83861
+            },
+            {
+                "Drug_Name": "Mdivi-1",
+                "predicted_AUC": 0.9857
+            },
+            {
+                "Drug_Name": "NSC60043",
+                "predicted_AUC": 0.96028
+            },
+            {
+                "Drug_Name": "CHEBI:93385",
+                "predicted_AUC": 0.96648
+            },
+            {
+                "Drug_Name": "isoliquiritigenin",
+                "predicted_AUC": 0.99273
+            },
+            {
+                "Drug_Name": "CHM-1",
+                "predicted_AUC": 0.90117
+            },
+            {
+                "Drug_Name": "BIX-01294",
+                "predicted_AUC": 0.93938
+            },
+            {
+                "Drug_Name": "QS11",
+                "predicted_AUC": 0.9733
+            },
+            {
+                "Drug_Name": "Vismodegib",
+                "predicted_AUC": 0.94469
+            },
+            {
+                "Drug_Name": "A-804598",
+                "predicted_AUC": 0.98639
+            },
+            {
+                "Drug_Name": "BRD-K49290616-001-01-9",
+                "predicted_AUC": 0.99187
+            },
+            {
+                "Drug_Name": "Aacocf3",
+                "predicted_AUC": 0.92936
+            },
+            {
+                "Drug_Name": "BRD-K20514654-001-01-8",
+                "predicted_AUC": 1.0118
+            },
+            {
+                "Drug_Name": "BRD-K41597374-001-01-7",
+                "predicted_AUC": 0.97455
+            },
+            {
+                "Drug_Name": "Palbociclib",
+                "predicted_AUC": 0.76577
+            },
+            {
+                "Drug_Name": "CHEBI:94975",
+                "predicted_AUC": 0.97229
+            },
+            {
+                "Drug_Name": "NSC373989",
+                "predicted_AUC": 0.95432
+            },
+            {
+                "Drug_Name": "SCHEMBL12469828",
+                "predicted_AUC": 0.91603
+            },
+            {
+                "Drug_Name": "cyclosporin A",
+                "predicted_AUC": 0.98077
+            },
+            {
+                "Drug_Name": "Foretinib",
+                "predicted_AUC": 0.78637
+            },
+            {
+                "Drug_Name": "BRD-A59431241-001-01-1",
+                "predicted_AUC": 0.9287
+            },
+            {
+                "Drug_Name": "brefeldin A",
+                "predicted_AUC": 0.63341
+            },
+            {
+                "Drug_Name": "cytarabine",
+                "predicted_AUC": 0.86457
+            },
+            {
+                "Drug_Name": "SNX-2112",
+                "predicted_AUC": 0.7989
+            },
+            {
+                "Drug_Name": "parthenolide;C/C/1=C/CC[C@@]2([C@H](O2)[C@@H]3[C@@H](CC1)C(=C)C(=O)O3)C",
+                "predicted_AUC": 0.94687
+            },
+            {
+                "Drug_Name": "Piperlongumine + Telomerase Inhibitor IX",
+                "predicted_AUC": 0.88429
+            },
+            {
+                "Drug_Name": "Tanespimycin",
+                "predicted_AUC": 0.69712
+            },
+            {
+                "Drug_Name": "PLX-4720",
+                "predicted_AUC": 0.98644
+            },
+            {
+                "Drug_Name": "XL765",
+                "predicted_AUC": 1.0065
+            },
+            {
+                "Drug_Name": "MK-2206",
+                "predicted_AUC": 0.84895
+            },
+            {
+                "Drug_Name": "SB-216763",
+                "predicted_AUC": 0.9111
+            },
+            {
+                "Drug_Name": "NSC48300",
+                "predicted_AUC": 0.97827
+            },
+            {
+                "Drug_Name": "Bosutinib",
+                "predicted_AUC": 0.87829
+            },
+            {
+                "Drug_Name": "CHEMBL2143553",
+                "predicted_AUC": 1.0329
+            },
+            {
+                "Drug_Name": "Obatoclax",
+                "predicted_AUC": 0.6531
+            },
+            {
+                "Drug_Name": "GSK4112",
+                "predicted_AUC": 1.0007
+            },
+            {
+                "Drug_Name": "SCH-529074",
+                "predicted_AUC": 0.86013
+            },
+            {
+                "Drug_Name": "Ko 143",
+                "predicted_AUC": 0.94686
+            },
+            {
+                "Drug_Name": "MLS000106215",
+                "predicted_AUC": 0.98572
+            },
+            {
+                "Drug_Name": "ETP-46464",
+                "predicted_AUC": 0.93413
+            },
+            {
+                "Drug_Name": "methotrexate",
+                "predicted_AUC": 0.7997
+            },
+            {
+                "Drug_Name": "AGK2",
+                "predicted_AUC": 0.98391
+            },
+            {
+                "Drug_Name": "N-[(2R,3S)-5-[(2R)-1-hydroxypropan-2-yl]-3-methyl-2-(methylaminomethyl)-6-oxo-2,3,4,7-tetrahydro-1,5-benzoxazonin-9-yl]methanesulfonamide",
+                "predicted_AUC": 1.0058
+            },
+            {
+                "Drug_Name": "CHEMBL2058177",
+                "predicted_AUC": 0.6113
+            },
+            {
+                "Drug_Name": "SKI II",
+                "predicted_AUC": 0.9996
+            },
+            {
+                "Drug_Name": "AZD7762",
+                "predicted_AUC": 0.68905
+            },
+            {
+                "Drug_Name": "SMER-3",
+                "predicted_AUC": 0.79519
+            },
+            {
+                "Drug_Name": "chlorambucil",
+                "predicted_AUC": 0.99413
+            },
+            {
+                "Drug_Name": "Neratinib",
+                "predicted_AUC": 0.81722
+            },
+            {
+                "Drug_Name": "methotrexate",
+                "predicted_AUC": 0.7997
+            },
+            {
+                "Drug_Name": "CHEBI:94110",
+                "predicted_AUC": 0.93947
+            },
+            {
+                "Drug_Name": "Imatinib",
+                "predicted_AUC": 0.98266
+            },
+            {
+                "Drug_Name": "WP-1130",
+                "predicted_AUC": 0.79351
+            },
+            {
+                "Drug_Name": "etoposide + SCHEMBL2671349",
+                "predicted_AUC": 0.96924
+            },
+            {
+                "Drug_Name": "BIBR 1532",
+                "predicted_AUC": 0.95347
+            },
+            {
+                "Drug_Name": "NVP-BEZ235",
+                "predicted_AUC": 0.7188
+            },
+            {
+                "Drug_Name": "SCHEMBL916391",
+                "predicted_AUC": 0.99058
+            },
+            {
+                "Drug_Name": "CHEMBL2381520",
+                "predicted_AUC": 1.0099
+            },
+            {
+                "Drug_Name": "ZSTK474",
+                "predicted_AUC": 0.85023
+            },
+            {
+                "Drug_Name": "(S)-selisistat",
+                "predicted_AUC": 0.99958
+            },
+            {
+                "Drug_Name": "ZINC113660258",
+                "predicted_AUC": 0.68268
+            },
+            {
+                "Drug_Name": "Palmostatin B",
+                "predicted_AUC": 1.0262
+            },
+            {
+                "Drug_Name": "gossypol",
+                "predicted_AUC": 0.92475
+            },
+            {
+                "Drug_Name": "Sepantronium",
+                "predicted_AUC": 0.74439
+            },
+            {
+                "Drug_Name": "Elesclomol",
+                "predicted_AUC": 0.61559
+            },
+            {
+                "Drug_Name": "BRD-K16147474-001-01-1",
+                "predicted_AUC": 1.0077
+            },
+            {
+                "Drug_Name": "Lenvatinib",
+                "predicted_AUC": 0.98575
+            },
+            {
+                "Drug_Name": "CICLOPIROX",
+                "predicted_AUC": 0.87806
+            },
+            {
+                "Drug_Name": "Entinostat",
+                "predicted_AUC": 0.82274
+            },
+            {
+                "Drug_Name": "ISX-9",
+                "predicted_AUC": 0.91691
+            },
+            {
+                "Drug_Name": "Tipifarnib (S enantiomer)",
+                "predicted_AUC": 0.87644
+            },
+            {
+                "Drug_Name": "Venetoclax",
+                "predicted_AUC": 1.0034
+            },
+            {
+                "Drug_Name": "Bemcentinib",
+                "predicted_AUC": 0.86966
+            },
+            {
+                "Drug_Name": "PI-103",
+                "predicted_AUC": 0.85412
+            },
+            {
+                "Drug_Name": "NSC74859",
+                "predicted_AUC": 1.0208
+            },
+            {
+                "Drug_Name": "trifluoperazine",
+                "predicted_AUC": 0.95674
+            },
+            {
+                "Drug_Name": "KHS101",
+                "predicted_AUC": 0.83465
+            },
+            {
+                "Drug_Name": "KPT-185",
+                "predicted_AUC": 0.79674
+            },
+            {
+                "Drug_Name": "Dasatinib",
+                "predicted_AUC": 0.71757
+            },
+            {
+                "Drug_Name": "Vorapaxar",
+                "predicted_AUC": 0.97281
+            },
+            {
+                "Drug_Name": "CHEMBL3185999",
+                "predicted_AUC": 1.0178
+            },
+            {
+                "Drug_Name": "apicidin",
+                "predicted_AUC": 0.77233
+            },
+            {
+                "Drug_Name": "STF-31",
+                "predicted_AUC": 0.88116
+            },
+            {
+                "Drug_Name": "Selumetinib",
+                "predicted_AUC": 0.82399
+            },
+            {
+                "Drug_Name": "BRD-1240",
+                "predicted_AUC": 0.79412
+            },
+            {
+                "Drug_Name": "AZD8055",
+                "predicted_AUC": 0.69976
+            },
+            {
+                "Drug_Name": "gemcitabine",
+                "predicted_AUC": 0.81419
+            },
+            {
+                "Drug_Name": "cytarabine",
+                "predicted_AUC": 0.86457
+            },
+            {
+                "Drug_Name": "Ixazomib",
+                "predicted_AUC": 0.70118
+            },
+            {
+                "Drug_Name": "CHEMBL520231",
+                "predicted_AUC": 0.94364
+            },
+            {
+                "Drug_Name": "Tanespimycin",
+                "predicted_AUC": 0.69712
+            },
+            {
+                "Drug_Name": "Motesanib",
+                "predicted_AUC": 0.85512
+            },
+            {
+                "Drug_Name": "Teniposide [USAN]",
+                "predicted_AUC": 0.85897
+            },
+            {
+                "Drug_Name": "ML031",
+                "predicted_AUC": 0.96815
+            },
+            {
+                "Drug_Name": "Nutlin-3",
+                "predicted_AUC": 0.90211
+            },
+            {
+                "Drug_Name": "JQ1 + SCHEMBL2671349",
+                "predicted_AUC": 0.87796
+            },
+            {
+                "Drug_Name": "EPZ004777 + SCHEMBL2671349",
+                "predicted_AUC": 0.9961
+            },
+            {
+                "Drug_Name": "Sitagliptin",
+                "predicted_AUC": 1.0204
+            },
+            {
+                "Drug_Name": "MLS001198989",
+                "predicted_AUC": 0.99735
+            },
+            {
+                "Drug_Name": "Purmorphamine",
+                "predicted_AUC": 0.97204
+            },
+            {
+                "Drug_Name": "BMS-536924;CC1=CC(=CC2=C1NC(=C3C(=CC=NC3=O)NC[C@H](C4=CC(=CC=C4)Cl)O)N2)N5CCOCC5",
+                "predicted_AUC": 0.9067
+            },
+            {
+                "Drug_Name": "TPCA-1",
+                "predicted_AUC": 0.91854
+            },
+            {
+                "Drug_Name": "KU-55933",
+                "predicted_AUC": 0.92436
+            },
+            {
+                "Drug_Name": "ethyl 4-[4-[(5-nitrofuran-2-yl)methylidene]-3,5-dioxopyrazolidin-1-yl]benzoate",
+                "predicted_AUC": 0.99604
+            },
+            {
+                "Drug_Name": "PIK-93",
+                "predicted_AUC": 0.90021
+            },
+            {
+                "Drug_Name": "JQ1 + Vorinostat",
+                "predicted_AUC": 0.7788
+            },
+            {
+                "Drug_Name": "SCHEMBL14934014",
+                "predicted_AUC": 1.0335
+            },
+            {
+                "Drug_Name": "YK-4-279",
+                "predicted_AUC": 0.92711
+            },
+            {
+                "Drug_Name": "Brivanib",
+                "predicted_AUC": 1.0007
+            },
+            {
+                "Drug_Name": "HC-067047",
+                "predicted_AUC": 0.96501
+            },
+            {
+                "Drug_Name": "UNC0638 + Selumetinib",
+                "predicted_AUC": 0.81063
+            },
+            {
+                "Drug_Name": "CCT 018159",
+                "predicted_AUC": 0.86548
+            },
+            {
+                "Drug_Name": "Vemurafenib",
+                "predicted_AUC": 0.98824
+            },
+            {
+                "Drug_Name": "Selumetinib + Vorinostat",
+                "predicted_AUC": 0.76977
+            },
+            {
+                "Drug_Name": "CHEMBL2356172",
+                "predicted_AUC": 1.0245
+            },
+            {
+                "Drug_Name": "ethyl 2-cyano-3-(3,4-dichlorophenyl)acryloylcarbamate",
+                "predicted_AUC": 1.007
+            },
+            {
+                "Drug_Name": "SCHEMBL15422028",
+                "predicted_AUC": 0.83476
+            },
+            {
+                "Drug_Name": "vincristine",
+                "predicted_AUC": 0.78119
+            },
+            {
+                "Drug_Name": "TCMDC-123515",
+                "predicted_AUC": 0.98145
+            },
+            {
+                "Drug_Name": "KW-2449",
+                "predicted_AUC": 0.95809
+            },
+            {
+                "Drug_Name": "5-Fluorouracil",
+                "predicted_AUC": 0.93148
+            },
+            {
+                "Drug_Name": "simvastatin",
+                "predicted_AUC": 0.89114
+            },
+            {
+                "Drug_Name": "Olaparib",
+                "predicted_AUC": 0.97405
+            },
+            {
+                "Drug_Name": "KU-55933",
+                "predicted_AUC": 0.92436
+            },
+            {
+                "Drug_Name": "Canertinib",
+                "predicted_AUC": 0.82438
+            },
+            {
+                "Drug_Name": "Vemurafenib + Crizotinib",
+                "predicted_AUC": 0.85368
+            },
+            {
+                "Drug_Name": "JNK Inhibitor VIII",
+                "predicted_AUC": 0.88517
+            },
+            {
+                "Drug_Name": "Rigosertib",
+                "predicted_AUC": 0.80195
+            },
+            {
+                "Drug_Name": "FGIN-1-27",
+                "predicted_AUC": 1.0061
+            },
+            {
+                "Drug_Name": "MIRA-1",
+                "predicted_AUC": 0.99514
+            },
+            {
+                "Drug_Name": "BRD-K52037352-001-01-6",
+                "predicted_AUC": 1.0026
+            },
+            {
+                "Drug_Name": "UNC0638",
+                "predicted_AUC": 0.96315
+            },
+            {
+                "Drug_Name": "IU-1",
+                "predicted_AUC": 0.99181
+            },
+            {
+                "Drug_Name": "BRD1172",
+                "predicted_AUC": 1.0223
+            },
+            {
+                "Drug_Name": "BRD-K17060750-001-01-0",
+                "predicted_AUC": 1.016
+            },
+            {
+                "Drug_Name": "Vemurafenib + Navitoclax",
+                "predicted_AUC": 0.94786
+            },
+            {
+                "Drug_Name": "CCT007093",
+                "predicted_AUC": 0.89386
+            },
+            {
+                "Drug_Name": "LRRK2-IN-1",
+                "predicted_AUC": 0.94841
+            },
+            {
+                "Drug_Name": "CHEMBL416418",
+                "predicted_AUC": 0.91127
+            },
+            {
+                "Drug_Name": "BRD3308",
+                "predicted_AUC": 0.99635
+            },
+            {
+                "Drug_Name": "CHEMBL3183639",
+                "predicted_AUC": 0.84166
+            },
+            {
+                "Drug_Name": "topotecan",
+                "predicted_AUC": 0.76125
+            },
+            {
+                "Drug_Name": "itraconazole",
+                "predicted_AUC": 0.97952
+            },
+            {
+                "Drug_Name": "pifithrin",
+                "predicted_AUC": 0.96446
+            },
+            {
+                "Drug_Name": "SCHEMBL13833463",
+                "predicted_AUC": 0.99412
+            },
+            {
+                "Drug_Name": "Ruxolitinib",
+                "predicted_AUC": 0.98089
+            },
+            {
+                "Drug_Name": "AICA ribonucleotide",
+                "predicted_AUC": 0.85275
+            },
+            {
+                "Drug_Name": "Cabozantinib",
+                "predicted_AUC": 0.92491
+            },
+            {
+                "Drug_Name": "RSL3",
+                "predicted_AUC": 0.65532
+            },
+            {
+                "Drug_Name": "EPZ004777 + Navitoclax",
+                "predicted_AUC": 0.97663
+            },
+            {
+                "Drug_Name": "Vemurafenib + Selumetinib",
+                "predicted_AUC": 0.81351
+            },
+            {
+                "Drug_Name": "SNS-032",
+                "predicted_AUC": 0.74626
+            },
+            {
+                "Drug_Name": "SR1001",
+                "predicted_AUC": 1.0164
+            },
+            {
+                "Drug_Name": "SCHEMBL13833318",
+                "predicted_AUC": 0.9876
+            },
+            {
+                "Drug_Name": "NAPHTHO(2,1-b)FURAN, 1-METHYL-2-NITRO-",
+                "predicted_AUC": 0.98824
+            },
+            {
+                "Drug_Name": "TG100-115",
+                "predicted_AUC": 0.97784
+            },
+            {
+                "Drug_Name": "N-(4-methoxyphenyl)sulfonyl-N-[2-[2-(1-oxido-4-pyridin-1-iumyl)ethenyl]phenyl]acetamide",
+                "predicted_AUC": 0.86645
+            },
+            {
+                "Drug_Name": "CID-2858522",
+                "predicted_AUC": 0.98042
+            },
+            {
+                "Drug_Name": "N'-[(6-oxo-5-prop-2-enyl-1-cyclohexa-2,4-dienylidene)methyl]-2-[4-(phenylmethyl)-1-piperazinyl]acetohydrazide;C=CCC1=CC=CC(=CNNC(=O)CN2CCN(CC2)CC3=CC=CC=C3)C1=O",
+                "predicted_AUC": 0.91041
+            },
+            {
+                "Drug_Name": "Selumetinib + MK-2206",
+                "predicted_AUC": 0.74601
+            },
+            {
+                "Drug_Name": "betulinic acid",
+                "predicted_AUC": 1.0253
+            },
+            {
+                "Drug_Name": "N-[(2S,3S)-2-[(dimethylamino)methyl]-5-[(2R)-1-hydroxypropan-2-yl]-3-methyl-6-oxo-3,4-dihydro-2H-1,5-benzoxazocin-10-yl]-2,5-dimethyl-3-pyrazolecarboxamide",
+                "predicted_AUC": 1.0093
+            },
+            {
+                "Drug_Name": "Necrostatin-1",
+                "predicted_AUC": 0.94042
+            },
+            {
+                "Drug_Name": "Tanespimycin + Docetaxel (Taxotere)",
+                "predicted_AUC": 0.66227
+            },
+            {
+                "Drug_Name": "bms270394",
+                "predicted_AUC": 1.0044
+            },
+            {
+                "Drug_Name": "BRD4770",
+                "predicted_AUC": 1.0199
+            },
+            {
+                "Drug_Name": "Tandutinib",
+                "predicted_AUC": 0.95174
+            },
+            {
+                "Drug_Name": "1009820-21-6",
+                "predicted_AUC": 0.91468
+            },
+            {
+                "Drug_Name": "CHEMBL2062550",
+                "predicted_AUC": 0.92084
+            },
+            {
+                "Drug_Name": "CAY10594",
+                "predicted_AUC": 0.97043
+            },
+            {
+                "Drug_Name": "NU-7441",
+                "predicted_AUC": 0.89807
+            },
+            {
+                "Drug_Name": "Neopeltolide",
+                "predicted_AUC": 0.75865
+            },
+            {
+                "Drug_Name": "BRD-K50799972-001-01-3",
+                "predicted_AUC": 0.97275
+            },
+            {
+                "Drug_Name": "Pifithrin-mu",
+                "predicted_AUC": 1.0108
+            },
+            {
+                "Drug_Name": "WZ8040",
+                "predicted_AUC": 0.79014
+            },
+            {
+                "Drug_Name": "Isoevodiamine",
+                "predicted_AUC": 0.91629
+            },
+            {
+                "Drug_Name": "Ibrutinib",
+                "predicted_AUC": 0.87669
+            },
+            {
+                "Drug_Name": "Piperlongumine",
+                "predicted_AUC": 0.90781
+            },
+            {
+                "Drug_Name": "LSM-36779",
+                "predicted_AUC": 0.93774
+            },
+            {
+                "Drug_Name": "BRD-K25737009-001-01-2",
+                "predicted_AUC": 0.9424
+            },
+            {
+                "Drug_Name": "Tacedinaline",
+                "predicted_AUC": 0.95322
+            },
+            {
+                "Drug_Name": "Pyrazolanthrone",
+                "predicted_AUC": 0.97059
+            },
+            {
+                "Drug_Name": "GW 441756",
+                "predicted_AUC": 0.85111
+            },
+            {
+                "Drug_Name": "Ro-3306",
+                "predicted_AUC": 0.86801
+            },
+            {
+                "Drug_Name": "N-[(2S,3S)-5-[(2R)-1-hydroxypropan-2-yl]-3-methyl-2-[[methyl-[(1-naphthalenylamino)-oxomethyl]amino]methyl]-6-oxo-2,3,4,7-tetrahydro-1,5-benzoxazonin-9-yl]-4-pyridinecarboxamide",
+                "predicted_AUC": 1.0217
+            },
+            {
+                "Drug_Name": "N-[6-(2-amino-4-fluoroanilino)-6-oxohexyl]-4-methylbenzamide",
+                "predicted_AUC": 1.0062
+            },
+            {
+                "Drug_Name": "R406 (free base)",
+                "predicted_AUC": 0.93771
+            },
+            {
+                "Drug_Name": "etoposide",
+                "predicted_AUC": 0.88403
+            },
+            {
+                "Drug_Name": "PD318088",
+                "predicted_AUC": 0.83271
+            },
+            {
+                "Drug_Name": "Sorafenib",
+                "predicted_AUC": 0.91179
+            },
+            {
+                "Drug_Name": "5-azacytidine",
+                "predicted_AUC": 1.022
+            },
+            {
+                "Drug_Name": "KU-0060648",
+                "predicted_AUC": 0.8383
+            },
+            {
+                "Drug_Name": "N1-[2-(1H-indol-3-yl)ethyl]-N3-pyridin-4-ylbenzene-1,3-diamine",
+                "predicted_AUC": 0.95714
+            },
+            {
+                "Drug_Name": "KU-60019",
+                "predicted_AUC": 0.94583
+            },
+            {
+                "Drug_Name": "N-[(2R,3S)-5-[(2S)-1-hydroxypropan-2-yl]-3-methyl-2-(methylaminomethyl)-6-oxo-3,4-dihydro-2H-1,5-benzoxazocin-8-yl]cyclohexanecarboxamide",
+                "predicted_AUC": 1.028
+            },
+            {
+                "Drug_Name": "BRD-K04800985-001-01-1",
+                "predicted_AUC": 1.0023
+            },
+            {
+                "Drug_Name": "BRD-A28105619-001-01-3",
+                "predicted_AUC": 0.71542
+            },
+            {
+                "Drug_Name": "cyclophosphamide",
+                "predicted_AUC": 1.0037
+            },
+            {
+                "Drug_Name": "SCHEMBL15428380",
+                "predicted_AUC": 0.7309
+            },
+            {
+                "Drug_Name": "N-[[(4S,5R)-8-[2-(2-fluorophenyl)ethynyl]-2-[(2S)-1-hydroxypropan-2-yl]-4-methyl-1,1-dioxo-4,5-dihydro-3H-6,1$l^{6},2-benzoxathiazocin-5-yl]methyl]-N-methyl-2-pyridin-4-ylacetamide",
+                "predicted_AUC": 0.98276
+            },
+            {
+                "Drug_Name": "Clofarabine",
+                "predicted_AUC": 0.90624
+            },
+            {
+                "Drug_Name": "Spautin-1",
+                "predicted_AUC": 0.91559
+            },
+            {
+                "Drug_Name": "CHS-828",
+                "predicted_AUC": 0.93448
+            },
+            {
+                "Drug_Name": "BRD-K09587429-001-01-3",
+                "predicted_AUC": 1.0061
+            },
+            {
+                "Drug_Name": "UNC0638 + Navitoclax",
+                "predicted_AUC": 0.97745
+            },
+            {
+                "Drug_Name": "homoharringtonine",
+                "predicted_AUC": 0.64104
+            },
+            {
+                "Drug_Name": "Nelarabine",
+                "predicted_AUC": 1.0264
+            },
+            {
+                "Drug_Name": "MK-0752",
+                "predicted_AUC": 0.99551
+            },
+            {
+                "Drug_Name": "METHYLSTAT",
+                "predicted_AUC": 0.92678
+            },
+            {
+                "Drug_Name": "NVP-TAE684",
+                "predicted_AUC": 0.7509
+            },
+            {
+                "Drug_Name": "BRD-K19103580-001-01-2",
+                "predicted_AUC": 0.98531
+            },
+            {
+                "Drug_Name": "Lomeguatrib",
+                "predicted_AUC": 0.95763
+            },
+            {
+                "Drug_Name": "SCHEMBL2671349",
+                "predicted_AUC": 1.0132
+            },
+            {
+                "Drug_Name": "LE 135",
+                "predicted_AUC": 0.94877
+            },
+            {
+                "Drug_Name": "N-[(2S,3S,6R)-2-(hydroxymethyl)-6-[2-(4-methyl-1-piperazinyl)-2-oxoethyl]-3-oxanyl]-1,3-benzodioxole-5-carboxamide",
+                "predicted_AUC": 1.0084
+            },
+            {
+                "Drug_Name": "Oprea1_718426",
+                "predicted_AUC": 0.8919
+            },
+            {
+                "Drug_Name": "Darinaparsin",
+                "predicted_AUC": 1.0292
+            },
+            {
+                "Drug_Name": "CI-1040",
+                "predicted_AUC": 0.72587
+            },
+            {
+                "Drug_Name": "Abiraterone",
+                "predicted_AUC": 1.0167
+            },
+            {
+                "Drug_Name": "Nilotinib",
+                "predicted_AUC": 0.96847
+            },
+            {
+                "Drug_Name": "Nsc 23766",
+                "predicted_AUC": 0.91662
+            },
+            {
+                "Drug_Name": "Valisone",
+                "predicted_AUC": 1.0276
+            },
+            {
+                "Drug_Name": "DBeQ",
+                "predicted_AUC": 0.82129
+            },
+            {
+                "Drug_Name": "N-[[(4R,5R)-2-[(2R)-1-hydroxypropan-2-yl]-4-methyl-8-(4-methylpent-1-ynyl)-1,1-dioxo-4,5-dihydro-3H-6,1$l^{6},2-benzoxathiazocin-5-yl]methyl]-N-methyl-2-pyrazinecarboxamide",
+                "predicted_AUC": 0.98783
+            },
+            {
+                "Drug_Name": "SCHEMBL16296919",
+                "predicted_AUC": 0.92462
+            },
+            {
+                "Drug_Name": "1,2-Cyclohexanediamine anion + oxalic acid",
+                "predicted_AUC": 0.98944
+            },
+            {
+                "Drug_Name": "Vorinostat + SCHEMBL2671349",
+                "predicted_AUC": 0.94127
+            },
+            {
+                "Drug_Name": "Pevonedistat",
+                "predicted_AUC": 0.91202
+            },
+            {
+                "Drug_Name": "Erlotinib",
+                "predicted_AUC": 0.9024
+            },
+            {
+                "Drug_Name": "Sotrastaurin",
+                "predicted_AUC": 0.99293
+            },
+            {
+                "Drug_Name": "BRD-6929",
+                "predicted_AUC": 0.94639
+            },
+            {
+                "Drug_Name": "Fingolimod",
+                "predicted_AUC": 0.86247
+            },
+            {
+                "Drug_Name": "11-cis Retinoic Acid",
+                "predicted_AUC": 0.95206
+            },
+            {
+                "Drug_Name": "AZD4547",
+                "predicted_AUC": 0.88913
+            },
+            {
+                "Drug_Name": "Gefitinib",
+                "predicted_AUC": 0.86278
+            },
+            {
+                "Drug_Name": "TW-37",
+                "predicted_AUC": 0.72784
+            },
+            {
+                "Drug_Name": "MK-2206",
+                "predicted_AUC": 0.84895
+            },
+            {
+                "Drug_Name": "Selumetinib + Decitabine",
+                "predicted_AUC": 0.89021
+            },
+            {
+                "Drug_Name": "Glutaminase C-IN-1",
+                "predicted_AUC": 1.0012
+            },
+            {
+                "Drug_Name": "JW 480",
+                "predicted_AUC": 0.99493
+            },
+            {
+                "Drug_Name": "TGX-221",
+                "predicted_AUC": 0.91838
+            },
+            {
+                "Drug_Name": "Decitabine",
+                "predicted_AUC": 1.0122
+            },
+            {
+                "Drug_Name": "SCHEMBL10436373",
+                "predicted_AUC": 0.97206
+            },
+            {
+                "Drug_Name": "retinol + SCHEMBL2671349",
+                "predicted_AUC": 1.0049
+            },
+            {
+                "Drug_Name": "Veliparib",
+                "predicted_AUC": 0.95514
+            },
+            {
+                "Drug_Name": "CID5951923",
+                "predicted_AUC": 1.0201
+            },
+            {
+                "Drug_Name": "AC-55649",
+                "predicted_AUC": 1.0048
+            },
+            {
+                "Drug_Name": "BRD-K02492147-001-01-4",
+                "predicted_AUC": 1.0121
+            },
+            {
+                "Drug_Name": "BMS614",
+                "predicted_AUC": 0.99549
+            },
+            {
+                "Drug_Name": "Cyt387",
+                "predicted_AUC": 0.89676
+            },
+            {
+                "Drug_Name": "retinol + Selumetinib",
+                "predicted_AUC": 0.82287
+            },
+            {
+                "Drug_Name": "Bleomycin sulfate",
+                "predicted_AUC": 0.75985
+            },
+            {
+                "Drug_Name": "Selumetinib + Piperlongumine",
+                "predicted_AUC": 0.83015
+            },
+            {
+                "Drug_Name": "ifosfamide",
+                "predicted_AUC": 1.0171
+            },
+            {
+                "Drug_Name": "Isonicotinohydroxamic acid",
+                "predicted_AUC": 1.0321
+            },
+            {
+                "Drug_Name": "SCHEMBL11942935",
+                "predicted_AUC": 0.93992
+            },
+            {
+                "Drug_Name": "AZ3146",
+                "predicted_AUC": 0.99925
+            },
+            {
+                "Drug_Name": "Navitoclax + Selumetinib",
+                "predicted_AUC": 0.73611
+            },
+            {
+                "Drug_Name": "CHEMBL24850",
+                "predicted_AUC": 0.99186
+            },
+            {
+                "Drug_Name": "SB-525334",
+                "predicted_AUC": 0.92909
+            },
+            {
+                "Drug_Name": "Turofexorate isopropyl",
+                "predicted_AUC": 0.99109
+            },
+            {
+                "Drug_Name": "CHEMBL3188232",
+                "predicted_AUC": 0.87411
+            },
+            {
+                "Drug_Name": "CHIR-99021",
+                "predicted_AUC": 1.0028
+            },
+            {
+                "Drug_Name": "Telomerase Inhibitor IX",
+                "predicted_AUC": 0.85814
+            },
+            {
+                "Drug_Name": "PF-4708671",
+                "predicted_AUC": 0.87346
+            },
+            {
+                "Drug_Name": "ABT-737",
+                "predicted_AUC": 0.95564
+            },
+            {
+                "Drug_Name": "GW-405833",
+                "predicted_AUC": 0.92095
+            },
+            {
+                "Drug_Name": "NVP-231",
+                "predicted_AUC": 0.91204
+            },
+            {
+                "Drug_Name": "CHEMBL2203525",
+                "predicted_AUC": 1.005
+            },
+            {
+                "Drug_Name": "MI-1",
+                "predicted_AUC": 1.0095
+            },
+            {
+                "Drug_Name": "GSK461364",
+                "predicted_AUC": 0.74502
+            },
+            {
+                "Drug_Name": "N-[(2R,3S)-2-[[(4-chlorophenyl)sulfonyl-methylamino]methyl]-5-[(2S)-1-hydroxypropan-2-yl]-3-methyl-6-oxo-2,3,4,7-tetrahydro-1,5-benzoxazonin-9-yl]-4,4,4-trifluorobutanamide",
+                "predicted_AUC": 0.94364
+            },
+            {
+                "Drug_Name": "C6 ceramide",
+                "predicted_AUC": 0.97875
+            },
+            {
+                "Drug_Name": "CH 55",
+                "predicted_AUC": 0.93596
+            },
+            {
+                "Drug_Name": "Ki8751",
+                "predicted_AUC": 1.007
+            },
+            {
+                "Drug_Name": "ERASTIN",
+                "predicted_AUC": 0.91357
+            },
+            {
+                "Drug_Name": "Semagacestat",
+                "predicted_AUC": 0.97793
+            },
+            {
+                "Drug_Name": "Veliparib",
+                "predicted_AUC": 0.95514
+            },
+            {
+                "Drug_Name": "EHT-1864",
+                "predicted_AUC": 0.86216
+            },
+            {
+                "Drug_Name": "SB-590885",
+                "predicted_AUC": 0.94289
+            },
+            {
+                "Drug_Name": "BRD-K49456190-001-01-0",
+                "predicted_AUC": 0.99202
+            },
+            {
+                "Drug_Name": "N-[(2R,3S)-5-[(2R)-1-hydroxypropan-2-yl]-3-methyl-2-(methylaminomethyl)-6-oxo-2,3,4,7-tetrahydro-1,5-benzoxazonin-9-yl]-3-(4-morpholinyl)propanamide",
+                "predicted_AUC": 1.022
+            },
+            {
+                "Drug_Name": "J3.559.058G",
+                "predicted_AUC": 1.0087
+            },
+            {
+                "Drug_Name": "Austocystin D",
+                "predicted_AUC": 0.75846
+            },
+            {
+                "Drug_Name": "IC-87114",
+                "predicted_AUC": 1.0143
+            }
+        ]
+    }
+}
