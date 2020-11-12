@@ -4,7 +4,6 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
-import { SettingsEthernetSharp } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -41,7 +40,7 @@ const GeneEntryPanel = (props : any) => {
     <div className={classes.container}>
     <TextField
         id='standard-multiline-static'
-        label="Paste Gene List"
+        label="Gene List"
         multiline
         rows={4}
         value={geneInput}
