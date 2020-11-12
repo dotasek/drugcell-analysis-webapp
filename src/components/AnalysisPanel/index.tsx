@@ -46,7 +46,6 @@ const defaultValues = [0, 1.05];
 
 const AnalysisPanel = (props : any) => {
   
-    
     const params = useParams<AnaylsisParamTypes>();
 
     const { resultid } = params;
@@ -72,7 +71,7 @@ const AnalysisPanel = (props : any) => {
 
     const filterData = (min: number, max: number) => {
       if (drugResponse.data) {
-      const selectedData = drugResponse.data.filter((d : any) => {
+      const selectedData = drugResponse.data.predictions.filter((d : any) => {
         return d.predicted_AUC >= min && d.predicted_AUC <= max;
       })
       setSelectedData(selectedData)}
@@ -104,7 +103,7 @@ const AnalysisPanel = (props : any) => {
     <div className={classes.container}>
         <Typography>Result ID: { resultid }
         </Typography>
-        <Histogram data={drugResponse.data} minSelection={minSelection} maxSelection={ maxSelection } height={200} width={500}></Histogram>
+        <Histogram data={drugResponse.data.predictions} minSelection={minSelection} maxSelection={ maxSelection } height={200} width={500}></Histogram>
         <Slider
           mode={2}
           step={.05}

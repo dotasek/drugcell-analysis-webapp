@@ -20,7 +20,12 @@ const useStyles = makeStyles((theme: Theme) =>
 const GeneEntryPanel = (props : any) => {
     const {genes, setGenes} = props;
 
-    const [geneInput, setGeneInput] = useState(genes);
+    console.log('GeneEntryPanel genes: ', genes);
+
+    const [geneInput, setGeneInput] = useState<string | undefined>(genes);
+
+   
+    console.log('GeneEntryPanel geneInput: ', geneInput);
 
     const classes = useStyles();
 

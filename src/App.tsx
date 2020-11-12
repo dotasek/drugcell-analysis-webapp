@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/results/:resultid">
+        <Route path="/finddrugs/results/:resultid">
           <AppShell title={ "DrugCell Prophet" } tooltip={"Analyze Genetype With DrugCell"}>
             <FindDrug/>
           </AppShell>
