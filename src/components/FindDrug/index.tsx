@@ -34,6 +34,7 @@ const FindDrug = (props : any) => {
     return (
       <div className='spinner'>
         <CircularProgress color="secondary" />
+        <Typography>Running DrugCell Analysis...</Typography>
       </div>
     )
   }
