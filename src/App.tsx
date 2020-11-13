@@ -4,15 +4,24 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom'
 
 import './App.css';
 
+import AppContext from './context/AppContext'
 import FindDrug from './components/FindDrug'
-
 import AppShell from './components/AppShell'
+import AppConfig from './model/AppConfig';
 
-function App() {
+type AppProps = {
+  config : AppConfig
+}
+
+const App = (props : AppProps) => {
+
+  const { config } = props;
+
   return (
+    <AppContext.Provider value={ config }>
     <BrowserRouter>
       <Switch>
-      <Route path="/finddrugs/results/:resultid">
+        <Route path="/finddrugs/results/:resultid">
           <AppShell title={ "DrugCell Find Drugs" } tooltip={"Analyze Genetype With DrugCell"}>
             <FindDrug/>
           </AppShell>
@@ -25,6 +34,7 @@ function App() {
         </Route>
       </Switch>
     </BrowserRouter>
+    </AppContext.Provider>
   );
 }
 
