@@ -30,7 +30,7 @@ const Histogram = (props) => {
 
   console.log("minSelection: " + minSelection);
 
-  const margin = { top: 8, right: 8, bottom: 8, left: 8 };
+  //const margin = { top: 8, right: 8, bottom: 8, left: 8 };
 
   let svg;
 
@@ -40,12 +40,8 @@ const Histogram = (props) => {
 
     svg = d3.select("#histogram")
       .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-
-    svg.append("g")
-      .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")");
+      .attr("width", width)
+      .attr("height", height)
   }
 
   const drawHistogram = () => {
@@ -53,9 +49,9 @@ const Histogram = (props) => {
     if (data) {
       var x = d3.scaleLinear()
         .domain(domain)
-        .range([margin.left, width - margin.right])
+        .range([0, width])
 
-      const xTicks = x.ticks(21);
+      const xTicks = x.ticks(20);
 
       console.log('xTicks: ', xTicks);
 
@@ -69,7 +65,7 @@ const Histogram = (props) => {
 
       var y = d3.scaleLinear()
         .domain([0, d3.max(bins, d => d.length)]).nice()
-        .range([height - margin.bottom, margin.top])
+        .range([height, 0])
 
       const svg = d3.select("#histogram svg");
 
