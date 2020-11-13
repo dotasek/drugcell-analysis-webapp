@@ -30,7 +30,7 @@ const Histogram = (props) => {
 
   console.log("minSelection: " + minSelection);
 
-  const margin = { top: 8, right: 8, bottom: 8, left: 8 };
+  const margin = { top: 8, right: 8, bottom: 8, left: 36 };
 
   let svg;
 
@@ -74,6 +74,7 @@ const Histogram = (props) => {
       const svg = d3.select("#histogram svg");
 
       svg.append("g")
+      .attr("transform", "translate("+margin.left+",0)")
       .call(d3.axisLeft(y));
 
       svg.append("g")
