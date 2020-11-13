@@ -73,15 +73,26 @@ const Histogram = (props) => {
 
       const svg = d3.select("#histogram svg");
 
-      svg.selectAll("rect")
+      svg.append("g")
+      .call(d3.axisLeft(y));
+
+      svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+      var rect = svg.selectAll("rect")
         .data(bins)
         .join("rect")
         .attr("x", d => x(d.x0) + 1)
         .attr("width", d => Math.max(0, x(d.x1) - x(d.x0) - 1))
         .attr("y", d => y(d.length))
         .attr("height", d => y(0) - y(d.length)).attr("fill", d => (d.x0 >= minSelection && d.x1 <= maxSelection) ? "steelblue" : "gray");
+    
+    
     }
   }
+
+  
 
   useEffect(() => {
     initHistogram();

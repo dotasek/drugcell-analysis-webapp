@@ -46,14 +46,18 @@ const AnalysisPanel = (props: any) => {
 
   const classes = useStyles();
 
-  const max_AUC = data.predictions.reduce((a: number, entry: any) => {
+  const max_AUC =data.predictions.reduce((a: number, entry: any) => {
     return a > entry.predicted_AUC ? a : entry.predicted_AUC
   }, 0);
 
-  const defaultValues = [0, max_AUC];
+  const step = 10;
+
+  const domainMax =  Math.ceil(max_AUC / step) * step;
+
+  const defaultValues = [0, domainMax];
 
   const [minSelection, setMinSelection] = useState(0);
-  const [maxSelection, setMaxSelection] = useState(max_AUC);
+  const [maxSelection, setMaxSelection] = useState(domainMax);
 
   const [selectedData, setSelectedData] = useState<any>(data.predictions);
 
@@ -64,7 +68,7 @@ const AnalysisPanel = (props: any) => {
     filterData(event[0], event[1])
   }
 
-  const domain: [number, number] = [0, max_AUC];
+  const domain: [number, number] = [0, domainMax];
 
   const filterData = (min: number, max: number) => {
     if (data) {
@@ -89,7 +93,7 @@ const AnalysisPanel = (props: any) => {
       <Histogram data={histogramData} domain={domain} minSelection={minSelection} maxSelection={maxSelection} height={200} width={500}></Histogram>
       <Slider
         mode={2}
-        step={10}
+        step={step}
         domain={domain}
         rootStyle={sliderStyle}
         onUpdate={onUpdate}
