@@ -11,16 +11,13 @@ import { Typography } from '@material-ui/core';
 import Histogram from './Histogram'
 import DataTable from './DataTable'
 
-
-
-import * as d3 from 'd3'
 import PathwayChart from './PathwayChart';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
       width: '100%',
-      height: '100%',
+      height: 'auto',
       display: 'flex',
       flexDirection: 'column'
     }

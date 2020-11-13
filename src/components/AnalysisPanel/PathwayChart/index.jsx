@@ -29,8 +29,6 @@ const PathwayChart = (props) => {
 
   const { data, domain, height, width } = props;
 
-  
-
   const margin = { top: 8, right: 8, bottom: 8, left: 48 };
 
   let svg;
