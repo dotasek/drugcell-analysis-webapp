@@ -14,6 +14,7 @@ import DataTable from './DataTable'
 
 
 import * as d3 from 'd3'
+import PathwayChart from './PathwayChart';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -61,6 +62,8 @@ const AnalysisPanel = (props: any) => {
 
   const [selectedData, setSelectedData] = useState<any>(data.predictions);
 
+  const [selectedDrug, setSelectedDrug] = useState<any>()
+
   const onUpdate = (event: any) => {
     console.log('slider onUpdate: ', event)
     setMinSelection(event[0]);
@@ -81,6 +84,10 @@ const AnalysisPanel = (props: any) => {
 
   const onChange = (event: any) => {
     console.log('slider onChange: ', event)
+  }
+
+  const onSelectDrug= (drug : any) => {
+    console.log('AnalysisPanel selecting drug: ', drug)
   }
 
   const histogramData = data.predictions.map((entry: any) => {
@@ -143,8 +150,9 @@ const AnalysisPanel = (props: any) => {
       </Slider>
       <Typography>Selection Size: {selectedData ? selectedData.length : 0}
       </Typography>
-      { selectedData && <DataTable data={selectedData} width={500} height={200}></DataTable>
-      }
+      { selectedData && <DataTable data={selectedData} selectedDrug={selectedDrug} onSelectDrug={onSelectDrug} width={500} height={200}></DataTable>
+      } 
+      { selectedData && <PathwayChart width={500} height={200}></PathwayChart>}
     </div>
   )
 }

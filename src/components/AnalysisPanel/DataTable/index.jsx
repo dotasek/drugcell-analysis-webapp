@@ -6,6 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import Paper from '@material-ui/core/Paper';
 import { AutoSizer, Column, Table } from 'react-virtualized';
 
+
 const styles = (theme) => ({
   flexContainer: {
     display: 'flex',
@@ -144,8 +145,11 @@ const VirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
 
 export default function ReactVirtualizedTable( props ) {
   
-  const { data, width, height } = props
+  const { data, onSelectDrug, width, height } = props
    
+  const onRowClick = (event) => {
+    onSelectDrug(event.rowData)
+  } 
   //console.log('Table data: ', data);
 
   return (
@@ -153,6 +157,7 @@ export default function ReactVirtualizedTable( props ) {
       <VirtualizedTable
         rowCount={data.length}
         rowGetter={({ index }) => data[index]}
+        onRowClick={onRowClick}
         columns={[
           {
             width: width - 80,
@@ -163,7 +168,7 @@ export default function ReactVirtualizedTable( props ) {
             width: 50,
             label: 'Predicted AUC',
             dataKey: 'predicted_AUC',
-            numeric: true,
+            numeric: true
           } 
         ]}
       />
