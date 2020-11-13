@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) =>
 
 const Histogram = (props) => {
 
-  const { data, minSelection, maxSelection, height, width } = props;
+  const { data, domain, minSelection, maxSelection, height, width } = props;
 
   console.log("minSelection: " + minSelection);
 
@@ -52,7 +52,7 @@ const Histogram = (props) => {
 
     if (data) {
       var x = d3.scaleLinear()
-        .domain([0, 1.05])
+        .domain(domain)
         .range([margin.left, width - margin.right])
 
       const xTicks = x.ticks(21);

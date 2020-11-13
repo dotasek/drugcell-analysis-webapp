@@ -47,7 +47,7 @@ const GeneEntryPanel = (props: any) => {
         console.log('response', data)
         history.push("/finddrugs/results/" + data.id)
       }
-      );
+    );
 
   }
 

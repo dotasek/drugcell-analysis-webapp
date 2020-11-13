@@ -157,7 +157,7 @@ export default function ReactVirtualizedTable( props ) {
           {
             width: width - 80,
             label: 'Drug Name',
-            dataKey: 'Drug_Name',
+            dataKey: 'drug_name',
           },
           {
             width: 50,
