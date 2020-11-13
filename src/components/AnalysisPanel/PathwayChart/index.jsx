@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) =>
     },
     rightButton: {
       margin: '0.5em'
+    },
+    tooltip: {
+      position: 'absolute'
     }
   }),
 )
@@ -29,11 +32,15 @@ const PathwayChart = (props) => {
 
   const { data, domain, height, width } = props;
 
-  const margin = { top: 8, right: 8, bottom: 8, left: 48 };
+  const margin = { top: 8, right: 8, bottom: 8, left: 100 };
 
   let svg;
 
+  let tooltip;
+
   const initChart = () => {
+
+    tooltip = d3.select("#chart").append("div").attr("class", classes.tooltip);
 
     svg = d3.select("#chart")
       .append("svg")
@@ -49,7 +56,7 @@ const PathwayChart = (props) => {
 
     if (data) {
       var x = d3.scaleLinear()
-      .range([margin.left, width - margin.right]);
+      .range([margin.left, width - margin.right - margin.left]);
       x.domain([0, d3.max(data, function(d){ return d.RLIPP; })])
 
       var y = d3.scaleBand()
@@ -59,16 +66,28 @@ const PathwayChart = (props) => {
       y.domain(data.map(function(d) { return d.pathway_name; }));
 
       const svg = d3.select("#chart svg");
-
-
-        svg.selectAll("rect")
+      
+      const chart = svg.selectAll("rect")
         .data(data)
         .join("rect")
       .attr("x", function(d) { return margin.left; })
       .attr("width", function(d) {return x(d.RLIPP); } )
       .attr("y", function(d) { return y(d.pathway_name); })
       .attr("height", y.bandwidth())
-      .attr("fill", d => ("steelblue"));
+      .attr("fill", d => ("steelblue"))
+      .on("mouseover", function(event,d) {
+        tooltip.transition()
+          .duration(200)
+          .style("opacity", .9);
+        tooltip.html(d.pathway_name + ": " + d.RLIPP)
+          .style("left", (event.pageX+10) + "px")
+          .style("top", (event.pageY-80) + "px");
+        })
+      .on("mouseout", function(d) {
+        tooltip.transition()
+          .duration(500)
+          .style("opacity", 0);
+        });
 
       svg.append("g")
       .attr("transform", "translate(0," + height + ")")
