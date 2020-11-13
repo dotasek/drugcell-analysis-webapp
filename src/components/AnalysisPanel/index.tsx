@@ -62,6 +62,7 @@ const AnalysisPanel = (props: any) => {
 
   const [selectedData, setSelectedData] = useState<any>(data.predictions);
 
+  const [selectedPathways, setSelectedPathways] = useState<any>()
   const [selectedDrug, setSelectedDrug] = useState<any>()
 
   const onUpdate = (event: any) => {
@@ -88,6 +89,7 @@ const AnalysisPanel = (props: any) => {
 
   const onSelectDrug= (drug : any) => {
     console.log('AnalysisPanel selecting drug: ', drug)
+    setSelectedPathways(drug.top_pathways);
   }
 
   const histogramData = data.predictions.map((entry: any) => {
@@ -152,7 +154,7 @@ const AnalysisPanel = (props: any) => {
       </Typography>
       { selectedData && <DataTable data={selectedData} selectedDrug={selectedDrug} onSelectDrug={onSelectDrug} width={500} height={200}></DataTable>
       } 
-      { selectedData && <PathwayChart width={500} height={200}></PathwayChart>}
+      { selectedPathways && <PathwayChart data={selectedPathways} width={500} height={200}></PathwayChart>}
     </div>
   )
 }

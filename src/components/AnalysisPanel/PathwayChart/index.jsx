@@ -27,52 +27,11 @@ const useStyles = makeStyles((theme) =>
 
 const PathwayChart = (props) => {
 
-  const { domain, height, width } = props;
+  const { data, domain, height, width } = props;
 
-  const data = [
-    {
-      "pathway_name": "bile_acid_metabolic_process",
-      "RLIPP": 1684.401617
-    },
-    {
-      "pathway_name": "positive_regulation_of_protein_acetylation",
-      "RLIPP": 709.338983
-    },
-    {
-      "pathway_name": "regulation_of_ubiquitin-protein_transferase_activity",
-      "RLIPP": 166.922865
-    },
-    {
-      "pathway_name": "negative_regulation_of_CD4-positive,_alpha-beta_T_cell_activation",
-      "RLIPP": 159.380787
-    },
-    {
-      "pathway_name": "protein_kinase_C-activating_G_protein-coupled_receptor_signaling_pathway",
-      "RLIPP": 143.856852
-    },
-    {
-      "pathway_name": "NADH_metabolic_process",
-      "RLIPP": 137.891915
-    },
-    {
-      "pathway_name": "response_to_cold",
-      "RLIPP": 109.615541
-    },
-    {
-      "pathway_name": "T-helper_1_type_immune_response",
-      "RLIPP": 97.910451
-    },
-    {
-      "pathway_name": "mast_cell_degranulation",
-      "RLIPP": 85.113229
-    },
-    {
-      "pathway_name": "arachidonic_acid_secretion",
-      "RLIPP": 78.349761
-    }
-  ];
+  
 
-  const margin = { top: 8, right: 8, bottom: 8, left: 36 };
+  const margin = { top: 8, right: 8, bottom: 8, left: 48 };
 
   let svg;
 
@@ -92,8 +51,7 @@ const PathwayChart = (props) => {
 
     if (data) {
       var x = d3.scaleLinear()
-      .range([0, width]);
-
+      .range([margin.left, width - margin.right]);
       x.domain([0, d3.max(data, function(d){ return d.RLIPP; })])
 
       var y = d3.scaleBand()
@@ -104,22 +62,23 @@ const PathwayChart = (props) => {
 
       const svg = d3.select("#chart svg");
 
-      svg.append("g")
-        .attr("transform", "translate(" + margin.left + ",0)")
-        .call(d3.axisLeft(y));
 
-      svg.append("g")
-        .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
-
-        svg.selectAll(".bar")
+        svg.selectAll("rect")
         .data(data)
-      .enter().append("rect")
-        .attr("class", "bar")
-      //.attr("x", function(d) { return x(d.sales); })
+        .join("rect")
+      .attr("x", function(d) { return margin.left; })
       .attr("width", function(d) {return x(d.RLIPP); } )
       .attr("y", function(d) { return y(d.pathway_name); })
-      .attr("height", y.bandwidth());
+      .attr("height", y.bandwidth())
+      .attr("fill", d => ("steelblue"));
+
+      svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+      svg.append("g")
+      .attr("transform", "translate(" + margin.left + ",0)")
+      .call(d3.axisLeft(y));
     }
   }
 
