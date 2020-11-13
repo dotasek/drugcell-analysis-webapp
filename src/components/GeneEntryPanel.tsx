@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext} from 'react';
 
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+
+import AppContext from '../context/AppContext'
 
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
 
@@ -23,6 +25,8 @@ const GeneEntryPanel = (props: any) => {
 
   const [geneInput, setGeneInput] = useState<string | undefined>(genes);
 
+  const { cdapsServer } = useContext(AppContext);
+
   const classes = useStyles();
 
   const history = useHistory();
@@ -41,7 +45,7 @@ const GeneEntryPanel = (props: any) => {
         "data": geneInput
       })
     };
-    fetch('http://localhost:8081/cd/communitydetection/v1', requestOptions)
+    fetch(cdapsServer + 'v1', requestOptions)
       .then(response => response.json())
       .then(data => {
         console.log('response', data)
