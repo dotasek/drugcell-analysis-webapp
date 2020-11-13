@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom'
 import useDrugs from '../../hooks/useDrugs'
 import { Typography } from '@material-ui/core';
 import AppContext from '../../context/AppContext';
-
+import { CircularProgress } from '@material-ui/core';
 
 import './style.css';
 
@@ -32,8 +32,9 @@ const FindDrug = (props : any) => {
 
   if (drugResponse.isLoading) {
     return (
-      <Typography>Loading...
-      </Typography>
+      <div className='spinner'>
+        <CircularProgress color="secondary" />
+      </div>
     )
   }
 

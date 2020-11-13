@@ -5,6 +5,14 @@
     height: 100vh;
   }
 
+.spinner {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .left-components {
   grid-column : 1 / span 1;
   grid-row: 1 / span 1;
