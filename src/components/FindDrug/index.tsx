@@ -1,10 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useContext} from 'react';
 import {useLocation} from 'react-router-dom'
 import AnalysisPanel from '../AnalysisPanel'
 import GeneEntryPanel from '../GeneEntryPanel'
 import { useParams } from 'react-router-dom'
 import useDrugs from '../../hooks/useDrugs'
 import { Typography } from '@material-ui/core';
+import AppContext from '../../context/AppContext';
+
 
 import './style.css';
 
@@ -20,7 +22,9 @@ const FindDrug = (props : any) => {
 
   const location = useLocation();
 
-  const drugResponse = useDrugs('', resultid);
+  const { cdapsServer } = useContext(AppContext)
+
+  const drugResponse = useDrugs(cdapsServer, resultid);
 
   if (drugResponse.isError) {
 

@@ -15,9 +15,12 @@ const getDrugs = async <T>(
 }
 
 export default function useDrugs(
-  serverUrl: string,
+  serverUrl: string | undefined,
   genes: string
 ) {
+  if (serverUrl === undefined) {
+    throw new Error("Undefined serverUrl in useDrugs");
+  }
   console.log('genes updated, running query:', genes)
   return useQuery(['drugs', serverUrl, genes], getDrugs)
 }
