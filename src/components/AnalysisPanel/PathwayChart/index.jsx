@@ -12,7 +12,8 @@ const useStyles = makeStyles((theme) =>
   createStyles({
     container: {
       //width: '100%',
-      display: 'flex'
+      display: 'flex',
+      margin: '1em'
     },
     rightButtons: {
       display: 'flex',
@@ -44,6 +45,7 @@ const PathwayChart = (props) => {
 
     svg = d3.select("#chart")
       .append("svg")
+      .attr("id", 'svg_chart')
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
 
@@ -109,7 +111,7 @@ const PathwayChart = (props) => {
   }, [data])
 
   const handleExportClick = () => {
-    exportSVG(document.getElementById("chart").firstElementChild, 'response');
+    exportSVG(document.getElementById('svg_chart'), 'response');
   }
 
   const exportSVG = (svgEl, name) => {
