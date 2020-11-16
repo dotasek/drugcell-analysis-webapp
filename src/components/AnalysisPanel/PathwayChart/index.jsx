@@ -11,7 +11,7 @@ import * as d3 from 'd3';
 const useStyles = makeStyles((theme) =>
   createStyles({
     container: {
-      //width: '100%',
+      width: '100%',
       display: 'flex',
       margin: '1em'
     },

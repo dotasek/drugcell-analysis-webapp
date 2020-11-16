@@ -1,13 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, createStyles, makeStyles } from '@material-ui/core/styles';
 import TableCell from '@material-ui/core/TableCell';
 import Paper from '@material-ui/core/Paper';
 import { AutoSizer, Column, Table } from 'react-virtualized';
+import Button from '@material-ui/core/Button';
 
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    container: {
+      //width: '100%',
+      display: 'flex'
+    },
+    rightButtons: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center'
+    },
+    rightButton: {
+      margin: '0.5em'
+    }
+  }),
+)
 
-const styles = (theme) => ({
+const tableStyles = (theme) => ({
   flexContainer: {
     display: 'flex',
     alignItems: 'center',
@@ -86,7 +103,7 @@ class MuiVirtualizedTable extends React.PureComponent {
 
   render() {
     const { classes, columns, rowHeight, headerHeight, ...tableProps } = this.props;
-    
+
     return (
       <AutoSizer>
         {({ height, width }) => (
@@ -141,37 +158,45 @@ MuiVirtualizedTable.propTypes = {
   rowHeight: PropTypes.number,
 };
 
-const VirtualizedTable = withStyles(styles)(MuiVirtualizedTable);
+const VirtualizedTable = withStyles(tableStyles)(MuiVirtualizedTable);
 
-export default function ReactVirtualizedTable( props ) {
-  
+export default function ReactVirtualizedTable(props) {
+
   const { data, onSelectDrug, width, height } = props
-   
+
+  const classes = useStyles();
+
   const onRowClick = (event) => {
     onSelectDrug(event.rowData)
-  } 
-  //console.log('Table data: ', data);
+  }
 
   return (
-    <Paper style={{ height: height, width: width }}>
-      <VirtualizedTable
-        rowCount={data.length}
-        rowGetter={({ index }) => data[index]}
-        onRowClick={onRowClick}
-        columns={[
-          {
-            width: width - 80,
-            label: 'Drug Name',
-            dataKey: 'drug_name',
-          },
-          {
-            width: 50,
-            label: 'Predicted AUC',
-            dataKey: 'predicted_AUC',
-            numeric: true
-          } 
-        ]}
-      />
-    </Paper>
+    <div className={classes.container}>
+      <Paper style={{ height: height, width: width }}>
+        <VirtualizedTable
+          rowCount={data.length}
+          rowGetter={({ index }) => data[index]}
+          onRowClick={onRowClick}
+          columns={[
+            {
+              width: width - 80,
+              label: 'Drug Name',
+              dataKey: 'drug_name',
+            },
+            {
+              width: 50,
+              label: 'Predicted AUC',
+              dataKey: 'predicted_AUC',
+              numeric: true
+            }
+          ]}
+        />
+      </Paper>
+      <div className={classes.rightButtons}>
+        <Button className={classes.rightButton} variant="contained" color="primary" >
+          Download
+        </Button>
+      </div>
+    </div>
   );
 }
