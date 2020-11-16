@@ -13,12 +13,7 @@ const getDrugs = async <T>(
 
   const cdapsResult = await waitForResult(resultUrl, 20);
 
-  console.log('cdapsResult: ', cdapsResult);
-
-  let data = await fetch('https://raw.githubusercontent.com/dotasek/drugcell-analysis-webapp/master/public/sample_result.json')
-  let json = await data.json()
-
-  return json.result
+  return cdapsResult
 }
 
 const waitForResult = async<T>(resultUrl: string, remainingAttempts: number) => {
@@ -32,7 +27,7 @@ const waitForResult = async<T>(resultUrl: string, remainingAttempts: number) => 
   if (resultJson.status === 'complete') {
     return resultJson.result
   } else {
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise(resolve => setTimeout(resolve, 2000));
     const result : any = await waitForResult(resultUrl, remainingAttempts - 1);
     return result
   }
