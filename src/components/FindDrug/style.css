@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 300px auto;
     grid-template-rows: min-content auto;
-    height: 100vh;
+    height: calc(100vh - 70px);
   }
 
 .spinner {
@@ -20,11 +20,13 @@
   display: flex;
   flex-direction: column;
   margin: 1em;
+
 }
 
 .center-components {
   grid-column : 2 / span 1;
   grid-row: 1 / span 1;
-  margin-top: 1em
+  height: calc(100vh - 70px);
+  overflow: scroll
 }
 

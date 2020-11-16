@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme) =>
     },
     rightButtons: {
       display: 'flex',
-      flexDirection: 'column'
+      flexDirection: 'column',
+      justifyContent: 'center'
     },
     rightButton: {
       margin: '0.5em'

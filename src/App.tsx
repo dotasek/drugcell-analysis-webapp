@@ -7,7 +7,10 @@ import './App.css';
 import AppContext from './context/AppContext'
 import FindDrug from './components/FindDrug'
 import AppShell from './components/AppShell'
+import FindDrugQuery from './components/FindDrugQuery'
+
 import AppConfig from './model/AppConfig';
+
 
 type AppProps = {
   config : AppConfig
@@ -27,7 +30,9 @@ const App = (props : AppProps) => {
           </AppShell>
         </Route>
         <Route path="/finddrugs/">
-          query
+        <AppShell title={ "DrugCell Find Drugs" } tooltip={"Analyze Genetype With DrugCell"}>
+          <FindDrugQuery />
+          </AppShell>
         </Route>
         <Route path="/">
           meh
