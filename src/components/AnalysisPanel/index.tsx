@@ -24,7 +24,6 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 )
 
-
 const sliderStyle = {
   position: "relative",
   width: "500px",
@@ -33,10 +32,6 @@ const sliderStyle = {
   marginLeft: '1em',
   marginRight: '1em'
 };
-
-
-
-
 
 const AnalysisPanel = (props: any) => {
 
@@ -48,7 +43,7 @@ const AnalysisPanel = (props: any) => {
     return a > entry.predicted_AUC ? a : entry.predicted_AUC
   }, 0);
 
-  const step = 10;
+  const step = max_AUC / 10;
 
   const domainMax =  Math.ceil(max_AUC / step) * step;
 

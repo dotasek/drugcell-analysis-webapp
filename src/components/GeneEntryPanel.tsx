@@ -61,7 +61,7 @@ const GeneEntryPanel = (props: any) => {
         id='standard-multiline-static'
         label="Gene List"
         multiline
-        rows={4}
+        rows={10}
         value={geneInput}
         onChange={handleUpdate}
       />
