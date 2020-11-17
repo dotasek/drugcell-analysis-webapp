@@ -69,13 +69,16 @@ const PathwayChart = (props) => {
 
       const svg = d3.select("#chart svg");
 
-      const tooltip = d3.select('#chart tooltip')
+      svg.selectAll("g.x.axis").remove();
+      svg.selectAll("g.y.axis").remove();
+
+      //const tooltip = d3.select('#chart tooltip')
 
       const chart = svg.selectAll("rect")
         .data(data)
         .join("rect")
       .attr("x", function(d) { return margin.left; })
-      .attr("width", function(d) {return x(d.RLIPP); } )
+      .attr("width", function(d) { return x(d.RLIPP) - margin.left; } )
       .attr("y", function(d) { return y(d.pathway_name); })
       .attr("height", y.bandwidth())
       .attr("fill", d => ("steelblue")).on("mouseover", function(event,d) {
@@ -93,8 +96,6 @@ const PathwayChart = (props) => {
         });
       
 
-      svg.selectAll("g.x.axis").remove();
-      svg.selectAll("g.y.axis").remove();
   
 
       svg.append("g")
