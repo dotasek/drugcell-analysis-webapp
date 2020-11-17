@@ -58,7 +58,7 @@ const AnalysisPanel = (props: any) => {
   const [selectedDrug, setSelectedDrug] = useState<any>()
 
   const onUpdate = (event: any) => {
-    console.log('slider onUpdate: ', event)
+   // console.log('slider onUpdate: ', event)
     setMinSelection(event[0]);
     setMaxSelection(event[1]);
     filterData(event[0], event[1])
@@ -76,11 +76,11 @@ const AnalysisPanel = (props: any) => {
   }
 
   const onChange = (event: any) => {
-    console.log('slider onChange: ', event)
+    //console.log('slider onChange: ', event)
   }
 
   const onSelectDrug= (drug : any) => {
-    console.log('AnalysisPanel selecting drug: ', drug)
+    setSelectedDrug(drug.drug_name)
     setSelectedPathways(drug.top_pathways);
   }
 
@@ -146,7 +146,7 @@ const AnalysisPanel = (props: any) => {
       </Typography>
       { selectedData && <DataTable data={selectedData} selectedDrug={selectedDrug} onSelectDrug={onSelectDrug} width={500} height={200}></DataTable>
       } 
-      { selectedPathways && <PathwayChart data={selectedPathways} width={500} height={200}></PathwayChart>}
+      { selectedPathways && <PathwayChart data={selectedPathways} drugName={selectedDrug} width={500} height={200}></PathwayChart>}
     </div>
   )
 }

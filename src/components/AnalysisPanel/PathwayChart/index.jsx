@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) =>
 
 const PathwayChart = (props) => {
 
-  const { data, domain, height, width } = props;
+  const { data, drugName, domain, height, width } = props;
 
   const margin = { top: 8, right: 8, bottom: 8, left: 100 };
 
@@ -94,9 +94,6 @@ const PathwayChart = (props) => {
           .duration(500)
           .style("opacity", 0);
         });
-      
-
-  
 
       svg.append("g")
       .attr("class", "x axis")
@@ -137,6 +134,29 @@ const PathwayChart = (props) => {
     document.body.removeChild(downloadLink);
   }
 
+  const getPathwayCSV= () => {
+    let output = '"pathway_name","RLIPP"\n'
+    data.forEach((pathway) => {
+      output += '"' + pathway.pathway_name + '",' + pathway.RLIPP + "\n"
+    })
+    return output
+  }
+
+  const exportPathways = () => {
+    
+    const content = getPathwayCSV();
+    
+    const a = document.createElement('a')
+    const file = new Blob([content], { type: 'application/text' })
+    a.href = URL.createObjectURL(file)
+    a.download = drugName + '_top_10_pathways.csv'
+    a.click()
+  }
+
+  const handleDownloadClick = () => {
+    exportPathways()
+  }
+
   const classes = useStyles();
 
   return (
@@ -145,7 +165,7 @@ const PathwayChart = (props) => {
         <Button className={classes.rightButton} variant="contained" color="primary" onClick={handleExportClick}>
           Export SVG
         </Button>
-        <Button className={classes.rightButton} variant="contained" color="primary" >
+        <Button className={classes.rightButton} variant="contained" color="primary" onClick={handleDownloadClick}>
           Download
         </Button>
       </div>

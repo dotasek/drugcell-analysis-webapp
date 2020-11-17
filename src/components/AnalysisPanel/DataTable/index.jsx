@@ -170,6 +170,25 @@ export default function ReactVirtualizedTable(props) {
     onSelectDrug(event.rowData)
   }
 
+  const getDrugCSV= () => {
+    let output = '"drug_name","predicted_AUC"\n'
+    data.forEach((drug) => {
+      output += '"' + drug.drug_name + '",' + drug.predicted_AUC + "\n"
+    })
+    return output
+  }
+
+  const exportDrugs = () => {
+    
+    const content = getDrugCSV();
+    
+    const a = document.createElement('a')
+    const file = new Blob([content], { type: 'application/text' })
+    a.href = URL.createObjectURL(file)
+    a.download = 'drugcell_predictions.csv'
+    a.click()
+  }
+
   return (
     <div className={classes.container}>
       <Paper style={{ height: height, width: width }}>
@@ -193,7 +212,7 @@ export default function ReactVirtualizedTable(props) {
         />
       </Paper>
       <div className={classes.rightButtons}>
-        <Button className={classes.rightButton} variant="contained" color="primary" >
+        <Button className={classes.rightButton} variant="contained" color="primary" onClick={exportDrugs}>
           Download
         </Button>
       </div>
