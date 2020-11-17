@@ -68,7 +68,9 @@ const PathwayChart = (props) => {
       y.domain(data.map(function(d) { return d.pathway_name; }));
 
       const svg = d3.select("#chart svg");
-      
+
+      const tooltip = d3.select('#chart tooltip')
+
       const chart = svg.selectAll("rect")
         .data(data)
         .join("rect")
@@ -76,8 +78,7 @@ const PathwayChart = (props) => {
       .attr("width", function(d) {return x(d.RLIPP); } )
       .attr("y", function(d) { return y(d.pathway_name); })
       .attr("height", y.bandwidth())
-      .attr("fill", d => ("steelblue"))
-      .on("mouseover", function(event,d) {
+      .attr("fill", d => ("steelblue")).on("mouseover", function(event,d) {
         tooltip.transition()
           .duration(200)
           .style("opacity", .9);
@@ -90,12 +91,19 @@ const PathwayChart = (props) => {
           .duration(500)
           .style("opacity", 0);
         });
+      
+
+      svg.selectAll("g.x.axis").remove();
+      svg.selectAll("g.y.axis").remove();
+  
 
       svg.append("g")
+      .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
 
       svg.append("g")
+      .attr("class", "y axis")
       .attr("transform", "translate(" + margin.left + ",0)")
       .call(d3.axisLeft(y));
     }

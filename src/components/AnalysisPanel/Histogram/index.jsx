@@ -74,11 +74,16 @@ const Histogram = (props) => {
 
       const svg = d3.select("#histogram svg");
 
+      svg.selectAll("g.x.axis").remove();
+      svg.selectAll("g.y.axis").remove();
+
       svg.append("g")
+      .attr("class", "y axis")
       .attr("transform", "translate("+margin.left+",0)")
       .call(d3.axisLeft(y));
 
       svg.append("g")
+      .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
 
