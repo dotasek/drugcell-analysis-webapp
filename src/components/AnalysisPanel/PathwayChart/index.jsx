@@ -166,7 +166,7 @@ const PathwayChart = (props) => {
           Export SVG
         </Button>
         <Button className={classes.rightButton} variant="contained" color="primary" onClick={handleDownloadClick}>
-          Download
+          Download Results
         </Button>
       </div>
     </div>

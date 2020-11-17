@@ -114,6 +114,19 @@ const Histogram = (props) => {
     exportSVG(document.getElementById("histogram").firstElementChild, 'response');
   }
 
+
+
+  const exportResults = () => {
+    
+    const content = JSON.stringify(data);
+    
+    const a = document.createElement('a')
+    const file = new Blob([content], { type: 'application/json' })
+    a.href = URL.createObjectURL(file)
+    a.download = 'drugcell_predictions.json'
+    a.click()
+  }
+
   const exportSVG = (svgEl, name)=> {
     svgEl.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     var svgData = svgEl.outerHTML;
@@ -136,7 +149,7 @@ const Histogram = (props) => {
         <Button className={classes.rightButton} variant="contained" color="primary" onClick={handleExportClick}>
           Export SVG
         </Button>
-        <Button className={classes.rightButton} variant="contained" color="primary" >
+        <Button className={classes.rightButton} variant="contained" color="primary" onClick={exportResults}>
           Download
         </Button>
       </div>

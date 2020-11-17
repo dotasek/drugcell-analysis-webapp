@@ -213,7 +213,7 @@ export default function ReactVirtualizedTable(props) {
       </Paper>
       <div className={classes.rightButtons}>
         <Button className={classes.rightButton} variant="contained" color="primary" onClick={exportDrugs}>
-          Download
+          Download Table
         </Button>
       </div>
     </div>
