@@ -35,7 +35,7 @@ const PathwayChart = (props) => {
 
   const { data, drugName, domain, height, width } = props;
 
-  const margin = { top: 8, right: 8, bottom: 8, left: 200 };
+  const margin = { top: 8, right: 20, bottom: 40, left: 200 };
 
   let svg;
 
@@ -60,7 +60,7 @@ const PathwayChart = (props) => {
 
     if (data) {
       var x = d3.scaleLinear()
-      .range([margin.left, width ]);
+      .range([margin.left, width - margin.right ]);
       x.domain([0, d3.max(data, function(d){ return d.RLIPP; })])
 
       var y = d3.scaleBand()
@@ -100,7 +100,13 @@ const PathwayChart = (props) => {
       svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x).tickFormat(d3.format("d")));
+      .call(d3.axisBottom(x).tickFormat(d3.format("d")))
+      .selectAll("text")
+    .attr("y", 0)
+    .attr("x", 9)
+    .attr("dy", ".35em")
+    .attr("transform", "rotate(45)")
+    .style("text-anchor", "start");;
 
       svg.append("g")
       .attr("class", "y axis")
