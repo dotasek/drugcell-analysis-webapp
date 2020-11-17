@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) =>
       justifyContent: 'center'
     },
     rightButton: {
-      margin: '0.5em'
+      margin: '1em'
     }
   }),
 )
@@ -36,6 +36,7 @@ const tableStyles = (theme) => ({
     '& .ReactVirtualized__Table__headerRow': {
       flip: false,
       paddingRight: theme.direction === 'rtl' ? '0 !important' : undefined,
+      backgroundColor: 'LightGrey'
     },
   },
   tableRow: {
@@ -203,7 +204,7 @@ export default function ReactVirtualizedTable(props) {
               dataKey: 'drug_name',
             },
             {
-              width: 50,
+              width: 80,
               label: 'Predicted AUC',
               dataKey: 'predicted_AUC',
               numeric: true

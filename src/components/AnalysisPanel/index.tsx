@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme: Theme) =>
       height: 'auto',
       display: 'flex',
       flexDirection: 'column'
+    },
+    resultPanel: {
+      margin: '1em'
     }
   }),
 )
@@ -28,7 +31,7 @@ const sliderStyle = {
   position: "relative",
   width: "500px",
   marginTop: '1.5em',
-  marginBottom: '2.5em',
+  marginBottom: '4em',
   marginLeft: '1em',
   marginRight: '1em'
 };
@@ -93,6 +96,8 @@ const AnalysisPanel = (props: any) => {
 
   return (
     <div className={classes.container}>
+      <div className={classes.resultPanel}>
+      <Typography variant='h6'>Histogram of Drugs by Predicted AUC</Typography>
       <Histogram data={histogramData} domain={domain} minSelection={minSelection} maxSelection={maxSelection} height={200} width={500}></Histogram>
       <Slider
         mode={2}
@@ -144,13 +149,14 @@ const AnalysisPanel = (props: any) => {
           )}
         </Ticks>
       </Slider>
-      <Typography>Select Drugs by Predicted AUC</Typography>
+      <Typography variant='h6'>Select Drugs by Predicted AUC</Typography>
       <Typography>
               Minimum AUC: {minSelection} Maximum AUC: {maxSelection} Drugs Selected: {selectedData ? selectedData.length : 0}
       </Typography>
-      { selectedData && <DataTable data={selectedData} selectedDrug={selectedDrug} onSelectDrug={onSelectDrug} width={500} height={200}></DataTable>
+      </div>
+      { selectedData &&  <div className={classes.resultPanel}><DataTable data={selectedData} selectedDrug={selectedDrug} onSelectDrug={onSelectDrug} width={500} height={400}></DataTable></div>
       } 
-      { selectedPathways && <PathwayChart data={selectedPathways} drugName={selectedDrug} width={500} height={200}></PathwayChart>}
+      { selectedPathways && <div className={classes.resultPanel}><PathwayChart data={selectedPathways} drugName={selectedDrug} width={500} height={200}></PathwayChart></div>}
     </div>
   )
 }
