@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme: Theme) =>
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'column'
+    },
+    queryContainer: {
+      width: '500px'
     }
   }),
 )
@@ -28,7 +31,9 @@ const FindDrugQuery = (props: any) => {
 
   return (
     <div className={classes.container}>
+        <div className={classes.queryContainer}>
         <GeneEntryPanel buttonText = { 'Run DrugCell' }></GeneEntryPanel>
+        </div>
     </div>
   )
 }

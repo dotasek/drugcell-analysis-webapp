@@ -59,10 +59,11 @@ const GeneEntryPanel = (props: any) => {
     <div className={classes.container}>
       <TextField
         id='standard-multiline-static'
-        label="Gene List"
+        label="Query Genes"
         multiline
         rows={10}
         value={geneInput}
+        placeholder="Enter a list of comma delimited genes"
         onChange={handleUpdate}
       />
       <Button variant="contained" color="primary" onClick={handleClick}>
