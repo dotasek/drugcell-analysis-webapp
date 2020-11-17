@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme) =>
       margin: '0.5em'
     },
     tooltip: {
-      position: 'absolute'
+      position: 'absolute',
+      zIndex: 1
     }
   }),
 )
