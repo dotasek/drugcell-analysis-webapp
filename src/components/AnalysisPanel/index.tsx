@@ -157,7 +157,7 @@ const AnalysisPanel = (props: any) => {
         </Slider>
         
         <Typography variant='caption'>
-          Minimum AUC: {minSelection} Maximum AUC: {maxSelection}
+          Minimum AUC: {minSelection} Maximum AUC: {maxSelection} Drugs Selected: {selectedData ? selectedData.length : 0}
         </Typography>
        
       </div>
@@ -166,8 +166,8 @@ const AnalysisPanel = (props: any) => {
       { selectedData &&
         <div className={classes.resultPanel}>
           <Typography variant='h6'>Selected Drugs</Typography>
-          <Typography variant='caption'>
-            Drugs Selected: {selectedData ? selectedData.length : 0}
+          <Typography variant='subtitle1'>
+            Select a drug to view it's top 10 pathways according to RLIPP below.
           </Typography>
           <DataTable data={selectedData} selectedDrug={selectedDrug} onSelectDrug={onSelectDrug} width={500} height={400}></DataTable>
         </div>
