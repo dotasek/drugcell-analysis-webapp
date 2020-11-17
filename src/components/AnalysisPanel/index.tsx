@@ -37,6 +37,8 @@ const AnalysisPanel = (props: any) => {
 
   const { data } = props;
 
+  data.predictions.sort((a:any,b:any) => { return b.predicted_AUC - a.predicted_AUC})
+
   const classes = useStyles();
 
   const max_AUC =data.predictions.reduce((a: number, entry: any) => {
@@ -142,7 +144,9 @@ const AnalysisPanel = (props: any) => {
           )}
         </Ticks>
       </Slider>
-      <Typography>Selection Size: {selectedData ? selectedData.length : 0}
+      <Typography>Select Drugs by Predicted AUC</Typography>
+      <Typography>
+              Minimum AUC: {minSelection} Maximum AUC: {maxSelection} Drugs Selected: {selectedData ? selectedData.length : 0}
       </Typography>
       { selectedData && <DataTable data={selectedData} selectedDrug={selectedDrug} onSelectDrug={onSelectDrug} width={500} height={200}></DataTable>
       } 
