@@ -64,7 +64,7 @@ const PathwayChart = (props) => {
       x.domain([0, d3.max(data, function(d){ return d.RLIPP; })])
 
       var y = d3.scaleBand()
-        .range([height, 0])
+        .range([0, height])
         .padding(0.1);
 
       y.domain(data.map(function(d) { return d.pathway_name; }));
