@@ -26,6 +26,14 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     instructionText: {
       fontStyle: 'italic'
+    },
+    sliderProperties: {
+      display : 'flex',
+      justifyContent : 'space-between',
+      width: '500px'
+    },
+    sliderProperty: {
+
     }
   }),
 )
@@ -43,7 +51,7 @@ const AnalysisPanel = (props: any) => {
 
   const { data } = props;
 
-  data.predictions.sort((a: any, b: any) => { return b.predicted_AUC - a.predicted_AUC })
+  data.predictions.sort((a: any, b: any) => { return a.predicted_AUC - b.predicted_AUC })
 
   const classes = useStyles();
 
@@ -101,10 +109,10 @@ const AnalysisPanel = (props: any) => {
     <div className={classes.container}>
       <div className={classes.resultPanel}>
         <Typography variant='h6'>Histogram of Drugs by Predicted AUC</Typography>
-       
+
         <Histogram data={histogramData} domain={domain} minSelection={minSelection} maxSelection={maxSelection} height={200} width={500}></Histogram>
         <Typography variant='subtitle2'>Drag slider handles to select drugs for a range of AUC values.</Typography>
-        
+
         <Slider
           mode={2}
           step={step}
@@ -155,11 +163,17 @@ const AnalysisPanel = (props: any) => {
             )}
           </Ticks>
         </Slider>
-        
+        <div className={classes.sliderProperties}>
         <Typography variant='caption'>
-          Minimum AUC: {minSelection} Maximum AUC: {maxSelection} Drugs Selected: {selectedData ? selectedData.length : 0}
+          Minimum AUC: {minSelection.toFixed(5)}
         </Typography>
-       
+        <Typography variant='caption'>
+          Drugs Selected: {selectedData ? selectedData.length : 0}
+        </Typography>
+        <Typography variant='caption'>
+          Maximum AUC: {maxSelection.toFixed(5)}
+        </Typography>
+        </div>
       </div>
 
 
@@ -172,7 +186,7 @@ const AnalysisPanel = (props: any) => {
           <DataTable data={selectedData} selectedDrug={selectedDrug} onSelectDrug={onSelectDrug} width={500} height={400}></DataTable>
         </div>
       }
-      { selectedPathways && 
+      { selectedPathways &&
         <div className={classes.resultPanel}>
           <Typography variant='h6'>Top Pathways for {selectedDrug} by RLIPP</Typography>
           <PathwayChart data={selectedPathways} drugName={selectedDrug} width={500} height={200}></PathwayChart>
