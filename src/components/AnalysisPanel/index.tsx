@@ -51,7 +51,7 @@ const AnalysisPanel = (props: any) => {
     return a > entry.predicted_AUC ? a : entry.predicted_AUC
   }, 0);
 
-  const step = max_AUC / 10;
+  const step = max_AUC / 20;
 
   const domainMax = Math.ceil(max_AUC / step) * step;
 
