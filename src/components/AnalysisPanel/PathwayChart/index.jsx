@@ -73,7 +73,7 @@ const PathwayChart = (props) => {
       svg.selectAll("g.x.axis").remove();
       svg.selectAll("g.y.axis").remove();
 
-      //const tooltip = d3.select('#chart tooltip')
+      const tooltip = d3.select('#chart div')
 
       const chart = svg.selectAll("rect")
         .data(data)
@@ -167,7 +167,7 @@ const PathwayChart = (props) => {
           Export SVG
         </Button>
         <Button className={classes.rightButton} variant="contained" color="primary" onClick={handleDownloadClick}>
-          Download Results
+          Download CSV
         </Button>
       </div>
     </div>

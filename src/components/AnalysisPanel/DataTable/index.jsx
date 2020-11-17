@@ -41,6 +41,9 @@ const tableStyles = (theme) => ({
   },
   tableRow: {
     cursor: 'pointer',
+    '&:selected': {
+      backgroundColor: theme.palette.grey[400],
+    }
   },
   tableRowHover: {
     '&:hover': {
@@ -214,7 +217,7 @@ export default function ReactVirtualizedTable(props) {
       </Paper>
       <div className={classes.rightButtons}>
         <Button className={classes.rightButton} variant="contained" color="primary" onClick={exportDrugs}>
-          Download Table
+          Download CSV
         </Button>
       </div>
     </div>

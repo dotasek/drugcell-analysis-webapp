@@ -150,7 +150,7 @@ const Histogram = (props) => {
           Export SVG
         </Button>
         <Button className={classes.rightButton} variant="contained" color="primary" onClick={exportResults}>
-          Download
+          Download JSON
         </Button>
       </div>
     </div>
