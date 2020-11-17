@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme) =>
     },
     tooltip: {
       position: 'absolute',
-      zIndex: 1
+      zIndex: 1,
+      backgroundColor: 'white'
     }
   }),
 )
@@ -86,7 +87,7 @@ const PathwayChart = (props) => {
         tooltip.transition()
           .duration(200)
           .style("opacity", .9);
-        tooltip.html(d.pathway_name + ": " + d.RLIPP)
+        tooltip.html(d.pathway_name + "<br>RLIPP: " + d.RLIPP)
           .style("left", (event.pageX+10) + "px")
           .style("top", (event.pageY-80) + "px");
         })

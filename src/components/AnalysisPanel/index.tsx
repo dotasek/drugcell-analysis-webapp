@@ -101,7 +101,10 @@ const AnalysisPanel = (props: any) => {
     <div className={classes.container}>
       <div className={classes.resultPanel}>
         <Typography variant='h6'>Histogram of Drugs by Predicted AUC</Typography>
+       
         <Histogram data={histogramData} domain={domain} minSelection={minSelection} maxSelection={maxSelection} height={200} width={500}></Histogram>
+        <Typography variant='subtitle2'>Drag slider handles to select drugs for a range of AUC values.</Typography>
+        
         <Slider
           mode={2}
           step={step}
@@ -152,22 +155,28 @@ const AnalysisPanel = (props: any) => {
             )}
           </Ticks>
         </Slider>
-        <Typography>
+        
+        <Typography variant='caption'>
           Minimum AUC: {minSelection} Maximum AUC: {maxSelection}
         </Typography>
+       
       </div>
 
 
       { selectedData &&
         <div className={classes.resultPanel}>
           <Typography variant='h6'>Selected Drugs</Typography>
-          <Typography>
+          <Typography variant='caption'>
             Drugs Selected: {selectedData ? selectedData.length : 0}
           </Typography>
           <DataTable data={selectedData} selectedDrug={selectedDrug} onSelectDrug={onSelectDrug} width={500} height={400}></DataTable>
         </div>
       }
-      { selectedPathways && <div className={classes.resultPanel}><PathwayChart data={selectedPathways} drugName={selectedDrug} width={500} height={200}></PathwayChart></div>}
+      { selectedPathways && 
+        <div className={classes.resultPanel}>
+          <Typography variant='h6'>Top Pathways for {selectedDrug} by RLIPP</Typography>
+          <PathwayChart data={selectedPathways} drugName={selectedDrug} width={500} height={200}></PathwayChart>
+        </div>}
     </div>
   )
 }
