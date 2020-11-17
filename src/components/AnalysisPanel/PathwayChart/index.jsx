@@ -100,7 +100,7 @@ const PathwayChart = (props) => {
       svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+      .call(d3.axisBottom(x).tickFormat(d3.format("d")));
 
       svg.append("g")
       .attr("class", "y axis")
