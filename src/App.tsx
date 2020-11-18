@@ -34,8 +34,18 @@ const App = (props : AppProps) => {
           <FindDrugQuery />
           </AppShell>
         </Route>
+        <Route path="/analyze/findcells/results/:resultid">
+          <AppShell title={ "DrugCell Find Cells" } tooltip={"Analyze Drug SMILES With DrugCell"}>
+            FindCells
+          </AppShell>
+        </Route>
+        <Route path="/analyze/findcells/">
+        <AppShell title={ "DrugCell Find Cells" } tooltip={"Analyze Drug SMILES With DrugCell"}>
+            FindCells query
+          </AppShell>
+        </Route>
         <Route path="/">
-          meh
+          There is nothing here.
         </Route>
       </Switch>
     </BrowserRouter>
