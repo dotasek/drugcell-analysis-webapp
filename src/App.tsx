@@ -24,12 +24,12 @@ const App = (props : AppProps) => {
     <AppContext.Provider value={ config }>
     <BrowserRouter>
       <Switch>
-        <Route path="/finddrugs/results/:resultid">
+        <Route path="/analyze/finddrugs/results/:resultid">
           <AppShell title={ "DrugCell Find Drugs" } tooltip={"Analyze Genetype With DrugCell"}>
             <FindDrug/>
           </AppShell>
         </Route>
-        <Route path="/finddrugs/">
+        <Route path="/analyze/finddrugs/">
         <AppShell title={ "DrugCell Find Drugs" } tooltip={"Analyze Genetype With DrugCell"}>
           <FindDrugQuery />
           </AppShell>

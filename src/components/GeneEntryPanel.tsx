@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 
 const GeneEntryPanel = (props: any) => {
-  const { genes, buttonText = 'Re-Run DrugCell' } = props;
+  const { genes, buttonText = 'Run DrugCell' } = props;
 
   const [geneInput, setGeneInput] = useState<string | undefined>(genes);
 
@@ -49,7 +49,7 @@ const GeneEntryPanel = (props: any) => {
       .then(response => response.json())
       .then(data => {
         console.log('response', data)
-        history.push("/finddrugs/results/" + data.id)
+        history.push("/analyze/finddrugs/results/" + data.id)
       }
     );
 
