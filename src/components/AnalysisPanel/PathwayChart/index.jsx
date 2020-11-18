@@ -35,7 +35,7 @@ const PathwayChart = (props) => {
 
   const { data, drugName, domain, height, width } = props;
 
-  const margin = { top: 8, right: 20, bottom: 40, left: 200 };
+  const margin = { top: 8, right: 20, bottom: 40, left: 70 };
 
   let svg;
 
@@ -67,7 +67,7 @@ const PathwayChart = (props) => {
         .range([0, height])
         .padding(0.1);
 
-      y.domain(data.map(function(d) { return d.pathway_name; }));
+      y.domain(data.map(function(d) { return d.GO_id; }));
 
       const svg = d3.select("#chart svg");
 
@@ -81,7 +81,7 @@ const PathwayChart = (props) => {
         .join("rect")
       .attr("x", function(d) { return margin.left; })
       .attr("width", function(d) { return x(d.RLIPP) - margin.left; } )
-      .attr("y", function(d) { return y(d.pathway_name); })
+      .attr("y", function(d) { return y(d.GO_id); })
       .attr("height", y.bandwidth())
       .attr("fill", d => ("steelblue")).on("mouseover", function(event,d) {
         tooltip.transition()
