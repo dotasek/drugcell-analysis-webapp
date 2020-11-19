@@ -71,6 +71,7 @@ const PathwayChart = (props) => {
 
       svg.selectAll("g.x.axis").remove();
       svg.selectAll("g.y.axis").remove();
+      svg.selectAll("text").remove();
 
       const tooltip = d3.select('#chart div')
 
@@ -110,6 +111,13 @@ const PathwayChart = (props) => {
       .attr("class", "y axis")
       .attr("transform", "translate(" + margin.left + ",0)")
       .call(d3.axisLeft(y));
+
+       // Add X axis label:
+       svg.append("text")
+       .attr("text-anchor", "end")
+       .attr("x", (width / 2) + 60)
+       .attr("y", height + margin.bottom + 2 )
+       .text("RLIPP Score");
     }
   }
 
