@@ -1,18 +1,8 @@
-
-
-
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
-
-import React, { useState, useContext } from 'react';
-import { useLocation } from 'react-router-dom'
-import DrugAnalysisPanel from '../DrugAnalysisPanel'
+import React from 'react';
 import GeneEntryPanel from '../GeneEntryPanel'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { useParams } from 'react-router-dom'
-import useDrugs from '../../hooks/useDrugs'
 import { Typography } from '@material-ui/core';
-import AppContext from '../../context/AppContext';
-import { CircularProgress } from '@material-ui/core';
+
 
 import './style.css';
 

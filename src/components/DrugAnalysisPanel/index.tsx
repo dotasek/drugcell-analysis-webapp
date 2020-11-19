@@ -196,7 +196,7 @@ const AnalysisPanel = (props: any) => {
         <div className={classes.resultPanel}>
           <Typography variant='h6'>Selected Drugs</Typography>
           <Typography variant='subtitle1'>
-            Select a drug to view it's top 10 pathways according to RLIPP below.
+            Select a drug to view its top 10 pathways according to RLIPP below.
           </Typography>
           <DataTable data={selectedData} columns={tableColumns} selectedDrug={selectedDrug} onSelectRow={onSelectDrug} width={500} height={400}></DataTable>
         </div>
