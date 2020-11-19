@@ -1,6 +1,6 @@
 
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
 
@@ -8,10 +8,10 @@ import { Slider, Rail, Handles, Tracks, Ticks } from "react-compound-slider";
 import { SliderRail, Handle, Track, Tick } from "./sliderComponents"; // example render components - source below
 import { Typography } from '@material-ui/core';
 
-import Histogram from './Histogram'
-import DataTable from './DataTable'
+import Histogram from '../Histogram'
+import DataTable from '../DataTable'
 
-import PathwayChart from './PathwayChart';
+import PathwayChart from '../PathwayChart';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

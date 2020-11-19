@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {useLocation} from 'react-router-dom'
-import AnalysisPanel from '../AnalysisPanel'
+import DrugAnalysisPanel from '../DrugAnalysisPanel'
 import GeneEntryPanel from '../GeneEntryPanel'
 import { useParams } from 'react-router-dom'
 import useDrugs from '../../hooks/useDrugs'
@@ -62,7 +62,7 @@ const FindDrug = (props : any) => {
         <GeneEntryPanel genes={drugResponse.data.inputGenes} {...props} />
       </div>
       <div className='center-components'>
-        <AnalysisPanel data={drugResponse.data} {...props}/>
+        <DrugAnalysisPanel data={drugResponse.data} {...props}/>
       </div>
     </div>
   );
