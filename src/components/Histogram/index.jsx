@@ -31,7 +31,7 @@ const Histogram = (props) => {
 
   console.log("minSelection: " + minSelection);
 
-  const margin = { top: 8, right: 8, bottom: 8, left: 36 };
+  const margin = { top: 8, right: 8, bottom: 20, left: 48 };
 
   let svg;
 
@@ -77,15 +77,32 @@ const Histogram = (props) => {
       svg.selectAll("g.x.axis").remove();
       svg.selectAll("g.y.axis").remove();
 
-      svg.append("g")
-      .attr("class", "y axis")
-      .attr("transform", "translate("+margin.left+",0)")
-      .call(d3.axisLeft(y));
+      svg.selectAll("text").remove();
 
       svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+        .attr("class", "y axis")
+        .attr("transform", "translate(" + margin.left + ",0)")
+        .call(d3.axisLeft(y));
+
+      svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + (height - margin.bottom) + ")")
+        .call(d3.axisBottom(x));
+
+      // Add X axis label:
+      svg.append("text")
+        .attr("text-anchor", "end")
+        .attr("x", (width / 2) + 60)
+        .attr("y", height + margin.bottom )
+        .text("Predicted AUC");
+
+      // Y axis label:
+      svg.append("text")
+        .attr("text-anchor", "end")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 10)
+        .attr("x", -(height / 2) + 40)
+        .text("Frequency")
 
       var rect = svg.selectAll("rect")
         .data(bins)
@@ -94,12 +111,12 @@ const Histogram = (props) => {
         .attr("width", d => Math.max(0, x(d.x1) - x(d.x0) - 1))
         .attr("y", d => y(d.length))
         .attr("height", d => y(0) - y(d.length)).attr("fill", d => (d.x0 >= minSelection && d.x1 <= maxSelection) ? "steelblue" : "gray");
-    
-    
+
+
     }
   }
 
-  
+
 
   useEffect(() => {
     initHistogram();
@@ -117,9 +134,9 @@ const Histogram = (props) => {
 
 
   const exportResults = () => {
-    
+
     const content = JSON.stringify(data);
-    
+
     const a = document.createElement('a')
     const file = new Blob([content], { type: 'application/json' })
     a.href = URL.createObjectURL(file)
@@ -127,11 +144,11 @@ const Histogram = (props) => {
     a.click()
   }
 
-  const exportSVG = (svgEl, name)=> {
+  const exportSVG = (svgEl, name) => {
     svgEl.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     var svgData = svgEl.outerHTML;
     var preface = '<?xml version="1.0" standalone="no"?>\r\n';
-    var svgBlob = new Blob([preface, svgData], {type:"image/svg+xml;charset=utf-8"});
+    var svgBlob = new Blob([preface, svgData], { type: "image/svg+xml;charset=utf-8" });
     var svgUrl = URL.createObjectURL(svgBlob);
     var downloadLink = document.createElement("a");
     downloadLink.href = svgUrl;
