@@ -105,6 +105,20 @@ const AnalysisPanel = (props: any) => {
   }
   )
 
+  const tableColumns = [
+    {
+      width: 500 - 80,
+      label: 'Drug Name',
+      dataKey: 'drug_name',
+    },
+    {
+      width: 80,
+      label: 'Predicted AUC',
+      dataKey: 'predicted_AUC',
+      numeric: true
+    }
+  ]
+
   return (
     <div className={classes.container}>
       <div className={classes.resultPanel}>
@@ -178,12 +192,13 @@ const AnalysisPanel = (props: any) => {
 
 
       { selectedData &&
+        
         <div className={classes.resultPanel}>
           <Typography variant='h6'>Selected Drugs</Typography>
           <Typography variant='subtitle1'>
             Select a drug to view it's top 10 pathways according to RLIPP below.
           </Typography>
-          <DataTable data={selectedData} selectedDrug={selectedDrug} onSelectDrug={onSelectDrug} width={500} height={400}></DataTable>
+          <DataTable data={selectedData} columns={tableColumns} selectedDrug={selectedDrug} onSelectRow={onSelectDrug} width={500} height={400}></DataTable>
         </div>
       }
       { selectedPathways &&

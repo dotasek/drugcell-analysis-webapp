@@ -166,25 +166,39 @@ const VirtualizedTable = withStyles(tableStyles)(MuiVirtualizedTable);
 
 export default function ReactVirtualizedTable(props) {
 
-  const { data, onSelectDrug, width, height } = props
+  const { data, columns, onSelectRow, width, height } = props
 
   const classes = useStyles();
 
   const onRowClick = (event) => {
-    onSelectDrug(event.rowData)
+    onSelectRow(event.rowData)
   }
 
-  const getDrugCSV= () => {
-    let output = '"drug_name","predicted_AUC"\n'
-    data.forEach((drug) => {
-      output += '"' + drug.drug_name + '",' + drug.predicted_AUC + "\n"
+  const getCSVRow = (row) => {
+    const values = columns.map((column)=>{
+      return column.numeric ? row[column.dataKey] : `"${row[column.dataKey]}"`;
+    })
+    return values.join(',');
+  }
+
+  const getCSVHeader = () => {
+    const values = columns.map((column)=>{
+      return `"${column.dataKey}"`;
+    })
+    return values.join(',');
+  }
+
+  const getCSV= () => {
+    let output = getCSVHeader() + '\n';
+    data.forEach((row) => {
+      output += getCSVRow(row) + '\n';
     })
     return output
   }
 
-  const exportDrugs = () => {
+  const exportCSV = () => {
     
-    const content = getDrugCSV();
+    const content = getCSV();
     
     const a = document.createElement('a')
     const file = new Blob([content], { type: 'application/text' })
@@ -200,23 +214,11 @@ export default function ReactVirtualizedTable(props) {
           rowCount={data.length}
           rowGetter={({ index }) => data[index]}
           onRowClick={onRowClick}
-          columns={[
-            {
-              width: width - 80,
-              label: 'Drug Name',
-              dataKey: 'drug_name',
-            },
-            {
-              width: 80,
-              label: 'Predicted AUC',
-              dataKey: 'predicted_AUC',
-              numeric: true
-            }
-          ]}
+          columns={columns}
         />
       </Paper>
       <div className={classes.rightButtons}>
-        <Button className={classes.rightButton} variant="contained" color="primary" onClick={exportDrugs}>
+        <Button className={classes.rightButton} variant="contained" color="primary" onClick={exportCSV}>
           Download CSV
         </Button>
       </div>
