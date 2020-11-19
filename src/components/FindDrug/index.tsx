@@ -46,16 +46,6 @@ const FindDrug = (props : any) => {
     )
   }
 
-  /*
-  useEffect(()=>{
-    if (location.search.startsWith('?')) {
-      const genes = location.search.substring(location.search.indexOf('=') + 1, location.search.length);
-      console.log('useEffect genes detected: ', genes)
-      setGenes(decodeURIComponent(genes));
-    }
-  }, [location])
-*/
-
   return (
     <div className='container'>
       <div className='left-components'>
