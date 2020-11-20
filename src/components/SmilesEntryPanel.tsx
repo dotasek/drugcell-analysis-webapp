@@ -33,12 +33,18 @@ const SmilesEntryPanel = (props: any) => {
 
   const history = useHistory();
 
+  const emailRE = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  const isValidEmail = (inputString: string) => {
+    return emailRE.test(String(inputString).toLowerCase())
+  }
+
   const handleSmilesUpdate = (event: any) => {
     setSmilesInput(event.target.value);
   }
 
   const handleEmailUpdate = (event: any) => {
-    setEmail(event.target.value);
+    setEmail(isValidEmail(event.target.value) ? event.target.value : undefined);
   }
 
   const handleClick = () => {
@@ -79,6 +85,7 @@ const SmilesEntryPanel = (props: any) => {
         id='standard-multiline-static'
         label="E-mail"
         value={email}
+        error = {!email}
         placeholder="Enter valid e-mail address"
         onChange={handleEmailUpdate}
       />
