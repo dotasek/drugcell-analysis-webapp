@@ -127,10 +127,10 @@ const CellAnalysisPanel = (props: any) => {
   return (
     <div className={classes.container}>
       <div className={classes.resultPanel}>
-        <Typography variant='h6'>Histogram of Drugs by Predicted AUC</Typography>
+        <Typography variant='h6'>Histogram of Cells by Predicted AUC</Typography>
 
         <Histogram data={histogramData} domain={domain} minSelection={minSelection} maxSelection={maxSelection} height={200} width={500}></Histogram>
-        <Typography variant='subtitle2'>Drag slider handles to select drugs for a range of AUC values.</Typography>
+        <Typography variant='subtitle2'>Drag slider handles to select cells for a range of AUC values.</Typography>
 
         <Slider
           mode={2}
