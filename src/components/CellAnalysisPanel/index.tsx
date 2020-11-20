@@ -47,7 +47,7 @@ const sliderStyle = {
   marginRight: '1em'
 };
 
-const DrugAnalysisPanel = (props: any) => {
+const CellAnalysisPanel = (props: any) => {
 
   const { data } = props;
 
@@ -215,4 +215,4 @@ const DrugAnalysisPanel = (props: any) => {
   )
 }
 
-export default DrugAnalysisPanel
+export default CellAnalysisPanel

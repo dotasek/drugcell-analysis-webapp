@@ -6,9 +6,12 @@ import './App.css';
 
 import AppContext from './context/AppContext'
 import FindDrug from './components/FindDrug'
-import AppShell from './components/AppShell'
 import FindDrugQuery from './components/FindDrugQuery'
 
+import FindCell from './components/FindCell'
+import FindCellQuery from './components/FindCellQuery'
+
+import AppShell from './components/AppShell'
 import AppConfig from './model/AppConfig';
 
 
@@ -36,12 +39,12 @@ const App = (props : AppProps) => {
         </Route>
         <Route path="/analyze/findcells/results/:resultid">
           <AppShell title={ "DrugCell Find Cells" } tooltip={"Analyze Drug SMILES With DrugCell"}>
-            FindCells
+             <FindCell />
           </AppShell>
         </Route>
         <Route path="/analyze/findcells/">
         <AppShell title={ "DrugCell Find Cells" } tooltip={"Analyze Drug SMILES With DrugCell"}>
-            FindCells query
+          <FindCellQuery />
           </AppShell>
         </Route>
         <Route path="/">

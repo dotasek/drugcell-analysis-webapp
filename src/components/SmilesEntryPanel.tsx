@@ -20,10 +20,12 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 )
 
-const GeneEntryPanel = (props: any) => {
-  const { genes } = props;
+const SmilesEntryPanel = (props: any) => {
+  const { smiles } = props;
 
-  const [geneInput, setGeneInput] = useState<string | undefined>(genes);
+  const [smilesInput, setSmilesInput] = useState<string | undefined>(smiles);
+
+  const [email, setEmail] = useState<string>();
 
   const { cdapsServer } = useContext(AppContext);
 
@@ -31,25 +33,32 @@ const GeneEntryPanel = (props: any) => {
 
   const history = useHistory();
 
-  const handleUpdate = (event: any) => {
-    setGeneInput(event.target.value);
+  const handleSmilesUpdate = (event: any) => {
+    setSmilesInput(event.target.value);
+  }
+
+  const handleEmailUpdate = (event: any) => {
+    setEmail(event.target.value);
   }
 
   const handleClick = () => {
-    console.log('sending gene input: ', geneInput);
+    console.log('sending smiles input: ', smilesInput);
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        "algorithm": "drugcellfinddrug",
-        "data": geneInput
+        "algorithm": "drugcellfindcell",
+        "data": smilesInput,
+        "customParameters": {
+          "--email": email
+        }
       })
     };
     fetch(cdapsServer + 'v1', requestOptions)
       .then(response => response.json())
       .then(data => {
         console.log('response', data)
-        history.push("/analyze/finddrugs/results/" + data.id)
+        history.push("/analyze/findcells/results/" + data.id)
       }
     );
 
@@ -59,18 +68,25 @@ const GeneEntryPanel = (props: any) => {
     <div className={classes.container}>
       <TextField
         id='standard-multiline-static'
-        label="Query Genes"
+        label="SMILES"
         multiline
         rows={10}
-        value={geneInput}
-        placeholder="Enter a list of comma delimited genes"
-        onChange={handleUpdate}
+        value={smilesInput}
+        placeholder="Enter a SMILES string"
+        onChange={handleSmilesUpdate}
       />
-      <Button variant="contained" color="primary" onClick={handleClick}>
+       <TextField
+        id='standard-multiline-static'
+        label="E-mail"
+        value={email}
+        placeholder="Enter valid e-mail address"
+        onChange={handleEmailUpdate}
+      />
+      <Button disabled={email === undefined} variant="contained" color="primary" onClick={handleClick}>
         Run DrugCell
       </Button>
     </div>
   )
 }
 
-export default GeneEntryPanel;
+export default SmilesEntryPanel;
