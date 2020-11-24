@@ -49,7 +49,7 @@ const FindDrug = (props : any) => {
   return (
     <div className='container'>
       <div className='left-components'>
-        <GeneEntryPanel genes={drugResponse.data.inputGenes} filteredGenes={drugResponse.data.filteredGenes} {...props} />
+        <GeneEntryPanel genes={drugResponse.data.inputGenes } filteredGenes={drugResponse.data.filteredGenes} {...props} />
       </div>
       <div className='center-components'>
         <DrugAnalysisPanel data={drugResponse.data} {...props}/>

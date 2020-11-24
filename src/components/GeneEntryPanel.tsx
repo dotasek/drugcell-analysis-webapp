@@ -28,6 +28,8 @@ const useStyles = makeStyles((theme: Theme) =>
 const GeneEntryPanel = (props: any) => {
   const { genes, filteredGenes } = props;
 
+  const filteredGenesText = filteredGenes.map( (x : string) => x.trim()).join('\n');
+
   const [geneInput, setGeneInput] = useState<string | undefined>(genes);
 
   const { cdapsServer } = useContext(AppContext);
@@ -38,6 +40,19 @@ const GeneEntryPanel = (props: any) => {
 
   const handleUpdate = (event: any) => {
     setGeneInput(event.target.value);
+  }
+
+  const copyUnmatchedGenesToClipboard = () => {
+    var dummy = document.createElement("textarea");
+
+    document.body.appendChild(dummy);
+
+    dummy.value = filteredGenesText;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+
+    console.log('copied');
   }
 
   const handleClick = () => {
@@ -78,10 +93,6 @@ const GeneEntryPanel = (props: any) => {
       }
     };
   };
-
-  const handleClipboard = () => {
-
-  }
 
   return (
     <div className={classes.container}>
@@ -124,7 +135,7 @@ const GeneEntryPanel = (props: any) => {
             label={"Unmatched Genes: " + filteredGenes.length}
             multiline
             rows={8}
-            value={filteredGenes.join('\n')}
+            value={filteredGenesText}
             fullWidth={true}
             InputProps={{
               readOnly: true,
@@ -134,7 +145,7 @@ const GeneEntryPanel = (props: any) => {
           <Button
             variant="contained"
             color="primary"
-            onClick={ handleClipboard }
+            onClick={ copyUnmatchedGenesToClipboard }
             fullWidth={true}>
             Copy to Clipboard
           </Button>
