@@ -17,7 +17,11 @@ const useStyles = makeStyles((theme: Theme) =>
       height: '100%',
       display: 'flex',
       flexDirection: 'column'
-    }
+    },
+    item: {
+      padding: '1em'
+
+    },
   }),
 )
 
@@ -38,12 +42,17 @@ const GeneEntryPanel = (props: any) => {
 
   const handleClick = () => {
     console.log('sending gene input: ', geneInput);
+
+    //Split on any non-alphanumeric except '-' and join with ','
+    //DrugCell internally requires uppercase
+    const normalizedGenes = geneInput?.split(/[^A-Za-z0-9-]/).filter(x => x.length > 0).join(',').toUpperCase();
+
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         "algorithm": "drugcellfinddrug",
-        "data": geneInput?.toUpperCase()
+        "data": normalizedGenes
       })
     };
     fetch(cdapsServer + 'v1', requestOptions)
@@ -56,7 +65,7 @@ const GeneEntryPanel = (props: any) => {
 
   }
 
-  const handleUpload = ( event : any ) => {
+  const handleUpload = (event: any) => {
     const fileReader = new FileReader();
     //const name = target.accept.includes('image') ? 'images' : 'videos';
 
@@ -68,38 +77,69 @@ const GeneEntryPanel = (props: any) => {
         setGeneInput(resultString)
       }
     };
-};
+  };
+
+  const handleClipboard = () => {
+
+  }
 
   return (
     <div className={classes.container}>
-      <TextField
-        id='standard-multiline-static'
-        label="Query Genes"
-        multiline
-        rows={10}
-        value={geneInput}
-        placeholder="Enter a list of comma delimited genes"
-        onChange={handleUpdate}
-      />
-      <Button
-        variant="contained"
-        component="label"
-      >
-        Load Genes from File
-          <input id="fileInput"
-          type="file"
-          onChange={handleUpload}
-          hidden
+      <div className={classes.item}>
+        <TextField
+          id='query-field'
+          label="Query Genes"
+          multiline
+          rows={10}
+          value={geneInput}
+          placeholder="Enter a list of comma delimited genes"
+          onChange={handleUpdate}
+          fullWidth={true}
         />
+        <Button
+          variant="contained"
+          component="label"
+          fullWidth={true}
+        >
+          Load Genes from File
+          <input id="fileInput"
+            type="file"
+            onChange={handleUpload}
+            hidden
+          />
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleClick}
+          fullWidth={true}>
+          Run DrugCell
       </Button>
-      <Button variant="contained" color="primary" onClick={handleClick}>
-        Run DrugCell
-      </Button>
-
-      <Typography>
-        Unmatched Genes ({filteredGenes.length})
-      </Typography>
-
+      </div>
+      {
+        filteredGenes &&
+        <div className={classes.item}>
+          <TextField
+            id='unmatched-genes-field'
+            label={"Unmatched Genes: " + filteredGenes.length}
+            multiline
+            rows={8}
+            value={filteredGenes.join('\n')}
+            fullWidth={true}
+            InputProps={{
+              readOnly: true,
+            }}
+            variant="filled"
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={ handleClipboard }
+            fullWidth={true}>
+            Copy to Clipboard
+          </Button>
+        </div>
+      }
     </div>
   )
 }
