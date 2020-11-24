@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const GeneEntryPanel = (props: any) => {
   const { genes, filteredGenes } = props;
 
-  const filteredGenesText = filteredGenes.map( (x : string) => x.trim()).join('\n');
+  const filteredGenesText = filteredGenes ? filteredGenes.map( (x : string) => x.trim()).join('\n') : undefined;
 
   const [geneInput, setGeneInput] = useState<string | undefined>(genes);
 
