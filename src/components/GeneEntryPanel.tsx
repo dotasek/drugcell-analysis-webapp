@@ -1,4 +1,4 @@
-import React, { useState, useContext} from 'react';
+import React, { useState, useContext } from 'react';
 
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
@@ -8,6 +8,7 @@ import AppContext from '../context/AppContext'
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
 
 import { useHistory } from "react-router-dom";
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 
 const GeneEntryPanel = (props: any) => {
-  const { genes } = props;
+  const { genes, filteredGenes } = props;
 
   const [geneInput, setGeneInput] = useState<string | undefined>(genes);
 
@@ -42,7 +43,7 @@ const GeneEntryPanel = (props: any) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         "algorithm": "drugcellfinddrug",
-        "data": geneInput
+        "data": geneInput?.toUpperCase()
       })
     };
     fetch(cdapsServer + 'v1', requestOptions)
@@ -51,9 +52,23 @@ const GeneEntryPanel = (props: any) => {
         console.log('response', data)
         history.push("/analyze/finddrugs/results/" + data.id)
       }
-    );
+      );
 
   }
+
+  const handleUpload = ( event : any ) => {
+    const fileReader = new FileReader();
+    //const name = target.accept.includes('image') ? 'images' : 'videos';
+
+    fileReader.readAsText(event.target.files[0]);
+    fileReader.onload = (e) => {
+      console.log('fileReader.onload: ', e.target);
+      if (e.target && e.target.result && typeof e.target.result === "string") {
+        const resultString = e.target.result;
+        setGeneInput(resultString)
+      }
+    };
+};
 
   return (
     <div className={classes.container}>
@@ -66,9 +81,25 @@ const GeneEntryPanel = (props: any) => {
         placeholder="Enter a list of comma delimited genes"
         onChange={handleUpdate}
       />
+      <Button
+        variant="contained"
+        component="label"
+      >
+        Load Genes from File
+          <input id="fileInput"
+          type="file"
+          onChange={handleUpload}
+          hidden
+        />
+      </Button>
       <Button variant="contained" color="primary" onClick={handleClick}>
         Run DrugCell
       </Button>
+
+      <Typography>
+        Unmatched Genes ({filteredGenes.length})
+      </Typography>
+
     </div>
   )
 }

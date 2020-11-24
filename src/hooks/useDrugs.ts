@@ -36,11 +36,11 @@ const waitForResult = async<T>(resultUrl: string, remainingAttempts: number) => 
 
 export default function useDrugs(
   serverUrl: string | undefined,
-  genes: string
+  resultId: string
 ) {
   if (serverUrl === undefined) {
     throw new Error("Undefined serverUrl in useDrugs");
   }
-  console.log('genes updated, running query:', genes)
-  return useQuery(['drugs', serverUrl, genes], getDrugs)
+  console.log('genes updated, running query:', resultId)
+  return useQuery(['drugs', serverUrl, resultId], getDrugs)
 }

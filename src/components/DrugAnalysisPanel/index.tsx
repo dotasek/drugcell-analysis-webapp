@@ -107,20 +107,20 @@ const DrugAnalysisPanel = (props: any) => {
 
   const tableColumns = [
     {
-      width: 500 - 160,
+      width: 500 - 200,
       label: 'Drug Name',
       dataKey: 'drug_name',
+    },
+    {
+      width: 120,
+      label: 'SMILES',
+      dataKey: 'drug_smiles'
     },
     {
       width: 80,
       label: 'Predicted AUC',
       dataKey: 'predicted_AUC',
       numeric: true
-    },
-    {
-      width: 80,
-      label: 'SMILES',
-      dataKey: 'drug_smiles'
     }
   ]
 
