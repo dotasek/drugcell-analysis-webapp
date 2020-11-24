@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexDirection: 'column'
     },
     item: {
-      padding: '1em'
+      paddingTop: '1em'
 
     },
   }),
