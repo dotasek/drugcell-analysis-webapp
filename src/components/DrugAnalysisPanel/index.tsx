@@ -112,15 +112,15 @@ const DrugAnalysisPanel = (props: any) => {
       dataKey: 'drug_name',
     },
     {
-      width: 120,
-      label: 'SMILES',
-      dataKey: 'drug_smiles'
-    },
-    {
       width: 80,
       label: 'Predicted AUC',
       dataKey: 'predicted_AUC',
       numeric: true
+    },
+    {
+      width: 120,
+      label: 'SMILES',
+      dataKey: 'drug_smiles'
     }
   ]
 
