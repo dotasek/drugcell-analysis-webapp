@@ -84,7 +84,11 @@ class MuiVirtualizedTable extends React.PureComponent {
         style={{ height: rowHeight }}
         align={(columnIndex != null && columns[columnIndex].numeric) || false ? 'right' : 'left'}
       >
-        {cellData}
+        { columns[columnIndex].href 
+          ? <a href={columns[columnIndex].href + cellData} target="_blank" title={columns[columnIndex].hrefTitle}>{cellData}</a> 
+          : cellData
+        }
+        
       </TableCell>
     );
   };
@@ -155,6 +159,8 @@ MuiVirtualizedTable.propTypes = {
       label: PropTypes.string.isRequired,
       numeric: PropTypes.bool,
       width: PropTypes.number.isRequired,
+      href: PropTypes.string,
+      hrefTitle: PropTypes.string
     }),
   ).isRequired,
   headerHeight: PropTypes.number,
@@ -166,12 +172,12 @@ const VirtualizedTable = withStyles(tableStyles)(MuiVirtualizedTable);
 
 export default function ReactVirtualizedTable(props) {
 
-  const { data, columns, onSelectRow, width, height } = props
+  const { data, columns, fileName, onSelectRow, width, height } = props
 
   const classes = useStyles();
 
   const onRowClick = (event) => {
-    onSelectRow(event.rowData)
+    onSelectRow && onSelectRow(event.rowData)
   }
 
   const getCSVRow = (row) => {
@@ -203,7 +209,7 @@ export default function ReactVirtualizedTable(props) {
     const a = document.createElement('a')
     const file = new Blob([content], { type: 'application/text' })
     a.href = URL.createObjectURL(file)
-    a.download = 'drugcell_predictions.csv'
+    a.download = fileName ? fileName : 'untitled.csv'
     a.click()
   }
 
