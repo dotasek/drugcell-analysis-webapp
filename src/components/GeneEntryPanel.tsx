@@ -100,12 +100,14 @@ const GeneEntryPanel = (props: any) => {
         <TextField
           id='query-field'
           label="Query Genes"
+          helperText= { geneInput ? undefined : "Enter a list of comma delimited genes" }
           multiline
           rows={10}
           value={geneInput}
-          placeholder="Enter a list of comma delimited genes"
+          placeholder="Type genes, or upload from a file below"
           onChange={handleUpdate}
           fullWidth={true}
+          variant="outlined"
         />
         <Button
           variant="contained"
