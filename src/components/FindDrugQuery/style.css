@@ -7,11 +7,13 @@
 
 .hint {
   display: flex;
-  height: 100%;
-  width: 100%;
+  position: relative;
+  top: 10em;
+  left: 2em;
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  width: fit-content;
 }
 
 .left-components {
