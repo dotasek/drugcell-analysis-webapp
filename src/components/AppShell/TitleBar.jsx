@@ -61,7 +61,8 @@ const styles = theme => ({
 const titleStyle = {
   position: 'relative',
   left: '1em',
-  textTransform: 'none'
+  textTransform: 'none',
+  display: 'contents'
 }
 
 class TitleBar extends React.Component {
@@ -91,23 +92,18 @@ class TitleBar extends React.Component {
       >
         <div className={classes.noWrap}>
           <Toolbar disableGutters={true}>
-            <Tooltip
-              title={ tooltip }
-              aria-label="drugcell_tooltip"
-            >
-              <div>
-                <Button style={titleStyle}>
+          
+              <div style={titleStyle}>
+                <Button href="http://drugcell.ucsd.edu/">
                   <HomeIcon fontSize="default" className={classes.homeLogo} />
-                  <Typography variant="h6" color="inherit" noWrap={true}>
+                </Button>
+                <Typography variant="h6" color="inherit" noWrap={true}>
                     { title }
                   </Typography>
                   <Typography variant="subtitle1" color="inherit" noWrap={true} className={classes.descriptionText} >
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit
                   </Typography>
-                </Button>
               </div>
-            </Tooltip>
-
             <div className={classes.grow} />
 
             <div>
