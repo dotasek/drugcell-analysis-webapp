@@ -35,6 +35,10 @@ const styles = theme => ({
     width: '1em',
     marginRight: '0.5em'
   },
+  descriptionText: {
+    marginLeft: '1em',
+    color: 'grey'
+  },
   appBar: {
     
     transition: theme.transitions.create(['margin', 'width'], {
@@ -79,6 +83,9 @@ class TitleBar extends React.Component {
                   <HomeIcon fontSize="default" className={classes.homeLogo} />
                   <Typography variant="h6" color="inherit" noWrap={true}>
                     { title }
+                  </Typography>
+                  <Typography variant="subtitle1" color="inherit" noWrap={true} className={classes.descriptionText} >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
                   </Typography>
                 </Button>
               </div>
