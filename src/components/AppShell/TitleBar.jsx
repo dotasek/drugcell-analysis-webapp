@@ -12,6 +12,8 @@ import Button from '@material-ui/core/Button'
 
 import HomeIcon from '@material-ui/icons/Home'
 
+import HelpDialog from '../HelpDialog'
+
 const styles = theme => ({
   root: {
     flexGrow: 1
@@ -64,8 +66,23 @@ const titleStyle = {
 
 class TitleBar extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      helpOpen: false
+    };
+  }
+
   render() {
     const { classes, title, tooltip, ...others } = this.props
+    
+    const handleHelpOpen = () => {
+      this.setState({ helpOpen: true })
+    };
+  
+    const handleHelpClose = () => {
+      this.setState({ helpOpen: false })
+    };
 
     return (
       <AppBar
@@ -104,6 +121,7 @@ class TitleBar extends React.Component {
                   <IconButton
                     aria-haspopup="true"
                     color="inherit"
+                    onClick = { handleHelpOpen }
                   >
                     <HelpIcon className={classes.logo} />
                   </IconButton>
@@ -113,6 +131,7 @@ class TitleBar extends React.Component {
             </div>
           </Toolbar>
         </div>
+        <HelpDialog open={this.state.helpOpen} onClose={handleHelpClose}></HelpDialog>
       </AppBar>
     )
   }

@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     item: {
       paddingTop: '1em'
-
     },
   }),
 )
@@ -131,6 +130,13 @@ const GeneEntryPanel = (props: any) => {
           Run DrugCell
       </Button>
       </div>
+      { (validGenes || invalidGenes) &&
+         <div className={classes.item}>
+        <Typography>
+          Input Validation
+        </Typography>
+        </div>
+      }
       {
         validGenes &&
         <div className={classes.item}>
@@ -148,7 +154,7 @@ const GeneEntryPanel = (props: any) => {
           />
           <Button
             variant="contained"
-            color="primary"
+            //color="primary"
             onClick={ () => { copyToClipboard(validGenes) }}
             fullWidth={true}>
             Copy to Clipboard
@@ -172,7 +178,7 @@ const GeneEntryPanel = (props: any) => {
           />
           <Button
             variant="contained"
-            color="primary"
+            //color="primary"
             onClick={  () => { copyToClipboard(invalidGenes) } }
             fullWidth={true}>
             Copy to Clipboard
