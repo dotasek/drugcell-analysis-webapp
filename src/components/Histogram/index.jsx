@@ -101,8 +101,8 @@ const Histogram = (props) => {
         .attr("text-anchor", "end")
         .attr("transform", "rotate(-90)")
         .attr("y", 10)
-        .attr("x", -(height / 2) + 40)
-        .text("Frequency")
+        .attr("x", -(height / 2) + 60)
+        .text("Number of Drugs")
 
       var rect = svg.selectAll("rect")
         .data(bins)
@@ -165,9 +165,6 @@ const Histogram = (props) => {
       <div className={classes.rightButtons}>
         <Button className={classes.rightButton} variant="contained" color="primary" onClick={handleExportClick}>
           Export SVG
-        </Button>
-        <Button className={classes.rightButton} variant="contained" color="primary" onClick={exportResults}>
-          Download JSON
         </Button>
       </div>
     </div>
