@@ -105,9 +105,9 @@ const DrugAnalysisPanel = (props: any) => {
   }
   )
 
-  const tableColumns = [
+  const drugTableColumns = [
     {
-      width: 500 - 160,
+      width: 500 - 200,
       label: 'Drug Name',
       dataKey: 'drug_name',
     },
@@ -118,9 +118,30 @@ const DrugAnalysisPanel = (props: any) => {
       numeric: true
     },
     {
-      width: 80,
+      width: 120,
       label: 'SMILES',
       dataKey: 'drug_smiles'
+    }
+  ]
+
+  const pathwayTableColumns = [
+    {
+      width: 100,
+      label: 'GO ID',
+      dataKey: 'GO_id',
+      href: 'http://amigo.geneontology.org/amigo/term/',
+      hrefTitle: 'AmiGO Link'
+    },
+    {
+      width: 80,
+      label: 'RLIPP Score',
+      dataKey: 'RLIPP',
+      numeric: true
+    },
+    {
+      width: 500 - 180,
+      label: 'Pathway Name',
+      dataKey: 'pathway_name'
     }
   ]
 
@@ -203,13 +224,13 @@ const DrugAnalysisPanel = (props: any) => {
           <Typography variant='subtitle1'>
             Select a drug to view its top 10 pathways according to RLIPP below.
           </Typography>
-          <DataTable data={selectedData} columns={tableColumns} selectedDrug={selectedDrug} onSelectRow={onSelectDrug} width={500} height={400}></DataTable>
+          <DataTable data={selectedData} columns={drugTableColumns} selectedDrug={selectedDrug} onSelectRow={onSelectDrug} width={500} height={400}></DataTable>
         </div>
       }
       { selectedPathways &&
         <div className={classes.resultPanel}>
           <Typography variant='h6'>Top Pathways for {selectedDrug} by RLIPP</Typography>
-          <PathwayChart data={selectedPathways} drugName={selectedDrug} width={500} height={200}></PathwayChart>
+          <DataTable data={selectedPathways} columns={pathwayTableColumns} selectedDrug={selectedDrug} fileName={selectedDrug + '_pathways.csv'} width={500} height={400}></DataTable>
         </div>}
     </div>
   )
