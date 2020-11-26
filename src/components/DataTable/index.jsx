@@ -172,45 +172,12 @@ const VirtualizedTable = withStyles(tableStyles)(MuiVirtualizedTable);
 
 export default function ReactVirtualizedTable(props) {
 
-  const { data, columns, fileName, onSelectRow, width, height } = props
+  const { data, columns, onDownload, downloadText, onSelectRow, width, height } = props
 
   const classes = useStyles();
 
   const onRowClick = (event) => {
     onSelectRow && onSelectRow(event.rowData)
-  }
-
-  const getCSVRow = (row) => {
-    const values = columns.map((column)=>{
-      return column.numeric ? row[column.dataKey] : `"${row[column.dataKey]}"`;
-    })
-    return values.join(',');
-  }
-
-  const getCSVHeader = () => {
-    const values = columns.map((column)=>{
-      return `"${column.dataKey}"`;
-    })
-    return values.join(',');
-  }
-
-  const getCSV= () => {
-    let output = getCSVHeader() + '\n';
-    data.forEach((row) => {
-      output += getCSVRow(row) + '\n';
-    })
-    return output
-  }
-
-  const exportCSV = () => {
-    
-    const content = getCSV();
-    
-    const a = document.createElement('a')
-    const file = new Blob([content], { type: 'application/text' })
-    a.href = URL.createObjectURL(file)
-    a.download = fileName ? fileName : 'untitled.csv'
-    a.click()
   }
 
   return (
@@ -223,11 +190,13 @@ export default function ReactVirtualizedTable(props) {
           columns={columns}
         />
       </Paper>
-      <div className={classes.rightButtons}>
-        <Button className={classes.rightButton} variant="contained" color="primary" onClick={exportCSV}>
-          Download CSV
+      {
+      onDownload && <div className={classes.rightButtons}>
+        <Button className={classes.rightButton} variant="contained" color="primary" onClick={onDownload}>
+          {downloadText ? downloadText : 'Download'}
         </Button>
       </div>
+      }
     </div>
   );
 }

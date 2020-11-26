@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme: Theme) =>
       fontStyle: 'italic'
     },
     sliderProperties: {
-      display : 'flex',
-      justifyContent : 'space-between',
+      display: 'flex',
+      justifyContent: 'space-between',
       width: '500px'
     },
     sliderProperty: {
@@ -100,11 +100,6 @@ const DrugAnalysisPanel = (props: any) => {
     setSelectedPathways(drug.top_pathways);
   }
 
-  const histogramData = data.predictions.map((entry: any) => {
-    return { drug_name: entry.drug_name, predicted_AUC: entry.predicted_AUC }
-  }
-  )
-
   const drugTableColumns = [
     {
       width: 500 - 200,
@@ -123,6 +118,63 @@ const DrugAnalysisPanel = (props: any) => {
       dataKey: 'drug_smiles'
     }
   ]
+
+  const getDrugTSVRow = (row: any) => {
+    const values = drugTableColumns.map((column) => {
+      return row[column.dataKey];
+    })
+    return values.join('\t');
+  }
+
+  const getDrugTSVHeader = () => {
+    const values = drugTableColumns.map((column) => {
+      return column.dataKey;
+    })
+    return values.join('\t');
+  }
+
+  const getDrugTSV = () => {
+    let output = getDrugTSVHeader() + '\n';
+    selectedData.forEach((row: any) => {
+      output += getDrugTSVRow(row) + '\n';
+    })
+    return output
+  }
+
+  const exportDrugTSV = () => {
+
+    const content = getDrugTSV();
+
+    const a = document.createElement('a')
+    const file = new Blob([content], { type: 'application/text' })
+    a.href = URL.createObjectURL(file)
+    a.download = 'drugcell_predictions.tsv'
+    a.click()
+  }
+
+  const downloadPathway = () => {
+    const drugData = data.predictions.find((element: any) => element.drug_name === selectedDrug)
+
+    if (drugData) {
+      const fileName = `fallmo100_rlipp_${drugData.drug_id}.tsv`;
+      fetch('http://drugcell.ucsd.edu/rlipp/' + fileName, { mode: 'no-cors' })
+        .then(response => {
+          response.blob().then(blob => {
+            let url = window.URL.createObjectURL(blob);
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = selectedDrug + '.tsv';
+            a.click();
+          });
+          //window.location.href = response.url;
+        });
+    }
+  }
+
+  const histogramData = data.predictions.map((entry: any) => {
+    return { drug_name: entry.drug_name, predicted_AUC: entry.predicted_AUC }
+  }
+  )
 
   const pathwayTableColumns = [
     {
@@ -204,33 +256,33 @@ const DrugAnalysisPanel = (props: any) => {
           </Ticks>
         </Slider>
         <div className={classes.sliderProperties}>
-        <Typography variant='caption'>
-          Minimum AUC: {minSelection.toFixed(5)}
-        </Typography>
-        <Typography variant='caption'>
-          Drugs Selected: {selectedData ? selectedData.length : 0}
-        </Typography>
-        <Typography variant='caption'>
-          Maximum AUC: {maxSelection.toFixed(5)}
-        </Typography>
+          <Typography variant='caption'>
+            Minimum AUC: {minSelection.toFixed(5)}
+          </Typography>
+          <Typography variant='caption'>
+            Drugs Selected: {selectedData ? selectedData.length : 0}
+          </Typography>
+          <Typography variant='caption'>
+            Maximum AUC: {maxSelection.toFixed(5)}
+          </Typography>
         </div>
       </div>
 
 
       { selectedData &&
-        
+
         <div className={classes.resultPanel}>
           <Typography variant='h6'>Selected Drugs</Typography>
           <Typography variant='subtitle1'>
             Select a drug to view its top 10 pathways according to RLIPP below.
           </Typography>
-          <DataTable data={selectedData} columns={drugTableColumns} selectedDrug={selectedDrug} onSelectRow={onSelectDrug} width={500} height={400}></DataTable>
+          <DataTable data={selectedData} columns={drugTableColumns} selectedDrug={selectedDrug} onDownload={exportDrugTSV} downloadText='Download TSV' onSelectRow={onSelectDrug} width={500} height={400}></DataTable>
         </div>
       }
       { selectedPathways &&
         <div className={classes.resultPanel}>
           <Typography variant='h6'>Top Pathways for {selectedDrug} by RLIPP</Typography>
-          <DataTable data={selectedPathways} columns={pathwayTableColumns} selectedDrug={selectedDrug} fileName={selectedDrug + '_pathways.csv'} width={500} height={400}></DataTable>
+          <DataTable data={selectedPathways} columns={pathwayTableColumns} selectedDrug={selectedDrug} onDownload={downloadPathway} downloadText='Download TSV' width={500} height={400}></DataTable>
         </div>}
     </div>
   )
