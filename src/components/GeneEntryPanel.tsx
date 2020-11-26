@@ -26,9 +26,11 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 
 const GeneEntryPanel = (props: any) => {
-  const { genes, filteredGenes } = props;
+  const { genes, validGenes, invalidGenes } = props;
 
-  const filteredGenesText = filteredGenes ? filteredGenes.map( (x : string) => x.trim()).join('\n') : undefined;
+  const validGenesText = validGenes ? validGenes.map( (x : string) => x.trim()).join('\n') : undefined;
+
+  const invalidGenesText = invalidGenes ? invalidGenes.map( (x : string) => x.trim()).join('\n') : undefined;
 
   const [geneInput, setGeneInput] = useState<string | undefined>(genes);
 
@@ -42,12 +44,12 @@ const GeneEntryPanel = (props: any) => {
     setGeneInput(event.target.value);
   }
 
-  const copyUnmatchedGenesToClipboard = () => {
+  const copyToClipboard = (text : string) => {
     var dummy = document.createElement("textarea");
 
     document.body.appendChild(dummy);
 
-    dummy.value = filteredGenesText;
+    dummy.value = text;
     dummy.select();
     document.execCommand("copy");
     document.body.removeChild(dummy);
@@ -130,14 +132,14 @@ const GeneEntryPanel = (props: any) => {
       </Button>
       </div>
       {
-        filteredGenes &&
+        validGenes &&
         <div className={classes.item}>
           <TextField
             id='unmatched-genes-field'
-            label={"Unmatched Genes: " + filteredGenes.length}
+            label={"Matched Genes: " + validGenes.length}
             multiline
             rows={8}
-            value={filteredGenesText}
+            value={validGenesText}
             fullWidth={true}
             InputProps={{
               readOnly: true,
@@ -147,7 +149,31 @@ const GeneEntryPanel = (props: any) => {
           <Button
             variant="contained"
             color="primary"
-            onClick={ copyUnmatchedGenesToClipboard }
+            onClick={ () => { copyToClipboard(validGenes) }}
+            fullWidth={true}>
+            Copy to Clipboard
+          </Button>
+        </div>
+      }
+      {
+        invalidGenes &&
+        <div className={classes.item}>
+          <TextField
+            id='unmatched-genes-field'
+            label={"Unmatched Genes: " + invalidGenes.length}
+            multiline
+            rows={8}
+            value={invalidGenesText}
+            fullWidth={true}
+            InputProps={{
+              readOnly: true,
+            }}
+            variant="filled"
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={  () => { copyToClipboard(invalidGenes) } }
             fullWidth={true}>
             Copy to Clipboard
           </Button>
