@@ -66,7 +66,7 @@ const Histogram = (props) => {
 
       var bins = histogram(data);
 
-      console.log('bins: ', bins);
+      //console.log('bins: ', bins);
 
       var y = d3.scaleLinear()
         .domain([0, d3.max(bins, d => d.length)]).nice()
