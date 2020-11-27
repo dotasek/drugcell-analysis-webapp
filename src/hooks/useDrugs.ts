@@ -33,7 +33,7 @@ const waitForResult = async<T>(resultUrl: string, remainingAttempts: number) => 
     const resultJson = await result.json();
 
     if (remainingAttempts == 0) {
-      return undefined
+      return resultJson.result
     }
 
     if (resultJson.status === 'complete') {
