@@ -4,7 +4,7 @@ import DrugAnalysisPanel from '../DrugAnalysisPanel'
 import GeneEntryPanel from '../GeneEntryPanel'
 import { useParams } from 'react-router-dom'
 import useDrugs from '../../hooks/useDrugs'
-import { Typography } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import AppContext from '../../context/AppContext';
 import { CircularProgress } from '@material-ui/core';
 
@@ -26,8 +26,23 @@ const FindDrug = (props : any) => {
 
   const drugResponse = useDrugs(cdapsServer, resultid);
 
-  if (drugResponse.isError) {
+  const reloadPage = () => {
+    window.location.reload();
+  }
 
+  if (drugResponse.isError) {
+    const errorString = new String(drugResponse.error);
+    return (
+      <div className='spinner'>
+        <Typography variant='h6'>
+          Error Loading Results
+        </Typography>
+        <Typography>
+          Cause: { errorString }
+        </Typography>
+        <Button onClick={reloadPage} variant="contained" color='primary'>RETRY</Button>
+      </div>
+    )
   }
 
   if (drugResponse.isLoading) {
@@ -39,10 +54,19 @@ const FindDrug = (props : any) => {
     )
   }
 
+ 
+
   if (!drugResponse.data) {
     return (
-      <Typography>Waiting
-      </Typography>
+      <div className='spinner'>
+        <Typography variant='h6'>
+          The server took too long to respond.
+        </Typography>
+        <Typography>
+          The server may be busy. You can click 'RETRY' to try accessing your results again.
+        </Typography>
+        <Button onClick={reloadPage} variant="contained" color='primary'>RETRY</Button>
+      </div>
     )
   }
 
