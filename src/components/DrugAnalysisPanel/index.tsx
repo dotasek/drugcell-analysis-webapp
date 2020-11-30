@@ -34,6 +34,11 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     sliderProperty: {
 
+    },
+    smilesText : {
+      width: '500px',
+      wordWrap: 'break-word',
+      backgroundColor: 'lightgray'
     }
   }),
 )
@@ -96,13 +101,13 @@ const DrugAnalysisPanel = (props: any) => {
   }
 
   const onSelectDrug = (drug: any) => {
-    setSelectedDrug(drug.drug_name)
+    setSelectedDrug(drug)
     setSelectedPathways(drug.top_pathways);
   }
 
   const drugTableColumns = [
     {
-      width: 500 - 200,
+      width: 500 - 80,
       label: 'Drug Name',
       dataKey: 'drug_name',
     },
@@ -111,11 +116,6 @@ const DrugAnalysisPanel = (props: any) => {
       label: 'Predicted AUC',
       dataKey: 'predicted_AUC',
       numeric: true
-    },
-    {
-      width: 120,
-      label: 'SMILES',
-      dataKey: 'drug_smiles'
     }
   ]
 
@@ -153,7 +153,7 @@ const DrugAnalysisPanel = (props: any) => {
   }
 
   const downloadPathway = () => {
-    const drugData = data.predictions.find((element: any) => element.drug_name === selectedDrug)
+    const drugData = data.predictions.find((element: any) => element.drug_name === selectedDrug.drug_name)
 
     if (drugData) {
       const fileName = `fallmo100_rlipp_${drugData.drug_id}.tsv`;
@@ -163,7 +163,7 @@ const DrugAnalysisPanel = (props: any) => {
             let url = window.URL.createObjectURL(blob);
             let a = document.createElement('a');
             a.href = url;
-            a.download = selectedDrug + '.tsv';
+            a.download = selectedDrug.drug_name + '.tsv';
             a.click();
           });
           //window.location.href = response.url;
@@ -276,13 +276,22 @@ const DrugAnalysisPanel = (props: any) => {
           <Typography variant='subtitle1'>
             Select a drug to view its top 10 pathways according to RLIPP below.
           </Typography>
-          <DataTable data={selectedData} columns={drugTableColumns} selectedDrug={selectedDrug} onDownload={exportDrugTSV} downloadText='Download TSV' onSelectRow={onSelectDrug} width={500} height={400}></DataTable>
+          <DataTable data={selectedData} columns={drugTableColumns} selectedDrug={selectedDrug?.drug_name} onDownload={exportDrugTSV} downloadText='Download TSV' onSelectRow={onSelectDrug} width={500} height={400}></DataTable>
         </div>
       }
       { selectedPathways &&
         <div className={classes.resultPanel}>
-          <Typography variant='h6'>Top Pathways for {selectedDrug} by RLIPP</Typography>
-          <DataTable data={selectedPathways} columns={pathwayTableColumns} selectedDrug={selectedDrug} onDownload={downloadPathway} downloadText='Download TSV' width={500} height={400}></DataTable>
+          <Typography variant='h6'>{selectedDrug.drug_name} </Typography>
+          <p>
+          <Typography variant='subtitle1'>SMILES</Typography>
+          <div className={classes.smilesText}>
+          
+          <Typography variant='caption'>{selectedDrug.drug_smiles}</Typography>
+          </div>
+          </p>
+          <Typography variant='subtitle1'>Top 10 Pathways</Typography>
+          <DataTable data={selectedPathways} columns={pathwayTableColumns} selectedDrug={selectedDrug.drug_name} onDownload={downloadPathway} downloadText='Download TSV' width={500} height={400}></DataTable>
+          
         </div>}
     </div>
   )
