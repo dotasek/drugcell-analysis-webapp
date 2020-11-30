@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
     sliderProperty: {
 
     },
-    smilesText : {
+    smilesText: {
       width: '500px',
       wordWrap: 'break-word',
       backgroundColor: 'lightgray'
@@ -119,15 +119,32 @@ const DrugAnalysisPanel = (props: any) => {
     }
   ]
 
+  const drugDownloadTableColumns = [
+    {
+
+      label: 'Drug Name',
+      dataKey: 'drug_name',
+    },
+    {
+      label: 'Predicted AUC',
+      dataKey: 'predicted_AUC',
+      numeric: true
+    },
+    {
+      label: 'SMILES',
+      dataKey: 'drug_smiles'
+    }
+  ]
+
   const getDrugTSVRow = (row: any) => {
-    const values = drugTableColumns.map((column) => {
+    const values = drugDownloadTableColumns.map((column) => {
       return row[column.dataKey];
     })
     return values.join('\t');
   }
 
   const getDrugTSVHeader = () => {
-    const values = drugTableColumns.map((column) => {
+    const values = drugDownloadTableColumns.map((column) => {
       return column.dataKey;
     })
     return values.join('\t');
@@ -157,10 +174,14 @@ const DrugAnalysisPanel = (props: any) => {
 
     if (drugData) {
       const fileName = `fallmo100_rlipp_${drugData.drug_id}.tsv`;
-      fetch('http://drugcell.ucsd.edu/rlipp/' + fileName, { mode: 'no-cors' })
+      fetch('http://drugcell.ucsd.edu/rlipp/' + fileName, 
+        { //mode: 'no-cors' 
+        })
         .then(response => {
-          response.blob().then(blob => {
-            let url = window.URL.createObjectURL(blob);
+          response.text().then(text => {
+            const header = 'GO_ID\tpathway_name\tRLIPP\tgenes\n'
+            const file = new Blob([header+text], { type: 'application/text' })
+            let url = window.URL.createObjectURL(file);
             let a = document.createElement('a');
             a.href = url;
             a.download = selectedDrug.drug_name + '.tsv';
@@ -283,15 +304,15 @@ const DrugAnalysisPanel = (props: any) => {
         <div className={classes.resultPanel}>
           <Typography variant='h6'>{selectedDrug.drug_name} </Typography>
           <p>
-          <Typography variant='subtitle1'>SMILES</Typography>
-          <div className={classes.smilesText}>
-          
-          <Typography variant='caption'>{selectedDrug.drug_smiles}</Typography>
-          </div>
+            <Typography variant='subtitle1'>SMILES</Typography>
+            <div className={classes.smilesText}>
+
+              <Typography variant='caption'>{selectedDrug.drug_smiles}</Typography>
+            </div>
           </p>
           <Typography variant='subtitle1'>Top 10 Pathways</Typography>
           <DataTable data={selectedPathways} columns={pathwayTableColumns} selectedDrug={selectedDrug.drug_name} onDownload={downloadPathway} downloadText='Download TSV' width={500} height={400}></DataTable>
-          
+
         </div>}
     </div>
   )
