@@ -179,7 +179,7 @@ const DrugAnalysisPanel = (props: any) => {
         })
         .then(response => {
           response.text().then(text => {
-            const header = 'GO_ID\tpathway_name\tRLIPP\tgenes\n'
+            const header = 'GO_ID\tGO_term\tRLIPP\tgenes\n'
             const file = new Blob([header+text], { type: 'application/text' })
             let url = window.URL.createObjectURL(file);
             let a = document.createElement('a');
