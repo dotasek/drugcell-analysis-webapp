@@ -28,12 +28,12 @@ const App = (props : AppProps) => {
     <BrowserRouter>
       <Switch>
         <Route path="/analyze/finddrugs/results/:resultid">
-          <AppShell title={ "DrugCell Oracle: Find Drugs" } tooltip={"Analyze Genetype With DrugCell"}>
+          <AppShell title={ "DrugCell Oracle: Genotype Analyzer" } tooltip={"Simulate response of genotype to drugs"}>
             <FindDrug/>
           </AppShell>
         </Route>
         <Route path="/analyze/finddrugs/">
-        <AppShell title={ "DrugCell Oracle: Find Drugs" } tooltip={"Analyze Genetype With DrugCell"}>
+        <AppShell title={ "DrugCell Oracle: Genotype Analyzer" } tooltip={"Simulate response of genotype to drugs"}>
           <FindDrugQuery />
           </AppShell>
         </Route>
