@@ -102,7 +102,7 @@ class TitleBar extends React.Component {
                     { title }
                   </Typography>
                   <Typography variant="subtitle1" color="inherit" noWrap={true} className={classes.descriptionText} >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                    Predict response of a cell whose genotype is simulated by user-defined mutations to 684 drugs
                   </Typography>
                 </Button>
               </div>
