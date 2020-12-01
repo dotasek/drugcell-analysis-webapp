@@ -98,9 +98,14 @@ const GeneEntryPanel = (props: any) => {
   return (
     <div className={classes.container}>
       <div className={classes.item}>
+        
+      <Typography variant='h6'>
+            INPUT
+          </Typography>
+          <p>
         <TextField
           id='query-field'
-          label="Query Genes"
+          label="Genes"
           helperText= { geneInput ? undefined : "Enter a list of comma delimited genes" }
           multiline
           rows={10}
@@ -129,20 +134,18 @@ const GeneEntryPanel = (props: any) => {
           fullWidth={true}>
           Run DrugCell
       </Button>
+      </p>
       </div>
-      { (validGenes || invalidGenes) &&
-         <div className={classes.item}>
-        <Typography>
-          Input Validation
-        </Typography>
-        </div>
-      }
+      
       {
         validGenes &&
         <div className={classes.item}>
+          <Typography variant='button'>
+            DrugCell query genes used in analysis
+          </Typography>
           <TextField
             id='unmatched-genes-field'
-            label={"Matched Genes: " + validGenes.length}
+            label={'Genes (' +validGenes.length +')' }
             multiline
             rows={8}
             value={validGenesText}
@@ -164,9 +167,12 @@ const GeneEntryPanel = (props: any) => {
       {
         invalidGenes &&
         <div className={classes.item}>
+          <Typography variant='button'>
+          Non-DrugCell query genes
+          </Typography>
           <TextField
             id='unmatched-genes-field'
-            label={"Unmatched Genes: " + invalidGenes.length}
+            label={"Genes (" + invalidGenes.length +")"}
             multiline
             rows={8}
             value={invalidGenesText}
