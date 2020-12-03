@@ -145,7 +145,7 @@ const GeneEntryPanel = (props: any) => {
           </Typography>
           <TextField
             id='unmatched-genes-field'
-            label={'Genes (' +validGenes.length +')' }
+            label={ validGenes.length + ' Gene' + (validGenes.length !== 1 ? 's' : '') }
             multiline
             rows={8}
             value={validGenesText}
@@ -172,7 +172,7 @@ const GeneEntryPanel = (props: any) => {
           </Typography>
           <TextField
             id='unmatched-genes-field'
-            label={"Genes (" + invalidGenes.length +")"}
+            label={ invalidGenes.length + ' Gene' + (invalidGenes.length !== 1 ? 's' : '') }
             multiline
             rows={8}
             value={invalidGenesText}
