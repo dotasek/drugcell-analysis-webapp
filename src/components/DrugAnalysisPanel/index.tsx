@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme: Theme) =>
     resultPanel: {
       margin: '1em'
     },
+    resultPanelText: {
+        width: '500px'
+    },
     instructionText: {
       fontStyle: 'italic'
     },
@@ -294,9 +297,11 @@ const DrugAnalysisPanel = (props: any) => {
 
         <div className={classes.resultPanel}>
           <Typography variant='h6'>Selected Drugs</Typography>
+          <div className={classes.resultPanelText}>
           <Typography variant='subtitle1'>
-            Select a drug to view its top 10 pathways according to RLIPP below.
+            Select a drug to view its top 10 Gene Ontology (GO) pathways according to RLIPP below.
           </Typography>
+          </div>
           <DataTable data={selectedData} columns={drugTableColumns} selectedDrug={selectedDrug?.drug_name} onDownload={exportDrugTSV} downloadText='Download TSV' onSelectRow={onSelectDrug} width={500} height={400}></DataTable>
         </div>
       }
@@ -305,12 +310,13 @@ const DrugAnalysisPanel = (props: any) => {
           <Typography variant='h6'>{selectedDrug.drug_name} </Typography>
           <p>
             <Typography variant='subtitle1'>SMILES</Typography>
-            <div className={classes.smilesText}>
-
+              <div className={classes.smilesText}>
+              <a href={'https://pubchem.ncbi.nlm.nih.gov/#query=' + encodeURI(selectedDrug.drug_smiles)} target="_blank">
               <Typography variant='caption'>{selectedDrug.drug_smiles}</Typography>
+              </a>
             </div>
           </p>
-          <Typography variant='subtitle1'>Top 10 Pathways</Typography>
+          <Typography variant='subtitle1'>Top 10 GO Pathways</Typography>
           <DataTable data={selectedPathways} columns={pathwayTableColumns} selectedDrug={selectedDrug.drug_name} onDownload={downloadPathway} downloadText='Download TSV' width={500} height={400}></DataTable>
 
         </div>}
