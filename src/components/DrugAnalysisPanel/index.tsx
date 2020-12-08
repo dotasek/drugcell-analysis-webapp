@@ -235,8 +235,7 @@ const DrugAnalysisPanel = (props: any) => {
     return (
       <div className={classes.userMessage}>
       <p><ErrorOutlineIcon /></p>
-      <Typography variant='h6'>There were no valid genes in your query.</Typography>
-      <Typography variant='subtitle2'>Please ensure that you are using valid gene IDs</Typography>
+      <Typography variant='h6'>There were no DrugCell genes in your query.</Typography>
       </div>
     );
   }
