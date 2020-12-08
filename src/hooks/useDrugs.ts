@@ -11,7 +11,7 @@ const getDrugs = async <T>(
 
   const resultUrl = `${serverUrl}v1/${resultId}`
 
-  const cdapsResult = await waitForResult(resultUrl, 20);
+  const cdapsResult = await waitForResult(resultUrl, 80);
   if (cdapsResult === undefined) {
     throw new Error('No response from server.')
   }
@@ -39,7 +39,7 @@ const waitForResult = async<T>(resultUrl: string, remainingAttempts: number) => 
     if (resultJson.status === 'complete') {
       return resultJson.result
     } else {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 500));
       const result: any = await waitForResult(resultUrl, remainingAttempts - 1);
       return result
     }

@@ -48,8 +48,11 @@ const FindDrug = (props : any) => {
   if (drugResponse.isLoading) {
     return (
       <div className='spinner'>
-        <CircularProgress color="secondary" />
-        <Typography>Getting DrugCell Analysis Results...</Typography>
+        <Typography variant='h6'>Waiting for DrugCell Analysis...</Typography>
+        <p><CircularProgress color="secondary" /></p>
+        <Typography>
+          Please be patient. This could take 30 seconds or more, depending on server load.
+        </Typography>
       </div>
     )
   }
