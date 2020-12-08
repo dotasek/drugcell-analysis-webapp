@@ -33,7 +33,7 @@ const FindDrug = (props : any) => {
   if (drugResponse.isError) {
     const errorString = new String(drugResponse.error);
     return (
-      <div className='spinner'>
+      <div className='user-message'>
         <Typography variant='h6'>
           Error Loading Results
         </Typography>
@@ -47,7 +47,7 @@ const FindDrug = (props : any) => {
 
   if (drugResponse.isLoading) {
     return (
-      <div className='spinner'>
+      <div className='user-message'>
         <Typography variant='h6'>Waiting for DrugCell Analysis...</Typography>
         <p><CircularProgress color="secondary" /></p>
         <Typography>
@@ -59,7 +59,7 @@ const FindDrug = (props : any) => {
 
   if (!drugResponse.data) {
     return (
-      <div className='spinner'>
+      <div className='user-message'>
         <Typography variant='h6'>
           The server took too long to respond.
         </Typography>

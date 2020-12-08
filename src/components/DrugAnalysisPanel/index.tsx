@@ -11,6 +11,8 @@ import { Typography } from '@material-ui/core';
 import Histogram from '../Histogram'
 import DataTable from '../DataTable'
 
+import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
+
 import PathwayChart from '../PathwayChart';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -42,6 +44,14 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '500px',
       wordWrap: 'break-word',
       backgroundColor: 'lightgray'
+    },
+    userMessage: {
+      display: 'flex',
+      height: '100%',
+      width: '100%',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexDirection: 'column'
     }
   }),
 )
@@ -220,6 +230,16 @@ const DrugAnalysisPanel = (props: any) => {
       dataKey: 'pathway_name'
     }
   ]
+
+  if (data.validGenes.length === 0) {
+    return (
+      <div className={classes.userMessage}>
+      <p><ErrorOutlineIcon /></p>
+      <Typography variant='h6'>There were no valid genes in your query.</Typography>
+      <Typography variant='subtitle2'>Please ensure that you are using valid gene IDs</Typography>
+      </div>
+    );
+  }
 
   return (
     <div className={classes.container}>

@@ -5,7 +5,7 @@
     height: calc(100vh - 70px);
   }
 
-.spinner {
+.user-message {
   display: flex;
   height: 100%;
   width: 100%;
