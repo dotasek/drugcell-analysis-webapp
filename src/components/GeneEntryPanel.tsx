@@ -10,6 +10,8 @@ import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
 import { useHistory } from "react-router-dom";
 import { Link, Tooltip, Typography } from '@material-ui/core';
 
+import examples from '../exampleGeneSets'
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
@@ -30,23 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 )
 
-const examples =  [
-  {
-    "name": "Hypoxia",
-    "genes": "ADM,ADORA2B,AK4,AKAP12,ALDOA,ALDOB,ALDOC,AMPD3,ANGPTL4,ANKZF1,ANXA2,ATF3,ATP7A",
-    "description": "The 200 genes comprising the MSigDB Hallmark Gene Set for Hypoxia"
-  },
-  {
-    "name": "Death Receptors",
-    "genes": "APAF1,BCL2,BID,BIRC2,BIRC3,CASP10,CASP3,CASP6,CASP7,CFLAR,CHUK",
-    "description": "25 genes involved in the induction of apoptosis through DR3 and DR4/5 Death Receptors"
-  },
-  {
-    "name": "Reactive Oxygen Species",
-    "genes": "ABCC1 ATOX1 CAT CDKN2D EGLN2 ERCC2 FES FTL G6PD GCLC GCLM GLRX GLRX2 GPX3 GPX4 GSR HHEX HMOX2 IPCEF1 JUNB LAMTOR5 LSP1 MBP MGST1 MPO MSRA NDUFA6 NDUFB4 NDUFS2 NQO1 OXSR1 PDLIM1 PFKP PRDX1 PRDX2 PRDX4 PRDX6 PRNP PTPA SBNO2 SCAF4 SELENOS SOD1 SOD2 SRXN1 STK25 TXN TXNRD1 TXNRD2",
-    "description": "The 49 genes comprising the MSigDB Hallmark Gene Set for Reactive Oxygen Species Processes"
-  }
-]
+
 
 const GeneEntryPanel = (props: any) => {
   const { genes, validGenes, invalidGenes } = props;
