@@ -14,6 +14,7 @@ import DataTable from '../DataTable'
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 
 import PathwayChart from '../PathwayChart';
+import RLIPP from '../HelpDialog/Contents/RLIPP';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -336,7 +337,11 @@ const DrugAnalysisPanel = (props: any) => {
             </div>
           </p>
           <Typography variant='subtitle1'>Top 10 GO Pathways</Typography>
-          <DataTable data={selectedPathways} columns={pathwayTableColumns} selectedDrug={selectedDrug.drug_name} onDownload={downloadPathway} downloadText='Download TSV' width={500} height={400}></DataTable>
+          <DataTable data={selectedPathways.map((pathway : any)=>{return {
+            GO_id : pathway.GO_id,
+            RLIPP : pathway.RLIPP,
+            pathway_name : pathway.pathway_name.replaceAll('_', ' ')
+          }})} columns={pathwayTableColumns} selectedDrug={selectedDrug.drug_name} onDownload={downloadPathway} downloadText='Download TSV' width={500} height={400}></DataTable>
 
         </div>}
     </div>
