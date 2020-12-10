@@ -203,7 +203,7 @@ const CellAnalysisPanel = (props: any) => {
           <Typography variant='subtitle1'>
             Select a drug to view its top 10 pathways according to RLIPP below.
           </Typography>
-          <DataTable data={selectedData} columns={tableColumns} selectedDrug={selectedDrug} onSelectRow={onSelectDrug} width={500} height={400}></DataTable>
+          <DataTable data={selectedData} columns={tableColumns} selectedDrug={selectedDrug} onSelectRow={onSelectDrug} width={500} height={400} ></DataTable>
         </div>
       }
       { selectedPathways &&

@@ -14,7 +14,9 @@ import DataTable from '../DataTable'
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 
 import PathwayChart from '../PathwayChart';
+import HelpDialog from '../HelpDialog'
 import RLIPP from '../HelpDialog/Contents/RLIPP';
+import AUC from '../HelpDialog/Contents/AUC';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -92,6 +94,25 @@ const DrugAnalysisPanel = (props: any) => {
   const [selectedPathways, setSelectedPathways] = useState<any>()
   const [selectedDrug, setSelectedDrug] = useState<any>()
 
+  const [isRLIPPHelpOpen, setRLIPPHelpOpen] = useState(false);
+  const [isAUCHelpOpen, setAUCHelpOpen] = useState(false)
+
+  const handleRLIPPHelpOpen = () => {
+    setRLIPPHelpOpen(true);
+  };
+
+  const handleRLIPPHelpClose = () => {
+   setRLIPPHelpOpen(false);
+  };
+
+  const handleAUCHelpOpen = () => {
+    setAUCHelpOpen(true);
+  };
+
+  const handleAUCHelpClose = () => {
+   setAUCHelpOpen(false);
+  };
+
   const onUpdate = (event: any) => {
     // console.log('slider onUpdate: ', event)
     setMinSelection(event[0]);
@@ -121,15 +142,16 @@ const DrugAnalysisPanel = (props: any) => {
 
   const drugTableColumns = [
     {
-      width: 500 - 80,
+      width: 500 - 100,
       label: 'Drug Name',
       dataKey: 'drug_name',
     },
     {
-      width: 80,
+      width: 100,
       label: 'Predicted AUC',
       dataKey: 'predicted_AUC',
-      numeric: true
+      numeric: true,
+      onHelp: handleAUCHelpOpen
     }
   ]
 
@@ -220,13 +242,14 @@ const DrugAnalysisPanel = (props: any) => {
       hrefTitle: 'AmiGO Link'
     },
     {
-      width: 80,
+      width: 120,
       label: 'RLIPP Score',
       dataKey: 'RLIPP',
-      numeric: true
+      numeric: true,
+      onHelp: handleRLIPPHelpOpen
     },
     {
-      width: 500 - 180,
+      width: 500 - 220,
       label: 'Pathway Name',
       dataKey: 'pathway_name'
     }
@@ -322,7 +345,7 @@ const DrugAnalysisPanel = (props: any) => {
             Select a drug to view its top 10 Gene Ontology (GO) pathways according to RLIPP below.
           </Typography>
           </div>
-          <DataTable data={selectedData} columns={drugTableColumns} selectedDrug={selectedDrug?.drug_name} onDownload={exportDrugTSV} downloadText='Download TSV' onSelectRow={onSelectDrug} width={500} height={400}></DataTable>
+          <DataTable data={selectedData} columns={drugTableColumns} selectedDrug={selectedDrug?.drug_name} onDownload={exportDrugTSV} downloadText='Download TSV' onSelectRow={onSelectDrug} width={500} height={400} headerHeight={72}></DataTable>
         </div>
       }
       { selectedPathways &&
@@ -339,11 +362,17 @@ const DrugAnalysisPanel = (props: any) => {
           <Typography variant='subtitle1'>Top 10 GO Pathways</Typography>
           <DataTable data={selectedPathways.map((pathway : any)=>{return {
             GO_id : pathway.GO_id,
-            RLIPP : pathway.RLIPP,
+            RLIPP : pathway.RLIPP.toFixed(2),
             pathway_name : pathway.pathway_name.replaceAll('_', ' ')
-          }})} columns={pathwayTableColumns} selectedDrug={selectedDrug.drug_name} onDownload={downloadPathway} downloadText='Download TSV' width={500} height={400}></DataTable>
+          }})} columns={pathwayTableColumns} selectedDrug={selectedDrug.drug_name} onDownload={downloadPathway} downloadText='Download TSV' width={500} height={400} headerHeight={72}></DataTable>
 
         </div>}
+        <HelpDialog open={isRLIPPHelpOpen} onClose={handleRLIPPHelpClose}>
+          <RLIPP />
+        </HelpDialog>
+        <HelpDialog open={isAUCHelpOpen} onClose={handleAUCHelpClose}>
+          <AUC />
+        </HelpDialog>
     </div>
   )
 }

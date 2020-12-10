@@ -7,6 +7,9 @@ import Paper from '@material-ui/core/Paper';
 import { AutoSizer, Column, Table } from 'react-virtualized';
 import Button from '@material-ui/core/Button';
 
+import IconButton from '@material-ui/core/IconButton'
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+
 const useStyles = makeStyles((theme) =>
   createStyles({
     container: {
@@ -59,9 +62,10 @@ const tableStyles = (theme) => ({
 });
 
 class MuiVirtualizedTable extends React.PureComponent {
+
   static defaultProps = {
     headerHeight: 48,
-    rowHeight: 48,
+    rowHeight: 48
   };
 
   getRowClassName = ({ index }) => {
@@ -104,7 +108,9 @@ class MuiVirtualizedTable extends React.PureComponent {
         style={{ height: headerHeight }}
         align={columns[columnIndex].numeric || false ? 'right' : 'left'}
       >
-        <span>{label}</span>
+        <span>{label} { columns[columnIndex].onHelp && <IconButton aria-label="help" size="small" onClick={columns[columnIndex].onHelp}>
+              <HelpOutlineIcon fontSize="inherit" />
+              </IconButton>  }</span>
       </TableCell>
     );
   };
@@ -172,7 +178,7 @@ const VirtualizedTable = withStyles(tableStyles)(MuiVirtualizedTable);
 
 export default function ReactVirtualizedTable(props) {
 
-  const { data, columns, onDownload, downloadText, onSelectRow, width, height } = props
+  const { data, columns, onDownload, downloadText, onSelectRow, width, height, headerHeight } = props
 
   const classes = useStyles();
 
@@ -188,6 +194,7 @@ export default function ReactVirtualizedTable(props) {
           rowGetter={({ index }) => data[index]}
           onRowClick={onRowClick}
           columns={columns}
+          headerHeight={headerHeight}
         />
       </Paper>
       {
