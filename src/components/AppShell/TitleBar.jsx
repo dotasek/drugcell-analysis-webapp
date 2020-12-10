@@ -13,6 +13,9 @@ import Button from '@material-ui/core/Button'
 import HomeIcon from '@material-ui/icons/Home'
 
 import HelpDialog from '../HelpDialog'
+import VNN from '../HelpDialog/Contents/VNN'
+import RLIPP from '../HelpDialog/Contents/RLIPP'
+import AUC from '../HelpDialog/Contents/AUC'
 
 const styles = theme => ({
   root: {
@@ -129,8 +132,11 @@ class TitleBar extends React.Component {
             </div>
           </Toolbar>
         </div>
-        <HelpDialog open={this.state.helpOpen} onClose={handleHelpClose}></HelpDialog>
-      </AppBar>
+        <HelpDialog open={this.state.helpOpen} onClose={handleHelpClose}>
+          <VNN />
+          <RLIPP />
+          <AUC />
+        </HelpDialog>      </AppBar>
     )
   }
 }
