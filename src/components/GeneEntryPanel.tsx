@@ -206,7 +206,7 @@ const GeneEntryPanel = (props: any) => {
           <Button
             variant="contained"
             //color="primary"
-            onClick={ () => { copyToClipboard(validGenes) }}
+            onClick={ () => { copyToClipboard(validGenesText) }}
             fullWidth={true}>
             Copy to Clipboard
           </Button>
@@ -233,7 +233,7 @@ const GeneEntryPanel = (props: any) => {
           <Button
             variant="contained"
             //color="primary"
-            onClick={  () => { copyToClipboard(invalidGenes) } }
+            onClick={  () => { copyToClipboard(invalidGenesText) } }
             fullWidth={true}>
             Copy to Clipboard
           </Button>
