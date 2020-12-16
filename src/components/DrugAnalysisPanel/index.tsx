@@ -1,12 +1,13 @@
 
 
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import AppContext from '../../context/AppContext';
 
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
 
 import { Slider, Rail, Handles, Tracks, Ticks } from "react-compound-slider";
 import { SliderRail, Handle, Track, Tick } from "./sliderComponents"; // example render components - source below
-import { Typography } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 
 import Histogram from '../Histogram'
 import DataTable from '../DataTable'
@@ -96,6 +97,8 @@ const DrugAnalysisPanel = (props: any) => {
 
   const [isRLIPPHelpOpen, setRLIPPHelpOpen] = useState(false);
   const [isAUCHelpOpen, setAUCHelpOpen] = useState(false)
+
+  const { drugIndex } = useContext(AppContext)
 
   const handleRLIPPHelpOpen = () => {
     setRLIPPHelpOpen(true);
@@ -268,7 +271,7 @@ const DrugAnalysisPanel = (props: any) => {
     <div className={classes.container}>
       <div className={classes.resultPanel}>
         <Typography variant='h6'>Histogram of Drugs by Predicted AUC</Typography>
-
+       
         <Histogram data={histogramData} domain={domain} minSelection={minSelection} maxSelection={maxSelection} height={200} width={500}></Histogram>
         <Typography variant='subtitle2'>Drag slider handles to select drugs for a range of AUC values.</Typography>
 
@@ -351,6 +354,13 @@ const DrugAnalysisPanel = (props: any) => {
       { selectedPathways &&
         <div className={classes.resultPanel}>
           <Typography variant='h6'>{selectedDrug.drug_name} </Typography>
+
+          { drugIndex[selectedDrug.drug_name] && 
+                <Button variant="contained" color="primary" target="_blank" href={ 'http://drugcell.ucsd.edu/findpathways/?drug=' + encodeURIComponent(selectedDrug.drug_name)} >
+                View in VNN Browser
+              </Button>
+          }
+
           <p>
             <Typography variant='subtitle1'>SMILES</Typography>
               <div className={classes.smilesText}>

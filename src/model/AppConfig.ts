@@ -1,5 +1,6 @@
 type AppConfig = {
-   cdapsServer: string
+   cdapsServer: string,
+   drugIndex: any
 }
 
 export default AppConfig
