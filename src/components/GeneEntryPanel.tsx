@@ -8,9 +8,13 @@ import AppContext from '../context/AppContext'
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
 
 import { useHistory } from "react-router-dom";
-import { Link, Tooltip, Typography } from '@material-ui/core';
+import { IconButton, Link, Tooltip, Typography } from '@material-ui/core';
 
 import examples from '../exampleGeneSets'
+import Genes from './HelpDialog/Contents/Genes';
+import HelpDialog from './HelpDialog';
+
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -37,9 +41,9 @@ const useStyles = makeStyles((theme: Theme) =>
 const GeneEntryPanel = (props: any) => {
   const { genes, validGenes, invalidGenes } = props;
 
-  const validGenesText = validGenes ? validGenes.map( (x : string) => x.trim()).join('\n') : undefined;
+  const validGenesText = validGenes ? validGenes.map((x: string) => x.trim()).join('\n') : undefined;
 
-  const invalidGenesText = invalidGenes ? invalidGenes.map( (x : string) => x.trim()).join('\n') : undefined;
+  const invalidGenesText = invalidGenes ? invalidGenes.map((x: string) => x.trim()).join('\n') : undefined;
 
   const [geneInput, setGeneInput] = useState<string | undefined>(genes);
 
@@ -49,11 +53,21 @@ const GeneEntryPanel = (props: any) => {
 
   const history = useHistory();
 
+  const [isGenesHelpOpen, setGenesHelpOpen] = useState(false);
+
+  const handleGenesHelpOpen = () => {
+    setGenesHelpOpen(true);
+  }
+
+  const handleGenesHelpClose = () => {
+    setGenesHelpOpen(false);
+  }
+
   const handleUpdate = (event: any) => {
     setGeneInput(event.target.value);
   }
 
-  const copyToClipboard = (text : string) => {
+  const copyToClipboard = (text: string) => {
     var dummy = document.createElement("textarea");
 
     document.body.appendChild(dummy);
@@ -75,7 +89,7 @@ const GeneEntryPanel = (props: any) => {
     startQuery(normalizedGenes)
   }
 
-  const startQuery = (normalizedGenes : string | undefined) => {
+  const startQuery = (normalizedGenes: string | undefined) => {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -107,30 +121,32 @@ const GeneEntryPanel = (props: any) => {
     };
   };
 
-  const handleExample =(index : number)=> {
+  const handleExample = (index: number) => {
     setGeneInput(examples[index].genes)
   }
 
   const getExampleText = () => {
-    const text = examples.map((example, index) => { return ( <div key={example.name}>
-      <Tooltip
-        title={
-          <div style={{ textAlign: 'center' }}>
-            {example.description}
-          </div>
-        }
-        placement='bottom'
-      >
-        <Button
-          className='example-text'
-          color='inherit'
-          onClick={() => handleExample(index)}
+    const text = examples.map((example, index) => {
+      return (<div key={example.name}>
+        <Tooltip
+          title={
+            <div style={{ textAlign: 'center' }}>
+              {example.description}
+            </div>
+          }
+          placement='bottom'
         >
-          {example.name}
-        </Button>
-      </Tooltip>
-      </div>)})
-      return text
+          <Button
+            className='example-text'
+            color='inherit'
+            onClick={() => handleExample(index)}
+          >
+            {example.name}
+          </Button>
+        </Tooltip>
+      </div>)
+    })
+    return text
   }
 
   const getHelperText = () => {
@@ -139,61 +155,64 @@ const GeneEntryPanel = (props: any) => {
     }
     return <div className={classes.examples}>
       <Typography> Example input gene sets: </Typography>
-      { getExampleText() }
+      {getExampleText()}
     </div>;
   }
 
   return (
     <div className={classes.container}>
       <div className={classes.item}>
-        
-      <Typography variant='h6'>
-            INPUT
+
+        <Typography variant='h6'>
+          INPUT
           </Typography>
-          <p>
-        <TextField
-          id='query-field'
-          label="Genes"
-          helperText= { getHelperText() }
-          multiline
-          rows={10}
-          value={geneInput}
-          placeholder="Type genes, or upload from a file below"
-          onChange={handleUpdate}
-          fullWidth={true}
-          variant="outlined"
-        />
-        <Button
-          variant="contained"
-          component="label"
-          fullWidth={true}
-        >
-          Load Genes from File
-          <input id="fileInput"
-            type="file"
-            onChange={handleUpload}
-            hidden
+        <p>
+          <TextField
+            id='query-field'
+            label="Genes"
+            helperText={getHelperText()}
+            multiline
+            rows={10}
+            value={geneInput}
+            placeholder="Type genes, or upload from a file below"
+            onChange={handleUpdate}
+            fullWidth={true}
+            variant="outlined"
           />
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleClick}
-          fullWidth={true}>
-          Run DrugCell
+          <Button
+            variant="contained"
+            component="label"
+            fullWidth={true}
+          >
+            Load Genes from File
+          <input id="fileInput"
+              type="file"
+              onChange={handleUpload}
+              hidden
+            />
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleClick}
+            fullWidth={true}>
+            Run DrugCell
       </Button>
-      </p>
+        </p>
       </div>
-      
+
       {
         validGenes &&
         <div className={classes.item}>
           <Typography variant='button'>
             DrugCell query genes used in analysis
           </Typography>
+          <IconButton aria-label="help" size="small" onClick={handleGenesHelpOpen} >
+            <HelpOutlineIcon fontSize="inherit" />
+          </IconButton>
           <TextField
             id='unmatched-genes-field'
-            label={ validGenes.length + ' Gene' + (validGenes.length !== 1 ? 's' : '') }
+            label={validGenes.length + ' Gene' + (validGenes.length !== 1 ? 's' : '')}
             multiline
             rows={8}
             value={validGenesText}
@@ -206,7 +225,7 @@ const GeneEntryPanel = (props: any) => {
           <Button
             variant="contained"
             //color="primary"
-            onClick={ () => { copyToClipboard(validGenesText) }}
+            onClick={() => { copyToClipboard(validGenesText) }}
             fullWidth={true}>
             Copy to Clipboard
           </Button>
@@ -216,11 +235,14 @@ const GeneEntryPanel = (props: any) => {
         invalidGenes &&
         <div className={classes.item}>
           <Typography variant='button'>
-          Non-DrugCell query genes
+            Non-DrugCell query genes
           </Typography>
+          <IconButton aria-label="help" size="small" onClick={handleGenesHelpOpen} >
+            <HelpOutlineIcon fontSize="inherit" />
+          </IconButton>
           <TextField
             id='unmatched-genes-field'
-            label={ invalidGenes.length + ' Gene' + (invalidGenes.length !== 1 ? 's' : '') }
+            label={invalidGenes.length + ' Gene' + (invalidGenes.length !== 1 ? 's' : '')}
             multiline
             rows={8}
             value={invalidGenesText}
@@ -233,12 +255,15 @@ const GeneEntryPanel = (props: any) => {
           <Button
             variant="contained"
             //color="primary"
-            onClick={  () => { copyToClipboard(invalidGenesText) } }
+            onClick={() => { copyToClipboard(invalidGenesText) }}
             fullWidth={true}>
             Copy to Clipboard
           </Button>
         </div>
       }
+      <HelpDialog open={isGenesHelpOpen} onClose={handleGenesHelpClose}>
+        <Genes />
+      </HelpDialog>
     </div>
   )
 }

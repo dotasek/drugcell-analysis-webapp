@@ -16,6 +16,7 @@ import HelpDialog from '../HelpDialog'
 import VNN from '../HelpDialog/Contents/VNN'
 import RLIPP from '../HelpDialog/Contents/RLIPP'
 import AUC from '../HelpDialog/Contents/AUC'
+import Genes from '../HelpDialog/Contents/Genes'
 
 const styles = theme => ({
   root: {
@@ -136,7 +137,9 @@ class TitleBar extends React.Component {
           <VNN />
           <RLIPP />
           <AUC />
-        </HelpDialog>      </AppBar>
+          <Genes/>
+        </HelpDialog>
+        </AppBar>
     )
   }
 }

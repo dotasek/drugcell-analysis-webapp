@@ -22,7 +22,8 @@ const useStyles = makeStyles((theme) =>
       justifyContent: 'center'
     },
     rightButton: {
-      margin: '1em'
+      margin: '1em',
+      maxWidth: '160px'
     }
   }),
 )
@@ -188,7 +189,7 @@ export default function ReactVirtualizedTable(props) {
 
   return (
     <div className={classes.container}>
-      <Paper style={{ height: height, width: width }}>
+      <Paper style={{ height: height ? height : 'auto', width: width }}>
         <VirtualizedTable
           rowCount={data.length}
           rowGetter={({ index }) => data[index]}

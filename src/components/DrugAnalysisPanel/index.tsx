@@ -355,12 +355,6 @@ const DrugAnalysisPanel = (props: any) => {
         <div className={classes.resultPanel}>
           <Typography variant='h6'>{selectedDrug.drug_name} </Typography>
 
-          { drugIndex[selectedDrug.drug_name] && 
-                <Button variant="contained" color="primary" target="_blank" href={ 'http://drugcell.ucsd.edu/findpathways/?drug=' + encodeURIComponent(selectedDrug.drug_name)} >
-                View in VNN Browser
-              </Button>
-          }
-
           <p>
             <Typography variant='subtitle1'>SMILES</Typography>
               <div className={classes.smilesText}>
@@ -369,12 +363,17 @@ const DrugAnalysisPanel = (props: any) => {
               </a>
             </div>
           </p>
-          <Typography variant='subtitle1'>Top 10 GO Pathways</Typography>
-          <DataTable data={selectedPathways.map((pathway : any)=>{return {
+          <Typography variant='subtitle1'>Top 5 GO Pathways</Typography>
+          { drugIndex[selectedDrug.drug_name] && 
+                <p><Button variant="contained" color="primary" target="_blank" href={ 'http://drugcell.ucsd.edu/findpathways/?drug=' + encodeURIComponent(selectedDrug.drug_name)} >
+                View in VNN Browser
+              </Button></p>
+          }
+          <DataTable data={selectedPathways.slice(0,5).map((pathway : any)=>{return {
             GO_id : pathway.GO_id,
             RLIPP : pathway.RLIPP.toFixed(2),
             pathway_name : pathway.pathway_name.replaceAll('_', ' ')
-          }})} columns={pathwayTableColumns} selectedDrug={selectedDrug.drug_name} onDownload={downloadPathway} downloadText='Download TSV' width={500} height={400} headerHeight={72}></DataTable>
+          }})} columns={pathwayTableColumns} selectedDrug={selectedDrug.drug_name} onDownload={downloadPathway} downloadText='Download TSV (All Pathways)' width={500} height={320} headerHeight={72}></DataTable>
 
         </div>}
         <HelpDialog open={isRLIPPHelpOpen} onClose={handleRLIPPHelpClose}>
