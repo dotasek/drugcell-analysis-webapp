@@ -3,7 +3,7 @@
 
 # DrugCell Genotype Analyzer
 
-This is the web based front-end to the DrugCell Genotype Analyzer. Back-end analysis for this application is performed by the [cddrugcellfinddrug][cddrugcellfinddrug] analysis service, hosted on a [Community Detection REST Service][cdrest].
+This is the web based front-end to the DrugCell Genotype Analyzer. Back-end analysis for this application is performed by [cddrugcellfinddrug][cddrugcellfinddrug] accessed through a [Community Detection REST Service][cdrest].
 
 ## How to build and deploy
 
