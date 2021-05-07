@@ -1,4 +1,13 @@
-# Getting Started with Create React App
+[cddrugcellfinddrug]: https://github.com/idekerlab/cddrugcellfinddrug
+[cdrest]: https://github.com/cytoscape/communitydetection-rest-server
+
+# DrugCell Genotype Analyzer
+
+This is the web based front-end to the DrugCell Genotype Analyzer. Back-end analysis for this application is performed by the [cddrugcellfinddrug][cddrugcellfinddrug] analysis service, hosted on a [Community Detection REST Service][cdrest].
+
+## How to build and deploy
+
+To run this web-app, the ```public/resource.json``` file should contain a ```cdapsServer``` value which resolves to the URL of a CDAPS server configured to use cddrugcellfinddrug.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
